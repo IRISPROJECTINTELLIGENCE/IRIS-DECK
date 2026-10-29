@@ -25,6 +25,10 @@ Edits proposed in Claude's self-assessment on issue #1 (E1–E8), accepted with 
 | v369 | 10 Why now | CPI corrected to the ABS headline (monthly series): 4.3% in the 12 months to September, trimmed mean 3.6%; the quarterly-series figures (3.9% / 3.7%) removed from slide, notes and research. "Spreading, not forecast" → "Not confined to one group". The counterargument block replaced by "Across the cycle" (the layer goes unreported in good markets too; monitoring is paid on what is lent); the $1.35bn and $213bn figures moved to notes. | Reviewer PR #2 blocking correction; two owner comments. |
 | v369 | 9 Recovery | Step 6 rewritten: context for the lender's call, IRIS advises nothing, what a replacement builder prices (work it won't stand behind, open quality items, record gaps); notes expanded. Owner's sequence line adopted: assessments are part of the scaling stage. Card spacing tightened. | Owner comment; owner edit (O-09). |
 | v369 | 3 Stakes | "converts into" → "can result in" further funding requirements, enforcement costs and credit losses. | Reviewer R2. |
+| v374 | 6 Systems | "filtered to look good" removed from heading and panel; closing line reworded to party-specific records. | D-18 (reviewer E10). |
+| v374 | 7 Evidence | Subheading "Real case studies with indicative data"; cards rewritten in plain sequence (what the record showed; reached the funder; decision it bore on); Project A figure consistent with the owner's $4.4M; footer no longer says "accuracy test". | D-20. |
+| v374 | 2, 8, 11, 17, 18, 19, A3 | Accuracy test / report / protocol wording removed; the milestone reads as the position reconciling to builders' own cost reports; slide 8 subtitle back to two lines. | D-19. |
+| v374 | 11 and notes | "Scale · Monitoring and assessments"; assessments part of the scale stage. | D-17. |
 | v369 | 11 Go-to-market; 7 | Owner's gate wording adopted ("finds exposures that protect the builder's margin; an accuracy report"); owner's re-disguise of Project A's ledger gap ($4.4M). | Owner edits. |
 
 ## 29 October 2026 (v195 → v307)
