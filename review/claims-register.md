@@ -11,7 +11,7 @@ Every material claim on the deck, classed by evidence. Classes: **Verified** (da
 | Redemptions paused at several funds from 14 August; a $2.3bn fund suspended 22 October | 10 | Verified (reported) | ABC 28 Aug; ACI 1 Oct; Financial Standard 22 Oct. |
 | Sites closed and receivers appointed from late September; a senior loan sold | 10, A6 | Verified (reported) | The Urban Developer 25 Sep; ABC 17 Oct. |
 | Cash rate 4.60% from 30 Sep 2026 after four 2026 rises from 3.60% | 10, A6 | Verified | RBA via CBA, 30 Sep and 13 Oct 2026. |
-| September-quarter 2026 CPI 3.9% headline (1.3% in the quarter), trimmed mean 3.7%; monthly indicator 4.3% | 10 | Verified | ABS, published 28 Oct 2026 (via Westpac IQ note of the same day). The 3 November RBA decision is not assumed. |
+| CPI 4.3% in the 12 months to September 2026, trimmed mean 3.6% (ABS headline, monthly series) | 10 | Verified | ABS, 28 Oct 2026. Corrected in round 1 from the quarterly-series figures (3.9% / 3.7%) after the reviewer's check. The 3 November RBA decision is not assumed. |
 | Dwelling values 5.2% below the March 2026 peak; sales 19% down on a year earlier | 10 | Verified (reported) | Cotality via a secondary market update; confirm against the Cotality release before an investor quotes it. |
 | ASIC 52-fund review of $76bn before 30 June; "prepare for enforcement" 22 Sep; 30 Sep statement naming residential construction | 10, A6 | Verified | Clayton Utz 1 Oct; The Nightly 30 Sep. |
 | Three listed credit funds suspended 28 Sep after about $168M written down; quotation reinstated in October | 10, A6 | Verified | ASX; The Urban Developer 30 Sep; CFS notice 7 Oct. No audit-status claim is made. |

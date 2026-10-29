@@ -22,6 +22,10 @@ Edits proposed in Claude's self-assessment on issue #1 (E1–E8), accepted with 
 | v343 | 14 Market; A4 | Headline and rows relabelled "revenue potential ... at our prices"; subtitle says not spend that exists today, assuming adoption; A4 bottom row "Revenue potential a year". | E8; reviewer E8. |
 | v343 | 15 Economics | Run-rate sentence labels the 36 / 41 counts as rounded (the workbook's 35.7 and 40.5 give $3,626K; the rounded counts give $3.66M); "recovery fees" → "assessment fees"; notes reconcile the figures and label the facility-fee line as a scenario dependent on uptake. | Reviewer F1, F5. |
 | v350 | notes | Banned-word sweep of speaker notes ("only", "every"). | Owner's rule. |
+| v369 | 10 Why now | CPI corrected to the ABS headline (monthly series): 4.3% in the 12 months to September, trimmed mean 3.6%; the quarterly-series figures (3.9% / 3.7%) removed from slide, notes and research. "Spreading, not forecast" → "Not confined to one group". The counterargument block replaced by "Across the cycle" (the layer goes unreported in good markets too; monitoring is paid on what is lent); the $1.35bn and $213bn figures moved to notes. | Reviewer PR #2 blocking correction; two owner comments. |
+| v369 | 9 Recovery | Step 6 rewritten: context for the lender's call, IRIS advises nothing, what a replacement builder prices (work it won't stand behind, open quality items, record gaps); notes expanded. Owner's sequence line adopted: assessments are part of the scaling stage. Card spacing tightened. | Owner comment; owner edit (O-09). |
+| v369 | 3 Stakes | "converts into" → "can result in" further funding requirements, enforcement costs and credit losses. | Reviewer R2. |
+| v369 | 11 Go-to-market; 7 | Owner's gate wording adopted ("finds exposures that protect the builder's margin; an accuracy report"); owner's re-disguise of Project A's ledger gap ($4.4M). | Owner edits. |
 
 ## 29 October 2026 (v195 → v307)
 
