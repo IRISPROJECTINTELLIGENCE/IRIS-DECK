@@ -1,0 +1,11 @@
+# scratch and tooling
+node_modules/
+fontm_pkg/
+*.spec.json
+.DS_Store
+__pycache__/
+# never commit credentials or private record sets
+.env
+*.pem
+*.key
+private-notes/
