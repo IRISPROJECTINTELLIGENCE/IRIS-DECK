@@ -38,6 +38,7 @@ deck/exports/           PDF exports of approved versions (none committed at base
 financial-model/        build_model.py (generates the workbook) and IRIS_model_36m.xlsx (the controlled source)
 research/source-register.md   every public source the deck cites, with URL and date
 research/market-evidence.md   the dated market facts behind slides 3, 5 and 10
+research/competitive-landscape.md   the October 2026 review of about sixty products and firms behind slides 13 and A7
 review/investment-thesis.md   the thesis, the three applications, the sequence
 review/investment-critique.md ChatGPT's independent review findings (append-only log)
 review/claims-register.md     every material claim classed by evidence type
@@ -52,7 +53,7 @@ review/review-decisions.md    numbered decisions and approvals by the project ow
 - **Design language:** cream background #FAF7F0, ink #1A1714, body #3D3934, muted #6F6A63, coral #E8533A / #C2412A, rules #D9D4CA, panels #F1EDE4 / #F8E6DD. Inter. One central conclusion per slide. No new slides unless something is consolidated.
 - **Banned words on the deck** (the project owner's rule): nobody, every, only, never, always, guarantees, prevents, real time. Run a grep before every commit.
 - **Confidentiality:** no employers, prospects, customer funds, lenders or project names on the deck. The three project examples on slide 7 are real record sets with names, values, delivery models and lags altered; keep them unidentifiable. The private research notes behind them are **not** in this repository and must not be added without the project owner's written authorisation.
-- Page numbers are hand-set in each slide file (`02`–`19`, `A1`–`A6`); renumber when the order changes. Every slide but the cover carries a section label (`<p data-iris-label="1" …>` at top 62px, coral caps): Problem, Evidence, Solution, Why now, Go to market, Competition, Market size, Revenue, costs and profitability, Team, The round, Close, Questions investors ask, Appendix An · name. `deck.json` carries order and section descriptions.
+- Page numbers are hand-set in each slide file (`02`–`19`, `A1`–`A7`); renumber when the order changes. Every slide but the cover carries a section label (`<p data-iris-label="1" …>` at top 62px, coral caps): Problem, Evidence, Solution, Why now, Go to market, Competition, Market size, Revenue, costs and profitability, Team, The round, Close, Questions investors ask, Appendix An · name. `deck.json` carries order and section descriptions.
 
 ## Claims discipline
 
