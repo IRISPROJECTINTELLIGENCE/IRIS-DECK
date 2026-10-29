@@ -205,7 +205,7 @@ inp("fac_term", "Facility term", 24, 24, "months", "Estimate", "Facilities leave
 
 section("7. Team")
 inp("n_found", "Founders, full-time from month 1", 2, 2, "people", "Company", "", F_INT)
-inp("sal_found", "Founder salary, each", v("sal_found", 140000), v("sal_found_c", 140000), "A$ a year", "Open decision",
+inp("sal_found", "Founder salary, each", v("sal_found", 100000), v("sal_found_c", 100000), "A$ a year", "Open decision",
     "Pending the founders' decision on the round and salaries.", F_MONEY, key_decision=True)
 inp("oncost", "On-costs on salaries", 0.12, 0.12, "% of salary", "Reported",
     "Superannuation guarantee, 12% from 1 July 2025. Payroll tax stays below the Queensland threshold in these years.", F_PCT)
@@ -239,29 +239,29 @@ hire_last = row - 1
 REF["hire_sal"] = (hire_first, hire_last)
 
 section("8. Other costs")
-inp("build_y1", "Platform build and R&D, Year 1 (contract engineering)", v("build_y1", 260000), v("build_y1_c", 260000), "A$ a year", "Open decision",
+inp("build_y1", "Platform build and R&D, Year 1 (contract engineering)", v("build_y1", 170000), v("build_y1_c", 170000), "A$ a year", "Open decision",
     "From the use of funds on slide 17; moves with the round.", F_MONEY, key_decision=True)
 inp("ext_y2", "Contract engineering, Year 2", 60000, 40000, "A$ a year", "Estimate", "", F_MONEY)
 inp("ext_y3", "Contract engineering, Year 3", 60000, 40000, "A$ a year", "Estimate", "", F_MONEY)
-inp("cloud_fix", "Cloud, models and tools, fixed", 1000, 1000, "A$ a month", "Estimate", "Hosting, monitoring, development tools.", F_MONEY)
+inp("cloud_fix", "Cloud, models and tools, fixed", v("cloud_fix", 800), v("cloud_fix_c", 800), "A$ a month", "Estimate", "Hosting, monitoring, development tools.", F_MONEY)
 inp("cloud_var", "Cloud and model use, per live project or facility", 150, 200, "A$ a month", "Estimate",
     "Model inference, storage and connectors per live job.", F_MONEY)
-inp("sec_y1", "Security certification, Year 1", 40000, 40000, "A$", "Estimate", "ISO 27001 or SOC 2, needed for lender onboarding by month 6.", F_MONEY)
+inp("sec_y1", "Security certification, Year 1", v("sec_y1", 30000), v("sec_y1_c", 30000), "A$", "Estimate", "ISO 27001 or SOC 2, needed for lender onboarding by month 6.", F_MONEY)
 inp("sec_on", "Security audits, from Year 2", 20000, 20000, "A$ a year", "Estimate", "Surveillance audits and penetration testing.", F_MONEY)
-inp("ins_y1", "Insurance, Year 1", 10000, 10000, "A$ a year", "Estimate", "Professional indemnity and cyber; inside the contingency line of the use of funds.", F_MONEY)
+inp("ins_y1", "Insurance, Year 1", v("ins_y1", 10000), v("ins_y1_c", 10000), "A$ a year", "Estimate", "Professional indemnity and cyber; inside the contingency line of the use of funds.", F_MONEY)
 inp("ins_y2", "Insurance, Year 2", 30000, 30000, "A$ a year", "Estimate", "Lender reliance raises professional indemnity cover.", F_MONEY)
 inp("ins_y3", "Insurance, Year 3", 45000, 45000, "A$ a year", "Estimate", "", F_MONEY)
-inp("sm_y1", "Sales and customer success, Year 1", 40000, 40000, "A$ a year", "Estimate", "From the use of funds on slide 17.", F_MONEY)
+inp("sm_y1", "Sales and customer success, Year 1", v("sm_y1", 20000), v("sm_y1_c", 20000), "A$ a year", "Estimate", "From the use of funds on slide 17.", F_MONEY)
 inp("sm_y2", "Sales and customer success, Year 2", 80000, 60000, "A$ a year", "Estimate", "", F_MONEY)
 inp("sm_y3", "Sales and customer success, Year 3", 150000, 100000, "A$ a year", "Estimate", "", F_MONEY)
-inp("lg_y1", "Legal, accounting and IP, Year 1", 30000, 30000, "A$ a year", "Estimate", "From the use of funds on slide 17.", F_MONEY)
+inp("lg_y1", "Legal, accounting and IP, Year 1", v("lg_y1", 20000), v("lg_y1_c", 20000), "A$ a year", "Estimate", "From the use of funds on slide 17.", F_MONEY)
 inp("lg_y2", "Legal, accounting and IP, Year 2", 40000, 40000, "A$ a year", "Estimate", "", F_MONEY)
 inp("lg_y3", "Legal, accounting and IP, Year 3", 60000, 60000, "A$ a year", "Estimate", "", F_MONEY)
-inp("cont_y1", "Contingency, Year 1", 36000, 36000, "A$", "Open decision", "Use of funds contingency of $46K, less $10K of Year 1 insurance shown above.", F_MONEY, key_decision=True)
+inp("cont_y1", "Contingency, Year 1", v("cont_y1", 10000), v("cont_y1_c", 10000), "A$", "Open decision", "Use of funds contingency line, less the Year 1 insurance shown above.", F_MONEY, key_decision=True)
 inp("cont_pct", "Contingency, Years 2–3", 0.05, 0.05, "% of costs", "Estimate", "", F_PCT)
 
 section("9. Funding")
-inp("safe", "This round (SAFE), received month 1", v("safe", 750000), v("safe_c", 750000), "A$", "Open decision",
+inp("safe", "This round (SAFE), received month 1", v("safe", 500000), v("safe_c", 500000), "A$", "Owner decision D-21 (30 Oct 2026)",
     "Pending the founders' decision on round size and cap.", F_MONEY, key_decision=True)
 inp("seed", "Seed round", v("seed", 3000000), v("seed_c", 3000000), "A$", "Company", "Slide 17: seed raise in months 15–18 on the mandate result.", F_MONEY)
 inp("seed_m", "Seed round received", 15, 18, "month", "Company", "Slide 17: months 15–18, after the first facility under the condition.", F_INT)
