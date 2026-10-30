@@ -7,8 +7,8 @@ This repository is the self-contained development and review environment for the
 - **Company:** IRIS Intelligence Pty Ltd (ACN 700 449 618), Gold Coast, Queensland. Two founders (referred to externally as directors): James Thompson (commercial) and Gopesh Khanna (technical). Pre-revenue.
 - **Product:** IRIS reads the systems a construction project already runs (Procore / Aconex, Jobpac, PayApps, ProcurePro, email and Office, share drive), by builder-authorised, read-only API connections, and reconciles them into one source-linked delivery risk position across the management domains (cost, time, scope, procurement, payment, quality, safety, compliance), with drill-down to the record and a chat that answers from the records. It writes nothing back and replaces nothing.
 - **Working thesis (cover):** IRIS gives construction capital a source-linked view of project delivery risk, reconciling fragmented project records to identify emerging exposure and inform funding, intervention and recovery decisions.
-- **Raise:** AUD $750K pre-seed SAFE at a $7.5M valuation cap. **Do not change the terms** without project-owner approval.
-- **Status:** MVP (the deck says "POC") on a populated Procore sandbox, shown to one South East Queensland Tier 2 builder; live-project access being negotiated, not granted. No recovery engagement run. No lender mandate. No paying customer.
+- **Raise:** AUD $500K pre-seed SAFE at a $5M valuation cap (owner decision D-21, 30 October 2026; previously $750K at $7.5M). **Do not change the terms** without project-owner approval.
+- **Status:** MVP (slide 9 shows it; slide 2 says "POC") on a populated Procore sandbox, shown to one South East Queensland Tier 2 builder; live-project access being negotiated, not granted. No recovery engagement run. No lender mandate. No paying customer.
 
 ## The investment narrative (three applications of one platform)
 
@@ -30,14 +30,15 @@ The setup brief that created this workspace described recovery and assessment as
 ## Repository layout
 
 ```
-deck/source/            deck.json + slides/*.html — the editable source (Slides artifact format)
+deck/source/            deck.json (main deck, 19 slides) and appendix.json (appendix deck, A1–A7) + slides/*.html — the editable source (Slides artifact format). Two Slides artifacts: the main deck and "IRIS Investment Summary · Appendix"; the appendix is not in the main deck (D-26).
 deck/source/format-reference/   the Slides format reference (SKILL.md and reference/*.md); read before editing a slide
 deck/source/measure.py  line-fit measurement script (see "Editing slides")
-deck/assets/            fonts/images if any are added (none at baseline; Inter is loaded from Google Fonts)
+deck/assets/            iris-mvp-horizon-tower.png (slide 9, uploaded to the main artifact as /_blob/03ce40e84c34ae3aba2336b0250a6ca4); Inter is loaded from Google Fonts
 deck/exports/           PDF exports of approved versions (none committed at baseline; see "Exports")
 financial-model/        build_model.py (generates the workbook) and IRIS_model_36m.xlsx (the controlled source)
 research/source-register.md   every public source the deck cites, with URL and date
 research/market-evidence.md   the dated market facts behind slides 3, 5 and 10
+research/competitive-landscape.md   the October 2026 review of about sixty products and firms behind slides 13 and A7
 review/investment-thesis.md   the thesis, the three applications, the sequence
 review/investment-critique.md ChatGPT's independent review findings (append-only log)
 review/claims-register.md     every material claim classed by evidence type
@@ -52,7 +53,7 @@ review/review-decisions.md    numbered decisions and approvals by the project ow
 - **Design language:** cream background #FAF7F0, ink #1A1714, body #3D3934, muted #6F6A63, coral #E8533A / #C2412A, rules #D9D4CA, panels #F1EDE4 / #F8E6DD. Inter. One central conclusion per slide. No new slides unless something is consolidated.
 - **Banned words on the deck** (the project owner's rule): nobody, every, only, never, always, guarantees, prevents, real time. Run a grep before every commit.
 - **Confidentiality:** no employers, prospects, customer funds, lenders or project names on the deck. The three project examples on slide 7 are real record sets with names, values, delivery models and lags altered; keep them unidentifiable. The private research notes behind them are **not** in this repository and must not be added without the project owner's written authorisation.
-- Page numbers are hand-set in each slide file (`02`–`19`, `A1`–`A6`); renumber when the order changes. `deck.json` carries order and section descriptions.
+- Page numbers are hand-set in each slide file (`02`–`18`, the close unnumbered; `A1`–`A7` in the appendix deck); renumber when the order changes. Every slide but the cover carries a section label (`<p data-iris-label="1" …>` at top 62px, coral caps): Problem, Evidence, Solution, Why now, Go to market, Competition, Market size, Revenue, costs and profitability, Team, The round, Close, Questions investors ask, Appendix An · name. `deck.json` carries order and section descriptions.
 
 ## Claims discipline
 
@@ -60,7 +61,7 @@ Every material claim is one of: **verified fact** (dated public source in `resea
 
 ## The financial model is a controlled source
 
-`financial-model/IRIS_model_36m.xlsx` is generated by `build_model.py` (`python3 build_model.py out.xlsx`). The deck's figures come from it: revenue $123K / $962K / $2,615K (Y1–Y3 base), month-36 run rate $3.63M, conservative $66K / $395K / $1.07M, market $244M Australia / $46M Queensland. Do not change an assumption without a decision in `review/review-decisions.md`; when one changes, regenerate the workbook, re-run its checks, and update slides 14, 15, A4 and A5 together.
+`financial-model/IRIS_model_36m.xlsx` is generated by `build_model.py` (`python3 build_model.py out.xlsx`). The deck's figures come from it: revenue $123K / $962K / $2,615K (Y1–Y3 base), costs $500K / $962K / $1,743K, month-36 run rate $3.63M, market $244M Australia / $46M Queensland. The workbook's Conservative sheet is kept for diligence and is not shown on the deck (D-25). Year 1 costs equal the $500K use of funds (founders at $100K each plus super). Do not change an assumption without a decision in `review/review-decisions.md`; when one changes, regenerate the workbook, re-run its checks, and update slides 14, 15, A4 and A5 together.
 
 ## Roles and process
 

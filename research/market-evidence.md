@@ -30,7 +30,8 @@ The dated facts behind slides 3, 5 and 10, in the order the deck uses them, with
 
 ## 4. Rates and housing
 
-- Cash rate: 3.60% at the start of 2026; four increases to 4.60% on 29–30 Sep 2026 (unanimous). Next decision 3 Nov 2026; September-quarter CPI published 28 Oct 2026 and not assumed on the deck.
+- Cash rate: 3.60% at the start of 2026; four increases to 4.60% on 29–30 Sep 2026 (unanimous). Next decision 3 Nov 2026, not assumed on the deck.
+- CPI (ABS, 28 Oct 2026). The ABS headline is now the monthly series: CPI rose 4.3% in the 12 months to September 2026 (August 4.0%); annual trimmed mean 3.6%. September-quarter movements: 1.3% headline, 1.0% trimmed mean. The older quarterly annual series (3.9% and 3.7%) is not used on the deck; the slide carries the ABS headline figures. Market commentary expects a further rise in November; the deck does not treat that as fact.
 - Housing: national dwelling values −1.1% in September, sixth monthly fall, 5.2% below the March 2026 peak; sales in the past three months 19.1% below a year earlier; median days to sell in the capitals 39 (Cotality, reported).
 - RBA board: housing prices falling in most capitals; new housing loans down noticeably.
 
