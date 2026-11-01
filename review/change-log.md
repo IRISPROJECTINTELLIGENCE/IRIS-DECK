@@ -8,6 +8,7 @@ The owner's direction: the deck is too long and too cognitively heavy, explains 
 
 | Version | Slide | Change | Reason |
 |---|---|---|---|
+| v505 | 2–14 | Lean pass (D-34): 2,013 words across 14 slides. Slide 2 rows: problem, product, who it serves (lender, builder, developer, distress), the wedge, where we are, the round. Slide 4 drops the since-2021 line to the notes. Slide 6 ladder reordered lender → builder → developer → distress, one line each; developer financing-cost hypothesis stated and labelled. Slide 9 builder card states the subscription follows the builder. Slides 11 and 12 on the D-33 model ($286M / $54M / $9.5M; builders 3 / 4 / 5 with 12 / 22 / 30 jobs; lenders 1 / 3 / 8 with 1 / 18 / 69 facilities of $80M). Appendix A5 and A6 on the same figures. | Owner: relief, not load; the model had no basis; builders are the wedge; $80M facilities across the debt stack. |
 | v504 | 1 Cover | Date to November 2026. | Reissue. |
 | v504 | 2 Simply put | Rows: the problem, the product, who pays, why now, where we are, the round. "Who pays" states the mandate as the scale route (one lender brings its book). | Investor should be able to repeat the thesis after one page. |
 | v504 | 3 Problem | Slide 3 kept; consequence paragraph removed; captions shortened. | Cut. |

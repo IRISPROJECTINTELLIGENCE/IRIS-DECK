@@ -159,9 +159,9 @@ inp("build_ci", "Average build period, C&I jobs of $10M or more", 24, None, "mon
 inp("proj_val", "Average contract value, jobs of $10M or more", 40, None, "A$M", "Estimate",
     "Estimate. Cross-checks: Brisbane and Gold Coast apartment projects on hold average about $48M (PRD via The Good Builder, September 2026); "
     "Qualitas senior construction loans average about $39M (June 2026); the top 50 builders' 2025 starts averaged about $61M (Hubexo).", F_NUM)
-inp("fac_ratio", "Construction facility as a share of the build contract", 1.0, None, "x", "Estimate",
+inp("fac_ratio", "Project debt stack as a share of the build contract", 1.2, None, "x", "Estimate",
     "Estimate. Lenders fund about 60–80% of total development cost (banks 60–70%, non-banks 75–80%: Feasly and Vertex Capital, 2026), "
-    "and the build is roughly two-thirds of that cost, so the facility is about the size of the build contract.", '0.00"x"')
+    "and the build is roughly two-thirds of that cost, so the full debt stack (senior plus mezzanine) is about 1.1–1.2 times the build contract (D-33: IRIS is written into the whole stack).", '0.00"x"')
 inp("sec_pct", "Contract security held on a live job", 0.05, None, "% of contract", "Estimate",
     "Estimate: 5% security is common under AS 4000-style head contracts. Used for the insurer and surety memo line, which is not counted.", F_PCT)
 inp("surety_fee", "Surety and bank guarantee fee", 0.01, None, "% a year", "Reported",
@@ -178,20 +178,29 @@ inp("fee_floor", "Facility fee floor", 3500, 3500, "A$ a month", "Company",
     "Floor so a small facility pays no less than a builder subscription.", F_MONEY)
 inp("fee_cap", "Facility fee cap", 10000, 10000, "A$ a month", "Company",
     "Cap so the fee stays proportionate on large facilities (Textura caps its fee for the same reason).", F_MONEY)
-inp("fac_avg", "Average facility, first lenders", 35, 30, "A$M", "Estimate",
-    "Estimate for South East Queensland facilities. Qualitas senior construction loans average about $39M (June 2026); "
-    "Brisbane apartment projects on hold average about $35M (PRD, September 2026).", F_NUM)
+inp("fac_avg", "Average facility, first lenders (full debt stack)", 80, 60, "A$M", "Owner decision D-33",
+    "IRIS is written into the whole project debt stack (senior and mezzanine), so the fee base is the full facility: $80M average (owner, 1 Nov 2026). "
+    "Cross-check: Qualitas senior construction loans average about $39M (June 2026); with mezzanine and larger jobs the stack is about double. At 15 bps the $10,000 a month cap binds.", F_NUM)
 
-section("5. Builder deployments")
-inp("rd_start", "R&D deployments go live", 3, 3, "month", "Company", "Slide 17: two builder deployments live by month 3.", F_INT)
-inp("rd_n", "R&D deployments", 2, 2, "projects", "Company", "Slide 17.", F_INT)
+section("5. Builders (the wedge)")
+inp("rd_start", "R&D deployments go live", 3, 3, "month", "Company", "Slide 14: two builder deployments live by month 3.", F_INT)
+inp("rd_n", "R&D deployments", 2, 2, "projects", "Company", "Slide 14.", F_INT)
 inp("paid_start", "Builder deployments start paying", 6, 7, "month", "Company",
     "After the position reconciles to the builder's own cost reports.", F_INT)
-inp("add_y1", "New paid builder projects a month, Year 1", 1.0, 1.0, "projects a month", "Company", "Founder-led sales, after the first paid month.", "0.00")
-inp("add_y2", "New paid builder projects a month, Year 2", 1.5, 1.25, "projects a month", "Company", "With a commercial lead once the seed round closes.", "0.00")
-inp("add_y3", "New paid builder projects a month, Year 3", 2.5, 1.5, "projects a month", "Company", "Builders under a lender condition bring their other jobs.", "0.00")
-inp("churn", "Paid builder projects lost a month", 0.01, 0.01, "% a month", "Estimate",
-    "Projects end, but builders usually move the subscription to their next job.", F_PCT)
+inp("b1", "Builder 1 (pilot) paid from", 6, 7, "month", "Company", "The subscription follows the builder across its jobs (D-33). The two pilot builders convert at the paid-start month.", F_INT)
+inp("b2", "Builder 2 (pilot) paid from", 6, 7, "month", "Company", "", F_INT)
+inp("b3", "Builder 3 paid from", 12, 15, "month", "Company", "Founder-led sales on the pilot result.", F_INT)
+inp("b4", "Builder 4 paid from", 20, 24, "month", "Company", "With the commercial lead, after the seed.", F_INT)
+inp("b5", "Builder 5 paid from", 28, 33, "month", "Company", "", F_INT)
+inp("b6", "Builder 6 paid from", 999, 999, "month", "Company", "999 = not in this case.", F_INT)
+inp("b7", "Builder 7 paid from", 999, 999, "month", "Company", "", F_INT)
+inp("b8", "Builder 8 paid from", 999, 999, "month", "Company", "", F_INT)
+inp("jobs_start", "Paid jobs per builder at signing", 2, 2, "projects", "Company", "A builder starts with two live jobs on IRIS.", F_INT)
+inp("jobs_ramp", "Further jobs added per builder a month", 0.5, 0.33, "projects a month", "Estimate", "The builder adds its next jobs as they start; about one every two months.", "0.00")
+inp("jobs_cap", "Live jobs per builder at maturity", 6, 5, "projects", "Estimate",
+    "A South East Queensland Tier 2 builder runs about three to eight jobs of $10M or more at a time (founder observation; the pilot builder's own count is the first evidence).", F_INT)
+inp("churn", "Paid jobs lost a month", 0.0, 0.0, "% a month", "Estimate",
+    "Not used in the builder-unit model: jobs end and the builder moves the subscription to its next job; the cap holds the count.", F_PCT)
 
 section("6. Lender mandates")
 inp("l1", "Lender 1 (design partner): first facility under the condition", 12, 12, "month", "Company", "Slide 13: first facility at month 12.", F_INT)
@@ -203,9 +212,9 @@ inp("l5", "Lender 5 starts", 29, 999, "month", "Company", "", F_INT)
 inp("l6", "Lender 6 starts", 32, 999, "month", "Company", "", F_INT)
 inp("l7", "Lender 7 starts", 34, 999, "month", "Company", "", F_INT)
 inp("l8", "Lender 8 starts", 36, 999, "month", "Company", "", F_INT)
-inp("per_lender", "New facilities under the condition, per lender a month", 1.5, 0.75, "facilities a month", "Estimate",
-    "New facilities, extensions and refinances; the condition goes on when a loan is papered. 1.5 a month is about 18 loans a year "
-    "of $35M, about $630M of originations: a mid-sized non-bank construction book. Conservative keeps 0.75.", "0.00")
+inp("per_lender", "New facilities under the condition, per lender a month", 0.8, 0.5, "facilities a month", "Estimate",
+    "New facilities, extensions and refinances; the condition goes on when a loan is papered. 0.8 a month is about 10 loans a year "
+    "of $80M, about $770M of originations: a construction book of about $1.5bn turning over on 24-month terms. Conservative 0.5.", "0.00")
 inp("fac_term", "Facility term", 24, 24, "months", "Estimate", "Facilities leave the count at completion.", F_INT)
 
 section("7. Team")
@@ -236,8 +245,6 @@ HIRES = [
     ("Engineer 4", 160000, 25, 999, "Base only."),
     ("Deployment analyst 4", 110000, 28, 999, "Base only."),
     ("Engineer 5", 160000, 30, 999, "Base only."),
-    ("Deployment analyst 5", 110000, 31, 999, "Base only."),
-    ("Deployment analyst 6", 110000, 34, 999, "Base only."),
 ]
 hire_first = row
 for role, sal, sb, sc, why in HIRES:
@@ -356,11 +363,13 @@ def build_month_sheet(ws, scen, title):
     blank("Builder deployments")
     row_def("rd", "R&D deployments live (unpaid)", "projects",
             lambda m, p: f"=IF(AND({m}$3>={I('rd_start',scen)},{m}$3<{I('paid_start',scen)}),{I('rd_n',scen)},0)", F_CNT1, "stock")
-    row_def("adds", "New paid builder projects", "projects",
-            lambda m, p: f"=IF({m}$3<={I('paid_start',scen)},0,CHOOSE({m}$4,{I('add_y1',scen)},{I('add_y2',scen)},{I('add_y3',scen)}))", F_CNT1)
-    row_def("paid", "Paid builder projects, end of month", "projects",
-            lambda m, p: (f"=IF({m}$3<{I('paid_start',scen)},0,IF({m}$3={I('paid_start',scen)},{I('rd_n',scen)},"
-                          f"{(p + str(R['paid'])) if p else '0'}*(1-{I('churn',scen)})+{m}{R['adds']}))"), F_CNT1, "stock")
+    bcol = "B" if scen == "base" else "C"
+    bst = f"Inputs!${bcol}${REF['b1']}:${bcol}${REF['b8']}"
+    row_def("builders", "Paying builders", "builders",
+            lambda m, p: f"=COUNTIF({bst},\"<=\"&{m}$3)", F_CNT, "stock")
+    row_def("paid", "Paid builder jobs, end of month", "projects",
+            lambda m, p: (f"=SUMPRODUCT(({bst}<={m}$3)*((({I('jobs_start',scen)}+{I('jobs_ramp',scen)}*({m}$3-{bst}))>{I('jobs_cap',scen)})*{I('jobs_cap',scen)}"
+                          f"+(({I('jobs_start',scen)}+{I('jobs_ramp',scen)}*({m}$3-{bst}))<={I('jobs_cap',scen)})*({I('jobs_start',scen)}+{I('jobs_ramp',scen)}*({m}$3-{bst}))))"), F_CNT1, "stock")
     row_def("rev_b", "Builder subscription revenue", "A$",
             lambda m, p: f"={m}{R['paid']}*{I('price_b',scen)}", F_MONEY)
     blank()
@@ -640,7 +649,8 @@ sline("op", "Operating result", "op", F_MONEY, bold=True)
 sline("cash0", "Cash at year end, before the seed round", "cash0", F_MONEY)
 sline("cash1", "Cash at year end, after the seed round", "cash1", F_MONEY)
 ssec("Drivers at year end")
-sline("paid", "Paid builder projects", "paid", F_CNT)
+sline("builders", "Paying builders", "builders", F_CNT)
+sline("paid", "Paid builder jobs", "paid", F_CNT)
 sline("livef", "Facilities under the condition", "livef", F_CNT)
 sline("lenders", "Lenders with the condition", "lenders", F_CNT)
 sline("head", "Team", "head", F_CNT)
@@ -709,8 +719,8 @@ lines = [
     ("Base and Conservative: 36 months of drivers, revenue, costs and cash.", font()),
     ("", None),
     ("What the model assumes", font(bold=True)),
-    ("Two revenue lines. Builders pay a monthly subscription per project. Once a lender makes IRIS a condition of a facility, "
-     "the developer pays a fee in basis points on the facility, and builder, developer and lender each use their own view.", font()),
+    ("Two revenue lines. Builders pay a monthly subscription per live job, and the subscription follows the builder across its jobs (the wedge). Once a lender makes IRIS a condition of a facility, "
+     "the developer pays a fee in basis points on the facility, and builder, developer and lender each use their own view. Hypothesis, untested: a monitored facility prices inside an unmonitored one, so the fee is paid out of a financing-cost saving.", font()),
     ("No assessment or services revenue. No revenue from insurers or surety providers. No R&D tax refund.", font()),
     ("Conventions: A$, excluding GST. Months count from the close of this round. Costs are paid in the month incurred.", font()),
     ("Formatting follows standard financial-model conventions; it can be restyled to match another template.", font(GREY, italic=True)),
