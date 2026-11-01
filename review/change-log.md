@@ -2,6 +2,28 @@
 
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
+## 1 November 2026, rebuild (v504), on `refinement/institutional-v2`
+
+The owner's direction: the deck is too long and too cognitively heavy, explains too many mechanisms in detail, and its revenue model is not steep enough; explain the overarching mechanism and the value at each level, cut to it promptly, keep the construction-lending thesis in the positioning without zeroing in on it. Decisions D-31 (structure) and D-32 (model, proposed). 19 slides and 3,626 words became 14 slides and 2,391 words; the appendix deck grew from 7 to 12 slides.
+
+| Version | Slide | Change | Reason |
+|---|---|---|---|
+| v504 | 1 Cover | Date to November 2026. | Reissue. |
+| v504 | 2 Simply put | Rows: the problem, the product, who pays, why now, where we are, the round. "Who pays" states the mandate as the scale route (one lender brings its book). | Investor should be able to repeat the thesis after one page. |
+| v504 | 3 Problem | Slide 3 kept; consequence paragraph removed; captions shortened. | Cut. |
+| v504 | 4 Mechanism (new) | One diagram: the project's systems → the builder's monthly report → the lender's QS certificate → the facility decision; each hand-off filters. One line on what the certificate does not carry; one line on the shifts since 2021. Replaces slides 4, 5 and 6 (now A2, A3, A11). | Overarching mechanism, not the row detail. |
+| v504 | 5 Evidence | Three cards shortened to one number and one line each; the $4.4M card drops the $5.8M unlet figure. | Cut. |
+| v504 | 6 Solution (new) | What IRIS does in two lines, then the value ladder: builder, developer, lender, in distress; what each gets from the same position and who pays, when. Built / this round / next in one line. Replaces slides 8 and 10 (assessment workflow now A12). | Value at each level. |
+| v504 | 7 MVP | Right-column text trimmed. | Cut. |
+| v504 | 8 Why now | Four rows: rates and feasibility, the $3.3bn failure, regulators on valuation, the enabler. Redemption freeze to notes. | Cut. |
+| v504 | 9 Go to market (new) | Three workstream cards with gate and payer; two rows on how the mandate holds and who opens the systems; one line on what is assumed. Replaces slides 12 and 13 (mandate table now A4). | Merge. |
+| v504 | 10 Competition | Four layers in one table: who is in it, where it stops. Fewer names. | Cut. |
+| v504 | 11 Market | $244M / $46M / $8.9M; obtainable measured against Australia because lenders operate nationally. | D-32. |
+| v504 | 12 Model | Revenue and costs tables on the D-32 base; drivers line; what drives the curve; cash line. | D-32. |
+| v504 | 13 Team | Unchanged but for the advisor label. | — |
+| v504 | 14 The round (new) | Use of funds, five milestones, introductions wanted, next step, contacts. Replaces slides 18 and 19. | Merge. |
+| Appendix v3 | A1–A12 | A2 the position beneath the certificate (old slide 4); A3 the market shifts since 2021 (old 5, with the v501 heading); A4 how the mandate holds (old 13); A5 sizing; A6 model (D-32 figures); A7 sources; A8 landscape; A9 lender decisions; A10 risks; A11 where the position sits (old 6); A12 distressed-project assessments (old 10). Cross-references renumbered. | D-31. |
+
 ## 29 October 2026, institutional review round 1 (v319 → v350), on `refinement/institutional-v2`
 
 Edits proposed in Claude's self-assessment on issue #1 (E1–E8), accepted with modifications by the reviewer, plus the reviewer's F1 and F2 and four owner comment threads on slides 8 and 9. The owner watched the edits land on the live artifact and made in-page edits of his own to slides 9 and 10 during the round; those are adopted as published. No change to terms, model assumptions, sequence or thesis.

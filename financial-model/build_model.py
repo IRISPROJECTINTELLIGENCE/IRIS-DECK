@@ -187,20 +187,25 @@ inp("rd_start", "R&D deployments go live", 3, 3, "month", "Company", "Slide 17: 
 inp("rd_n", "R&D deployments", 2, 2, "projects", "Company", "Slide 17.", F_INT)
 inp("paid_start", "Builder deployments start paying", 6, 7, "month", "Company",
     "After the position reconciles to the builder's own cost reports.", F_INT)
-inp("add_y1", "New paid builder projects a month, Year 1", 1.0, 0.5, "projects a month", "Company", "Founder-led sales, after the first paid month.", "0.00")
-inp("add_y2", "New paid builder projects a month, Year 2", 1.25, 0.75, "projects a month", "Company", "With a commercial lead once the seed round closes.", "0.00")
-inp("add_y3", "New paid builder projects a month, Year 3", 1.5, 1.0, "projects a month", "Company", "", "0.00")
-inp("churn", "Paid builder projects lost a month", 0.01, 0.02, "% a month", "Estimate",
+inp("add_y1", "New paid builder projects a month, Year 1", 1.0, 1.0, "projects a month", "Company", "Founder-led sales, after the first paid month.", "0.00")
+inp("add_y2", "New paid builder projects a month, Year 2", 1.5, 1.25, "projects a month", "Company", "With a commercial lead once the seed round closes.", "0.00")
+inp("add_y3", "New paid builder projects a month, Year 3", 2.5, 1.5, "projects a month", "Company", "Builders under a lender condition bring their other jobs.", "0.00")
+inp("churn", "Paid builder projects lost a month", 0.01, 0.01, "% a month", "Estimate",
     "Projects end, but builders usually move the subscription to their next job.", F_PCT)
 
 section("6. Lender mandates")
-inp("l1", "Lender 1 (design partner): first facility under the condition", 12, 18, "month", "Company", "Slide 17: first facility at month 12.", F_INT)
-inp("l2", "Lender 2 starts", 21, 27, "month", "Company", "Lenders 2 onwards follow a live result at lender 1. 999 means not in this case.", F_INT)
-inp("l3", "Lender 3 starts", 27, 33, "month", "Company", "", F_INT)
-inp("l4", "Lender 4 starts", 33, 999, "month", "Company", "", F_INT)
-inp("l5", "Lender 5 starts", 999, 999, "month", "Company", "", F_INT)
-inp("per_lender", "New facilities under the condition, per lender a month", 0.75, 0.5, "facilities a month", "Estimate",
-    "New facilities, extensions and refinances; the condition goes on when a loan is papered.", "0.00")
+inp("l1", "Lender 1 (design partner): first facility under the condition", 12, 12, "month", "Company", "Slide 13: first facility at month 12.", F_INT)
+inp("l2", "Lender 2 starts", 18, 21, "month", "Company", "Lenders 2 onwards follow a live result at lender 1. 999 means not in this case. "
+    "Base (D-32): one lender adopting brings its book, so growth is a step per lender won. Conservative is the previous base case (D-07).", F_INT)
+inp("l3", "Lender 3 starts", 22, 27, "month", "Company", "", F_INT)
+inp("l4", "Lender 4 starts", 26, 33, "month", "Company", "", F_INT)
+inp("l5", "Lender 5 starts", 29, 999, "month", "Company", "", F_INT)
+inp("l6", "Lender 6 starts", 32, 999, "month", "Company", "", F_INT)
+inp("l7", "Lender 7 starts", 34, 999, "month", "Company", "", F_INT)
+inp("l8", "Lender 8 starts", 36, 999, "month", "Company", "", F_INT)
+inp("per_lender", "New facilities under the condition, per lender a month", 1.5, 0.75, "facilities a month", "Estimate",
+    "New facilities, extensions and refinances; the condition goes on when a loan is papered. 1.5 a month is about 18 loans a year "
+    "of $35M, about $630M of originations: a mid-sized non-bank construction book. Conservative keeps 0.75.", "0.00")
 inp("fac_term", "Facility term", 24, 24, "months", "Estimate", "Facilities leave the count at completion.", F_INT)
 
 section("7. Team")
@@ -223,8 +228,16 @@ HIRES = [
     ("Deployment analyst 1", 110000, 16, 22, "Onboards projects; checks each position against source records."),
     ("Engineer 2", 160000, 22, 28, ""),
     ("Deployment analyst 2", 110000, 25, 31, ""),
-    ("Engineer 3", 160000, 28, 999, ""),
-    ("Deployment analyst 3", 110000, 31, 999, ""),
+    ("Engineer 3", 160000, 28, 28, ""),
+    ("Deployment analyst 3", 110000, 31, 31, ""),
+    ("Lender onboarding lead", 150000, 18, 999, "Base only: runs each new lender's book onto the condition. Hired ahead of lender 2."),
+    ("Head of product and risk", 180000, 22, 999, "Base only: owns the lender view, reliance terms and the risk method with the design partner."),
+    ("Customer success", 120000, 22, 999, "Base only."),
+    ("Engineer 4", 160000, 25, 999, "Base only."),
+    ("Deployment analyst 4", 110000, 28, 999, "Base only."),
+    ("Engineer 5", 160000, 30, 999, "Base only."),
+    ("Deployment analyst 5", 110000, 31, 999, "Base only."),
+    ("Deployment analyst 6", 110000, 34, 999, "Base only."),
 ]
 hire_first = row
 for role, sal, sb, sc, why in HIRES:
@@ -241,22 +254,22 @@ REF["hire_sal"] = (hire_first, hire_last)
 section("8. Other costs")
 inp("build_y1", "Platform build and R&D, Year 1 (contract engineering)", v("build_y1", 170000), v("build_y1_c", 170000), "A$ a year", "Open decision",
     "From the use of funds on slide 17; moves with the round.", F_MONEY, key_decision=True)
-inp("ext_y2", "Contract engineering, Year 2", 60000, 40000, "A$ a year", "Estimate", "", F_MONEY)
-inp("ext_y3", "Contract engineering, Year 3", 60000, 40000, "A$ a year", "Estimate", "", F_MONEY)
+inp("ext_y2", "Contract engineering, Year 2", 90000, 40000, "A$ a year", "Estimate", "", F_MONEY)
+inp("ext_y3", "Contract engineering, Year 3", 90000, 40000, "A$ a year", "Estimate", "", F_MONEY)
 inp("cloud_fix", "Cloud, models and tools, fixed", v("cloud_fix", 800), v("cloud_fix_c", 800), "A$ a month", "Estimate", "Hosting, monitoring, development tools.", F_MONEY)
 inp("cloud_var", "Cloud and model use, per live project or facility", 150, 200, "A$ a month", "Estimate",
     "Model inference, storage and connectors per live job.", F_MONEY)
 inp("sec_y1", "Security certification, Year 1", v("sec_y1", 30000), v("sec_y1_c", 30000), "A$", "Estimate", "ISO 27001 or SOC 2, needed for lender onboarding by month 6.", F_MONEY)
-inp("sec_on", "Security audits, from Year 2", 20000, 20000, "A$ a year", "Estimate", "Surveillance audits and penetration testing.", F_MONEY)
+inp("sec_on", "Security audits, from Year 2", 35000, 20000, "A$ a year", "Estimate", "Surveillance audits and penetration testing.", F_MONEY)
 inp("ins_y1", "Insurance, Year 1", v("ins_y1", 10000), v("ins_y1_c", 10000), "A$ a year", "Estimate", "Professional indemnity and cyber; inside the contingency line of the use of funds.", F_MONEY)
-inp("ins_y2", "Insurance, Year 2", 30000, 30000, "A$ a year", "Estimate", "Lender reliance raises professional indemnity cover.", F_MONEY)
-inp("ins_y3", "Insurance, Year 3", 45000, 45000, "A$ a year", "Estimate", "", F_MONEY)
+inp("ins_y2", "Insurance, Year 2", 45000, 30000, "A$ a year", "Estimate", "Lender reliance raises professional indemnity cover.", F_MONEY)
+inp("ins_y3", "Insurance, Year 3", 90000, 45000, "A$ a year", "Estimate", "", F_MONEY)
 inp("sm_y1", "Sales and customer success, Year 1", v("sm_y1", 20000), v("sm_y1_c", 20000), "A$ a year", "Estimate", "From the use of funds on slide 17.", F_MONEY)
-inp("sm_y2", "Sales and customer success, Year 2", 80000, 60000, "A$ a year", "Estimate", "", F_MONEY)
-inp("sm_y3", "Sales and customer success, Year 3", 150000, 100000, "A$ a year", "Estimate", "", F_MONEY)
+inp("sm_y2", "Sales and customer success, Year 2", 120000, 80000, "A$ a year", "Estimate", "", F_MONEY)
+inp("sm_y3", "Sales and customer success, Year 3", 300000, 150000, "A$ a year", "Estimate", "", F_MONEY)
 inp("lg_y1", "Legal, accounting and IP, Year 1", v("lg_y1", 20000), v("lg_y1_c", 20000), "A$ a year", "Estimate", "From the use of funds on slide 17.", F_MONEY)
 inp("lg_y2", "Legal, accounting and IP, Year 2", 40000, 40000, "A$ a year", "Estimate", "", F_MONEY)
-inp("lg_y3", "Legal, accounting and IP, Year 3", 60000, 60000, "A$ a year", "Estimate", "", F_MONEY)
+inp("lg_y3", "Legal, accounting and IP, Year 3", 90000, 60000, "A$ a year", "Estimate", "", F_MONEY)
 inp("cont_y1", "Contingency, Year 1", v("cont_y1", 10000), v("cont_y1_c", 10000), "A$", "Open decision", "Use of funds contingency line, less the Year 1 insurance shown above.", F_MONEY, key_decision=True)
 inp("cont_pct", "Contingency, Years 2–3", 0.05, 0.05, "% of costs", "Estimate", "", F_PCT)
 
@@ -353,7 +366,7 @@ def build_month_sheet(ws, scen, title):
     blank()
     blank("Lender mandates")
     row_def("lenders", "Lenders with the condition", "lenders",
-            lambda m, p: f"=COUNTIF(Inputs!${'B' if scen=='base' else 'C'}${REF['l1']}:${'B' if scen=='base' else 'C'}${REF['l5']},\"<=\"&{m}$3)", F_CNT, "stock")
+            lambda m, p: f"=COUNTIF(Inputs!${'B' if scen=='base' else 'C'}${REF['l1']}:${'B' if scen=='base' else 'C'}${REF['l8']},\"<=\"&{m}$3)", F_CNT, "stock")
     row_def("newf", "New facilities under the condition", "facilities",
             lambda m, p: f"={m}{R['lenders']}*{I('per_lender',scen)}", F_CNT1)
     row_def("endf", "Facilities completing", "facilities",
@@ -682,7 +695,7 @@ wr = wb.create_sheet("Read me", 0)
 setw(wr, {"A": 120})
 lines = [
     ("IRIS market and revenue model", font(bold=True, size=14)),
-    ("Version of 24 October 2026. The source for the IRIS investor deck, slides 14, 15, A4 and A5.", font(GREY, italic=True)),
+    ("Version of 1 November 2026 (D-32 proposed). The source for the IRIS investor deck, slides 10, 11, A4 and A5. Conservative = the previous base case (D-07).", font(GREY, italic=True)),
     ("", None),
     ("How to use it", font(bold=True)),
     ("Change inputs on the Inputs sheet. Blue text = an input. Black = a formula. Green = a link from another sheet.", font()),
