@@ -7,8 +7,8 @@ This repository is the self-contained development and review environment for the
 - **Company:** IRIS Intelligence Pty Ltd (ACN 700 449 618), Gold Coast, Queensland. Two founders (referred to externally as directors): James Thompson (commercial) and Gopesh Khanna (technical). Pre-revenue.
 - **Product:** IRIS reads the systems a construction project already runs (Procore / Aconex, Jobpac, PayApps, ProcurePro, email and Office, share drive), by builder-authorised, read-only API connections, and reconciles them into one source-linked delivery risk position across the management domains (cost, time, scope, procurement, payment, quality, safety, compliance), with drill-down to the record and a chat that answers from the records. It writes nothing back and replaces nothing.
 - **Working thesis (cover):** IRIS gives construction capital a source-linked view of project delivery risk, reconciling fragmented project records to identify emerging exposure and inform funding, intervention and recovery decisions.
-- **Raise:** AUD $750K pre-seed SAFE at a $7.5M valuation cap. **Do not change the terms** without project-owner approval.
-- **Status:** MVP (the deck says "POC") on a populated Procore sandbox, shown to one South East Queensland Tier 2 builder; live-project access being negotiated, not granted. No recovery engagement run. No lender mandate. No paying customer.
+- **Raise:** AUD $500K pre-seed SAFE at a $5M valuation cap (owner decision D-21, 30 October 2026; previously $750K at $7.5M). **Do not change the terms** without project-owner approval.
+- **Status:** MVP (slide 7 shows it) on a populated Procore sandbox, shown to one South East Queensland Tier 2 builder; live-project access being negotiated, not granted. No recovery engagement run. No lender mandate. No paying customer.
 
 ## The investment narrative (three applications of one platform)
 
@@ -16,7 +16,7 @@ The deck's current sequence, approved by the project owner on 29 October 2026 (s
 
 1. **Now — builder pilot deployments** on live projects, at $3,500 a month per project, to prove the position reconciles to the builder's own cost reports. The technical and commercial proving ground.
 2. **Alongside — a lender design partner** (target: a non-bank private credit fund) shaping the lender view from those pilots: what to show, how it is structured, how it bears on the facility and the lender's position.
-3. **At scale — continuous lender monitoring** written into facilities as a drawdown condition, paid by the developer at 15 bps a year on the facility limit (floor $3,500, cap $10,000 a month); **distressed-project assessments** offered after that, at a separate fixed fee per engagement.
+3. **At scale — continuous lender monitoring** written into facilities as a drawdown condition, paid by the developer at 15 bps a year on the full project debt stack (floor $3,500, cap $10,000 a month; $80M average facility, so the cap binds); **distressed-project assessments** offered after that, at a separate fixed fee per engagement.
 
 The setup brief that created this workspace described recovery and assessment as the *near-term* entry. That wording predates the 29 October decision. The deck, the review files and this file follow the later decision. Do not reorder the applications without a documented decision in `review/review-decisions.md` and project-owner approval.
 
@@ -30,14 +30,15 @@ The setup brief that created this workspace described recovery and assessment as
 ## Repository layout
 
 ```
-deck/source/            deck.json + slides/*.html — the editable source (Slides artifact format)
+deck/source/            deck.json (main deck, 14 slides, D-31) and appendix.json (appendix deck, A1–A12) + slides/*.html — the editable source (Slides artifact format). Two Slides artifacts: the main deck and "IRIS Investment Summary · Appendix"; the appendix is not in the main deck (D-26). Main order: cover, summary, stakes, mechanism, evidence, product, mvp, why-now, go-to-market, competition, market, economics, team, raise. Appendix: apx-pack, apx-mechanism, apx-since-2021, apx-reach, apx-sizing, apx-model, apx-sources, apx-landscape, decisions, apx-risks, apx-systems, apx-recovery.
 deck/source/format-reference/   the Slides format reference (SKILL.md and reference/*.md); read before editing a slide
 deck/source/measure.py  line-fit measurement script (see "Editing slides")
-deck/assets/            fonts/images if any are added (none at baseline; Inter is loaded from Google Fonts)
+deck/assets/            iris-mvp-horizon-tower.png (slide 7, uploaded to the main artifact as /_blob/03ce40e84c34ae3aba2336b0250a6ca4); Inter is loaded from Google Fonts
 deck/exports/           PDF exports of approved versions (none committed at baseline; see "Exports")
 financial-model/        build_model.py (generates the workbook) and IRIS_model_36m.xlsx (the controlled source)
 research/source-register.md   every public source the deck cites, with URL and date
-research/market-evidence.md   the dated market facts behind slides 3, 5 and 10
+research/market-evidence.md   the dated market facts behind slides 3, 8, A3
+research/competitive-landscape.md   the October 2026 review of about sixty products and firms behind slides 10 and A8
 review/investment-thesis.md   the thesis, the three applications, the sequence
 review/investment-critique.md ChatGPT's independent review findings (append-only log)
 review/claims-register.md     every material claim classed by evidence type
@@ -51,8 +52,8 @@ review/review-decisions.md    numbered decisions and approvals by the project ow
 - **Never render to check fit.** Measure lines instead: write a JSON spec `[{"label","text","size","width","wght","ls"}]` and run `python3 -I deck/source/measure.py <inter-variable.woff2> spec.json`. The font file is `@fontsource-variable/inter` (`inter-latin-opsz-normal.woff2`); install with `npm i @fontsource-variable/inter` into a scratch folder. Keep every slide's content inside the 808px vertical budget.
 - **Design language:** cream background #FAF7F0, ink #1A1714, body #3D3934, muted #6F6A63, coral #E8533A / #C2412A, rules #D9D4CA, panels #F1EDE4 / #F8E6DD. Inter. One central conclusion per slide. No new slides unless something is consolidated.
 - **Banned words on the deck** (the project owner's rule): nobody, every, only, never, always, guarantees, prevents, real time. Run a grep before every commit.
-- **Confidentiality:** no employers, prospects, customer funds, lenders or project names on the deck. The three project examples on slide 7 are real record sets with names, values, delivery models and lags altered; keep them unidentifiable. The private research notes behind them are **not** in this repository and must not be added without the project owner's written authorisation.
-- Page numbers are hand-set in each slide file (`02`–`19`, `A1`–`A6`); renumber when the order changes. `deck.json` carries order and section descriptions.
+- **Confidentiality:** no employers, prospects, customer funds, lenders or project names on the deck. The three project examples on slide 5 are real record sets with names, values, delivery models and lags altered; keep them unidentifiable. The private research notes behind them are **not** in this repository and must not be added without the project owner's written authorisation.
+- Page numbers are hand-set in each slide file (`02`–`14`; `A1`–`A12` in the appendix deck); renumber when the order changes. Every slide but the cover carries a section label (`<p data-iris-label="1" …>` at top 62px, coral caps): Summary, Problem, Problem · the mechanism, Evidence, Solution, Solution · the MVP, Why now, Go to market, Competition, Market size, The model, Team, The round, Appendix An · name. `deck.json` carries order and section descriptions. `deck/source/build_slides.py` generated the 14 main slides in the 1 November rebuild; the HTML in `deck/source/slides/` is the source of record and is edited directly from here on.
 
 ## Claims discipline
 
@@ -60,7 +61,7 @@ Every material claim is one of: **verified fact** (dated public source in `resea
 
 ## The financial model is a controlled source
 
-`financial-model/IRIS_model_36m.xlsx` is generated by `build_model.py` (`python3 build_model.py out.xlsx`). The deck's figures come from it: revenue $123K / $962K / $2,615K (Y1–Y3 base), month-36 run rate $3.63M, conservative $66K / $395K / $1.07M, market $244M Australia / $46M Queensland. Do not change an assumption without a decision in `review/review-decisions.md`; when one changes, regenerate the workbook, re-run its checks, and update slides 14, 15, A4 and A5 together.
+`financial-model/IRIS_model_36m.xlsx` is generated by `build_model.py` (`python3 build_model.py out.xlsx`). The deck's figures come from it (D-33, 1 Nov 2026): revenue $187K / $1,748K / $6,188K (Y1–Y3 base), costs $502K / $1,268K / $2,976K, operating result −$316K / +$480K / +$3,212K, month-36 run rate $9.5M (five builders carrying 30 paid jobs; eight lenders with 69 facilities of $80M across the project debt stack at 15 bps, cap binding at $120K a year; 15 people), low cash $177K at month 11 before the $3M seed; market $286M Australia / $54M Queensland (debt stack 1.2× the build contract). Builders are the wedge: the subscription follows the builder across its live jobs. The developer's fee is tied on slide 6 to a labelled hypothesis (a monitored facility prices inside an unmonitored one), tested at month 9. The workbook's Conservative sheet is the previous base case ($3.0M run rate). Year 1 costs equal the $500K use of funds (founders at $100K each plus super). Do not change an assumption without a decision in `review/review-decisions.md`; when one changes, regenerate the workbook, re-run its checks, and update slides 2, 11, 12, A5 and A6 together.
 
 ## Roles and process
 
