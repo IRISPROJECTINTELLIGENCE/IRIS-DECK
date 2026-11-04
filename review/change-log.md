@@ -2,6 +2,27 @@
 
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
+## 4 November 2026, v4 (D-37, D-38), on `refinement/institutional-v2`
+
+The owner rejected v507 and attached the 30 October PDF (v440) as the version he liked, "too deep". v4 starts from v440 and consolidates to 13 slides in that deck's language. The five-year model (D-37) replaces the 36-month one. An independent reviewer checks every slide against review/owner-standards.md before the owner sees it.
+
+| Version | Slide | Change | Reason |
+|---|---|---|---|
+| v4 | 1 Cover | v440; November 2026. | — |
+| v4 | 2 Simply put | The owner's v500 text; "Three uses" row becomes "Two products, one platform" (IRIS for Builders now; IRIS for Lenders alongside and at scale; assessments); "Where we are" adds the unnamed lender signal (D-36). | D-35, D-36. |
+| v4 | 3 Problem | v440 with the owner's v496 heading line; consequence sentence shortened. | — |
+| v4 | 4 Mechanism (consolidated) | The systems strip of v440 slide 6 above three causes from v440 slide 4 (time bar; cost moving before notice; cash strain in the trades, the owner's row); one line on the 2021 shifts. Replaces v440 slides 4, 5, 6 (now A2, A3, A11). | Owner: too deep. |
+| v4 | 5 Evidence | v440 as is. | — |
+| v4 | 6 Solution | v440 diagram; the bottom strip is now IRIS for Builders, IRIS for Lenders, and permissions and distress, with who pays. | D-35. |
+| v4 | 7 MVP | v440 as is. | — |
+| v4 | 8 Why now | v440 rows shortened; "Across the cycle" replaced by "The market's answer so far" (lender-side monitoring by hand; builder-side AI; reading the builder's systems for the lender is open). | D-35. |
+| v4 | 9 Go to market | v440 table with tighter cells and the scale row as IRIS for Lenders; the three bottom columns replaced by the mandate chain from v440 slide 13 and one line with the lender signal. | Consolidation. |
+| v4 | 10 Competition (new) | A map (reads the builder's systems × serves the lender) placing the QS, Korrix, IPEX, SteelCap, Built, Lendbase, Procore+Datagrid, Cintech, Vyne and IRIS; a table of who, reads, serves, where it stops. | Owner: a real competitive analysis. |
+| v4 | 11 Market and model (new) | TAM $291M, SAM $55M, SOM $49.5M (month-60 run rate); the five-year base-case table (four revenue lines, costs, EBITDA, drivers); cases and the cadence label. | D-37. |
+| v4 | 12 Team | v440 as is. | — |
+| v4 | 13 The round | v440 use of funds and milestones rebuilt as a flex layout (five milestones); the close's introductions and next step at the bottom. | Consolidation. |
+| Appendix | A5, A6 | Sizing with assessments ($291M / $55M); the model slide on the five-year figures. | D-37. |
+
 ## 4 November 2026, rebuild v3 (v507), on `refinement/institutional-v2`
 
 The owner rejected v505 ("slop", "too noisy") and set the direction: delivery risk made clear to lenders, continuously; IRIS the company, two products on one platform with role-based permissions; copy in the register of Korrix, SteelCap and Fiable. Decisions D-35 and D-36. 13 slides, 1,828 words.

@@ -353,6 +353,12 @@ Purpose: test the deck's bounded claim — "as of October 2026 we found no produ
 - **Position:** adjacent AI tool (builder-side), pre-product. **Flags:** (a) in intent, for the builder; (b) no; (c) no.
 - **Scepticism.** Pointed at knowledge retention and tendering rather than delivery risk; behind IRIS on build. A name to list, not a threat today. [I]
 
+### 11.6 Lendbase — lendbase.ai (not lendbase.com.au, a Perth asset-finance broker)
+- **What it does.** "Matching commercial borrowers to the right Funding Partner, with full context from the start." A commercial-lending origination marketplace: captures the deal's story and brings it to the lenders most likely to fund it; two doors, lender and borrower; a panel of "Funding Partners" [V, lendbase.ai, fetched 4 Nov 2026 via the built-in browser; sub-pages not served].
+- **Position:** origination, before the facility is written. Not a monitoring product; no mention of construction delivery, drawdowns or post-settlement monitoring on the page read.
+- **Flags:** (a) no; (b) no; (c) no.
+- **Scepticism.** Sits upstream of IRIS in the lifecycle (deal matched → facility written → delivery monitored). A lender that sources on Lendbase can still write IRIS into the facility; the natural relationship is a channel or referral, not competition. Named by the owner; listed so an investor who raises it gets a clear answer. [I]
+
 ### 11.5 What the addendum does to the bounded claim
 - The claim is reworded (D-35): *as of November 2026, no product found that reads a project's source systems and reconciles them into one position for the lender, the builder and the developer.* Korrix gives the lender a project-level position without reading the systems; Cintech and Vyne read the systems for the builder without serving the lender.
 - The lender-side category is now visibly forming in Australia (Korrix selling, SteelCap announced). That strengthens "why now" and weakens "nobody is doing this". The deck says the former.
