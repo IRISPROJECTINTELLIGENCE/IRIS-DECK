@@ -1,4 +1,4 @@
-# IRIS competitive landscape, current to 30 October 2026
+# IRIS competitive landscape, current to 4 November 2026 (addendum §11)
 
 Purpose: test the deck's bounded claim — "as of October 2026 we found no product that reconciles a project's systems into one position for builder, developer and lender, or that a lender writes into its facility" — against every product or firm an investor could name. Written 30 Oct 2026 from fresh web searches plus the four files in `/home/claude/research_notes/IRIS competitive landscape/` (dated 24 Oct 2026, cited below as "prior notes").
 
@@ -319,3 +319,41 @@ Purpose: test the deck's bounded claim — "as of October 2026 we found no produ
 - Caveats: (i) all IPEX evidence is sponsored or self-published and no lender has confirmed a mandate publicly; (ii) "no product found" rests on public sources, and private in-house tools at Tier 1 builders or lenders cannot be seen; (iii) the search allowlist blocked ipex.com.au, so IPEX's own product pages were not read.
 
 **Weakest point in IRIS's position.** Lenders already have two controls at the drawdown (QS certificate, and for some, IPEX on money movement) that expose less builder data than IRIS needs. IRIS has to show that the exposure sitting in the builder's records *before* it reaches a claim or a payment is worth a third control, and that a builder will grant read access to get the job. No public evidence yet that any lender has mandated analytics of a builder's records.
+
+---
+
+## 11. Addendum, 4 November 2026: four Australian entrants named by the owner
+
+### 11.1 Korrix Intelligence Partners Pty Ltd (Sydney; ABN 22 698 258 874) — korrix.au
+- **What it does.** "Independent construction intelligence for lenders." Headline: "Builder failure is the one risk on your book nobody insures." Three layers: **Assess** (builder financial health check from nine sources — ASIC, PPSR, AFSA, Equifax, licence checks, iCIRT, courts and SOPA history, audited accounts — rated Green/Amber/Red; key trade contractor assessment; pre-close project risk scorecard; 7–14 business days); **Monitor** (monthly for the life of the facility: attendance at progress meetings, independent site walks, review of builder reports against what was observed, covenant register, subcontractor payment signals, monthly Risk Intelligence Brief, escalation within a week; fixed monthly fee per project, founding pricing; proposed to be written into the loan as a condition "similar to QS reporting"); **Protect** (insurance for the funder when a builder fails; in development with licensed partners; not available) [V, korrix.au, fetched 4 Nov 2026].
+- **Who pays.** The lender. "Reports only to the lender"; "never sells to the borrower"; brokers as a channel [V].
+- **Records layer.** Public registers, credit bureaus, audited statements, site observation and the builder's reports as submitted. **No software integrations; does not read the builder's systems** [V/I].
+- **Team.** Goran Iliev, PMP, founder and director: 15 years of development execution, "$1B+ projects, 850+ apartments, 1,200+ student rooms" [V]. One named person. A 40-year insurance-broking track record is cited without saying whose [V].
+- **Customers.** None named; "founding lenders" through 2026–27; a Stamford Capital MD quote on contractor risk [V].
+- **Position:** closest to a competitor, lender-side service. **Flags:** (a) no; (b) **yes** (a lender's project-level monthly brief); (c) **proposed** as a loan condition; no facility wording or lender confirmation found.
+- **Scepticism.** Korrix validates the route (lender-paid, written into the loan) and the pitch register. It is outside-in and by hand: it sees what a site walk, a register and the builder's own report show, monthly. It cannot see claimed vs certified vs paid vs owed, the ledger against forecast, contingency consumed, or notices against time bars. Its evidence discipline ("every flagged item is sourced, dated and appended") is the standard IRIS's lender view has to match. A people-based model does not scale across a book the way software does; it also does not need builder consent, which IRIS does. [I]
+
+### 11.2 SteelCap — steelcap.ai
+- Landing page only: "Real-time Construction Risk Intelligence for Lenders", "Coming soon", an early-access form and hello@steelcap.com. No product, team, location or integrations stated [F, steelcap.ai, fetched 4 Nov 2026 via the built-in browser].
+- **Position:** adjacent, lender-side, announced. **Flags:** unknown. The name and tagline show the category is being claimed; nothing else can be assessed.
+
+### 11.3 Cintech Construction Intelligence Platform (Cintech Software Labs, Australia) — cip.cintech.com.au
+- **What it does.** "All your project data in one place. AI answers you can check." Construction AI for commercial builders: syncs the builder's systems into one record per project, every item traceable to its source; cited answers; time-bar tracking and delay-notice drafting; "AI Workers" (RFI coordinator, submittal reviewer, quality inspector, correspondence analyst, notice drafter) raising findings into an Action Center; reports drafted to Word; a reporting layer for Power BI and Tableau; mobile site observations [V, fetched 4 Nov 2026].
+- **Connectors named.** Oracle Aconex, Procore, Autodesk Construction Cloud, HammerTech, Visibuild, ProcurePro, PayApps, Jobpac, Premier, RIB iTWO cx, Primavera P6, Microsoft Project, SharePoint; Cheops planned [V].
+- **Team.** Alan Dunn, co-founder and CEO, ex-CIO Richard Crookes Constructions (eight years); Adrian Gray, co-founder and CTO, ex-Hindmarsh infrastructure and applications, then integrations at Richard Crookes [V].
+- **Hosting.** Cintech-hosted, customer cloud or on-premises; customer's choice of AI provider including local LLMs; no certifications named [V].
+- **Customers, pricing, funding.** None stated; "book a demo" [V].
+- **Position:** adjacent AI tool (builder-side); the closest Australian builder-side product. **Flags:** (a) **yes**, for the builder; (b) no; (c) no. No mention of developers, lenders, financiers, QS or PCG reports; no cost forecasting, cash or subcontractor-payment analysis described.
+- **Scepticism.** On the builder side Cintech is ahead of IRIS: more connectors, founders the Tier 2 CIO network already knows, a product page that reads as shipped. It has the data to add a lender view; it does not have the lender relationship or the neutral-party trust model, and its customer is the builder. Under the owner's partnership rule (a product similar enough in logic to merge with) Cintech is the first that qualifies. [I]
+
+### 11.4 Vyne — vyne.build
+- **What it does.** "Decision intelligence for construction": connects authorised project records, understands construction context, brings sourced evidence to the person making the next decision; ask-the-project chat with citations; role-specific answers (estimator, PM, commercial, site, executive); "one change, five connected impacts" (scope, responsibility, procurement, programme, cost); organisational memory across projects and offices (tender debriefs, lessons) [V, fetched 4 Nov 2026 via the built-in browser].
+- **Stage.** Every screen labelled "illustrative product demonstration", "workspace prototype", "no live systems connected", "future workflow only". No connectors named, no customers, no pricing. Pilots "intended to be read-only", data "would be hosted in Australia" [V].
+- **Team.** Nathan Awyzio, founder and CEO, construction project leadership; Brendan Erofeev, co-founder and CTO, contractor systems and construction technology [V].
+- **Position:** adjacent AI tool (builder-side), pre-product. **Flags:** (a) in intent, for the builder; (b) no; (c) no.
+- **Scepticism.** Pointed at knowledge retention and tendering rather than delivery risk; behind IRIS on build. A name to list, not a threat today. [I]
+
+### 11.5 What the addendum does to the bounded claim
+- The claim is reworded (D-35): *as of November 2026, no product found that reads a project's source systems and reconciles them into one position for the lender, the builder and the developer.* Korrix gives the lender a project-level position without reading the systems; Cintech and Vyne read the systems for the builder without serving the lender.
+- The lender-side category is now visibly forming in Australia (Korrix selling, SteelCap announced). That strengthens "why now" and weakens "nobody is doing this". The deck says the former.
+- Two names now go on slide 9 beside Korrix: Cintech (builder-side, closest Australian product) and Vyne (builder-side, preview).

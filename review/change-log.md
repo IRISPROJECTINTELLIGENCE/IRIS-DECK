@@ -2,6 +2,25 @@
 
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
+## 4 November 2026, rebuild v3 (v507), on `refinement/institutional-v2`
+
+The owner rejected v505 ("slop", "too noisy") and set the direction: delivery risk made clear to lenders, continuously; IRIS the company, two products on one platform with role-based permissions; copy in the register of Korrix, SteelCap and Fiable. Decisions D-35 and D-36. 13 slides, 1,828 words.
+
+| Version | Slide | Change | Reason |
+|---|---|---|---|
+| v507–v508 | 1 Cover | Rewritten to "Delivery risk, made clear to the lender." and restored by the owner's instruction to "A risk tool for development and construction lending." with the original thesis sentence; date November 2026. | Owner. |
+| v507 | 2 The problem | "Between financial close and practical completion, the lender is the last to know." One paragraph, three figures ($3.08bn; 1 in 4; 20–40%), the failure list as one muted line. Replaces the summary and problem slides. | D-35. |
+| v507 | 3 Why | "The information exists. It travels by hand, through the party it reports on." Four-step chain in plain words; what the certificate does not carry; the first sign the lender sees last. | D-35. |
+| v507 | 4 Evidence | "On three real jobs, the lender was months behind the records." One number and two sentences per job. | D-35. |
+| v507 | 5 The product | "IRIS reads the builder’s systems and shows the lender the position beneath the certificate." How it connects; what the lender sees, continuously (claimed, certified, paid, owed; forecast vs ledger and contingency; notices against time bars; each figure linked to its record). | D-35. |
+| v507 | 6 Today | MVP screenshot with four short notes. | — |
+| v507 | 7 The products (new) | "One platform. Two products. Each party sees what it is entitled to see." IRIS for Lenders and IRIS for Builders, who pays, and the permissions model. Replaces the value ladder. | D-35 (owner structure). |
+| v507 | 8 Why now | "A lender-side category is forming. None of it reads the builder’s systems." Failure, regulators, rates, the market’s answer. | D-35. |
+| v507 | 9 Competition | Korrix, SteelCap, Cintech and Vyne, the lender’s existing controls; where each stops. Bounded claim reworded. | D-35; research §11. |
+| v507 | 10 Route to market | "Builders prove it on live jobs. A lender writes it into a facility." Three steps; the lender signal (D-36); how the condition holds. | D-35. |
+| v507 | 11 Market and model | $286M / $54M and the base-case table on one slide; drivers in one line. Replaces the market and model slides. | D-35. |
+| v507 | 12, 13 | Team and round renumbered; the round’s introductions line asks for a lender willing to run the view beside its QS. | — |
+
 ## 1 November 2026, rebuild (v504), on `refinement/institutional-v2`
 
 The owner's direction: the deck is too long and too cognitively heavy, explains too many mechanisms in detail, and its revenue model is not steep enough; explain the overarching mechanism and the value at each level, cut to it promptly, keep the construction-lending thesis in the positioning without zeroing in on it. Decisions D-31 (structure) and D-32 (model, proposed). 19 slides and 3,626 words became 14 slides and 2,391 words; the appendix deck grew from 7 to 12 slides.

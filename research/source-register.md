@@ -72,3 +72,12 @@ Every public source the deck cites or relies on, with the figure taken, the date
 | Replacement-builder premium of 20–40% on remaining works | Founder observation (slide 3) |
 | More in-house and JV delivery; thinner builder balance sheets; survivors sharing risk through cost-plus terms | Founder observation (slide 5) |
 | Three project record sets (slide 7: Projects A, B, C) | Private records held by the founders; values, models and lags altered on the deck; the underlying notes are **not** in this repository |
+
+## Competition, 4 November 2026 (slide 9, appendix A8)
+
+| Figure on the deck | Source | Date | URL |
+|---|---|---|---|
+| Korrix: independent lender-side assessment and monthly monitoring; proposes monitoring as a loan condition; insurance layer in development; Sydney | Korrix Intelligence Partners website (vendor) | fetched 4 Nov 2026 | https://korrix.au/ |
+| SteelCap: "Real-time Construction Risk Intelligence for Lenders"; coming soon; early-access programme | SteelCap landing page (vendor) | fetched 4 Nov 2026 | https://www.steelcap.ai/ |
+| Cintech: one record per project from thirteen named connectors; cited AI answers; AI workers; time bars; founders ex-Richard Crookes and Hindmarsh | Cintech Construction Intelligence Platform website (vendor) | fetched 4 Nov 2026 | https://cip.cintech.com.au/ |
+| Vyne: decision intelligence and organisational memory for builders; illustrative preview, no live systems | Vyne website (vendor) | fetched 4 Nov 2026 | https://vyne.build/ |
