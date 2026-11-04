@@ -57,6 +57,7 @@ s = must(s, "POC built on a populated Procore sandbox, shown to a South East Que
          "MVP built on a populated Procore sandbox, shown to a South East Queensland Tier 2 builder; live-project access being negotiated. One non-bank private credit fund has told us the lender view would be useful to it. Pre-revenue.")
 s = must(s, "Buys measurable validation: a deployment ready enterprise product, live data access, reconciliation against builders’ own cost reports, a lender live beside its QS, security review, and evidence of paid demand.",
          "It buys the evidence: a deployment-ready enterprise product, live data, reconciliation against builders’ own cost reports, a lender live beside its QS, a security review, and paid demand.")
+s = s.replace("that is reconciled by hand, monthly", "reconciled by hand, monthly").replace("by read only API connection", "by read-only API connection")
 S["summary"] = s
 
 # 03 problem (v440 with the owner's later heading) --------------------------------
@@ -80,7 +81,7 @@ for a_, b_ in [("project management: drawings and documents, RFIs, correspondenc
     assert strip.count(a_) == 1, a_[:30]
     strip = strip.replace(a_, b_)
 rows3 = [
-    ("Programme and EOTs as submitted", "Entitlement at the time bar.", "Notices, variations and latent conditions near or past the deadline that decides who pays.", "Aconex, Procore, email"),
+    ("Programme and EOTs as submitted", "Notices against the time bar.", "Notices, variations and latent conditions near or past the deadline that decides who pays.", "Aconex, Procore, email"),
     ("Cost to complete on the contract sum", "Cost moving before it is notified.", "Delays, changes and allowance movements the records show coming, and the preliminaries they extend.", "Programme, Jobpac forecast, email"),
     ("Builder’s statutory declaration", "Cash strain in the trades.", "What subcontractors are owed against what the builder has already claimed and been paid for their work. Usually the first sign.", "PayApps, Jobpac"),
 ]
@@ -102,7 +103,10 @@ b += p("Since 2021, fixed prices, thinner builders and in-house delivery have mo
 S["mechanism"] = section("mechanism", b, 22, rd(V500, "mechanism").split("<aside>")[1].split("</aside>")[0] + " The systems: " + rd(V440, "systems").split("<aside>")[1].split("</aside>")[0])
 
 # 05 evidence (v440) -------------------------------------------------------------
-S["evidence"] = set_page(rd(V440, "evidence"), "05")
+s = set_page(rd(V440, "evidence"), "05")
+s = must(s, "weeks before it reached the people funding them.", "months before it reached the people funding them.")
+s = must(s, "Investor syndicate; private financier; QS-gated drawdowns", "Investor syndicate with a private financier and QS-gated drawdowns")
+S["evidence"] = s
 
 # 06 solution: v440 top + two products ------------------------------------------
 s = rd(V440, "product")
@@ -111,8 +115,8 @@ top = s.split('<div id="pc698a2a917fcr3-cbb80cd7"')[0]
 aside = s.split("<aside>")[1].split("</aside>")[0]
 panels = [
     ("IRIS for Builders", INK, "The same position, first: notices near time bars, unlet scope, trades owed, defects. The builder keeps its margin. <b>$3,500 a month per live job.</b>", "Builder pays · $3,500 a month per live job"),
-    ("IRIS for Lenders", CORAL2, "Each facility’s position beneath the certificate, continuous, drill-down to the record, written into the facility. <b>The developer pays 15 bps a year.</b>", "Developer pays · 15 bps a year on the facility"),
-    ("Permissions and distress", MUTED, "The builder authorises and sees each finding first. The lender sees the reconciled position, the developer its lender’s view. <b>In distress: days.</b>", "Role-based, one platform"),
+    ("IRIS for Lenders", CORAL2, "Each facility’s position beneath the certificate, continuously, with drill-down to the record. <b>In the facility; the developer pays 15 bps a year.</b>", "Developer pays · 15 bps a year on the facility"),
+    ("Permissions and distress", MUTED, "The builder authorises and sees each finding first; lender and developer see the reconciled position. <b>In distress, the position in days.</b>", "Role-based, one platform"),
 ]
 b = top.rstrip() + '\n  <div style="position:absolute; top:772px; left:128px; width:1664px; display:flex; flex-direction:row; gap:40px">\n'
 for t, tc, body, pays in panels:
@@ -130,7 +134,7 @@ s = rd(V440, "why-now")
 s = set_page(s, "08")
 s = must(s, "Across the cycle", "The market’s answer so far")
 old_cycle = re.search(r'The layer beneath the certificate goes unreported in good markets too;.*?</p>', s, flags=re.S).group(0)
-s = s.replace(old_cycle, "Lender-side monitoring is being sold as a loan condition, done by site walks and register checks. Builder-side AI is being sold to builders, on builders’ data. Reading the builder’s systems for the lender is open ground; the names are on slide 10.</p>")
+s = s.replace(old_cycle, "Lender-side monitoring is being sold as a loan condition, done by site walks and register checks. Builder-side AI is being sold to builders, on builders’ data. Reading the builder’s systems for the lender is open ground; the names are on the next slide.</p>")
 s = must(s, "<b>Not confined to one group.</b> A $2.3bn real-estate credit fund suspended redemptions on 22 October. Construction was 37% of insolvencies in July–August with Bathla, 23.5% without",
          "<b>Not confined to one group.</b> A $2.3bn credit fund suspended redemptions on 22 October. Construction was 37% of insolvencies in July–August with Bathla, 23.5% without")
 s = s.replace("appendix A6", "appendix A7")
@@ -144,7 +148,7 @@ for a_, b_ in [
     ("Models that read contracts, correspondence and cost records together and cite the source for each figure, at a cost that works per project per month. The tooling makes IRIS possible; the market makes it wanted.",
      "Models now read contracts, correspondence and cost records together and cite the source of each figure, at a cost that works per project per month."),
     ("In June 2026 ASIC told private credit funds to reassess loan values before formal default; the industry standard from July 2027 requires quarterly independent valuation. Forecasts of further distress are not treated as fact.",
-     "In June 2026 ASIC told private credit funds to reassess loan values before formal default; from July 2027 the industry standard requires quarterly independent valuation."),
+     "From July 2027 the private credit industry standard requires quarterly independent valuation of loans; ASIC asked funds in June 2026 to reassess values before default."),
 ]:
     assert s.count(a_) == 1, a_[:40]
     s = s.replace(a_, b_)
@@ -154,7 +158,10 @@ S["why-now"] = s
 s = rd(V440, "go-to-market")
 s = set_page(s, "09")
 s = must(s, "Scale · Monitoring and assessments", "Scale · IRIS for Lenders")
-s = must(s, " (milestones, slide 18)", "")
+s = must(s, "Builders prove it, a lender shapes it, monitoring scales it.", "Builders prove it on live jobs. A lender then writes IRIS into its facilities.")
+s = must(s, "<b>Nothing assumed automatic:</b> no access, no pilot; no reconciled result, no lender test; no live result, no condition (milestones, slide 18).", "<b>Each step is gated on the one before it.</b> No access, no pilot. No reconciled result, no lender test. No live result, no condition.")
+if "bottom:64px" not in s.split("<h2")[0]:
+    s = s.replace("<h2", pageno("10") + "  <h2", 1)
 for a_, b_ in [
     ("<b>Prove it on live jobs.</b> R&amp;D deployments on live projects, then a monthly fee per project. The proving ground, and a revenue line of its own.", "<b>Prove it on live jobs.</b> Two pilots, then a monthly fee per live job that follows the builder."),
     ("The position reconciles to the builder’s own cost reports and finds exposures that protect the builder’s margin.", "The position reconciles to the builder’s own cost reports and protects its margin."),
@@ -176,8 +183,7 @@ chain_html = chain_html.replace("padding:20px 24px", "padding:12px 20px")
 b = head.rstrip() + "\n"
 b += '  <div style="display:flex; flex-direction:column; gap:14px">\n    ' + caps("How the condition holds · the facility binds the developer, the tender binds the builder") + "\n"
 b += "    " + chain_html.replace("\n", "\n    ") + "\n"
-b += (f'    <p style="{F} font-size:24px; line-height:1.4; color:{BODY}">A builder under contract today owes nothing new; the first conditions go on new facilities, extensions and refinances. '
-      f'One non-bank private credit fund has told us the lender view would be useful to it. Mechanics and the carve-out question: appendix A4.</p>\n  </div>\n')
+b += (f'    <p style="{F} font-size:24px; line-height:1.4; color:{BODY}">A builder under contract today owes nothing new; the first conditions go on new facilities, extensions and refinances. Mechanics and the carve-out question: appendix A4.</p>\n  </div>\n')
 b += '  <aside>' + aside + " The lender signal (D-36) is a founder-reported conversation with one non-bank private credit fund, unnamed; no letter yet.</aside>\n</section>\n"
 S["go-to-market"] = b
 
@@ -185,7 +191,7 @@ S["go-to-market"] = b
 def dot(x, y, name, fill=INK, dashed=False, w=600):
     st = f'stroke="{fill}" stroke-width="2" stroke-dasharray="6 5" fill="none"' if dashed else f'fill="{fill}"'
     return (f'<circle cx="{x}" cy="{y}" r="9" {st}/><text x="{x+16}" y="{y+8}" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="{w}" fill="{INK}">{name}</text>')
-svg = ('<svg xmlns="http://www.w3.org/2000/svg" aria-label="Map of products by whether they read the builder\'s systems and whether they serve the lender" viewBox="0 0 760 560" style="width:640px; height:471px">'
+svg = ('<svg xmlns="http://www.w3.org/2000/svg" aria-label="Map of products by whether they read the builder\'s systems and whether they serve the lender" viewBox="0 0 760 560" style="width:600px; height:442px">'
        '<rect x="70" y="20" width="670" height="480" fill="#f1ede4"/>'
        '<rect x="405" y="20" width="335" height="240" fill="#f8e6dd"/>'
        '<path d="M405 20V500" stroke="#CFC8BB" stroke-width="2" stroke-dasharray="6 5"/><path d="M70 260H740" stroke="#CFC8BB" stroke-width="2" stroke-dasharray="6 5"/>'
@@ -202,33 +208,33 @@ comp = [
     ("Korrix (AU)", "Registers, site walks, builder reports", "Lender", "A monthly brief by hand; proposes a loan condition. Reads no systems."),
     ("IPEX (AU)", "A payment account", "Lender", "Controls money movement. No project position."),
     ("Built (US)", "Procore financials, draw package", "Lender", "Checks the submitted draw. No Australian presence."),
-    ("Cintech · Vyne (AU)", "The builder’s systems", "Builder", "Cited answers and actions for the builder. Shares nothing upward."),
+    ("Cintech · Vyne", "The builder’s systems", "Builder", "Cited answers and actions for the builder. Shares nothing upward."),
     ("SteelCap (AU)", "Unknown", "Lender", "A landing page and an early-access form."),
     ("IRIS", "The builder’s systems, read-only", "All three", "One reconciled position, each figure linked to its record, in the facility."),
 ]
-b = label("Competition") + pageno("10")
+b = label("Competition") + pageno("09")
 b += h2("Others watch the project from outside, or serve the builder.", "IRIS reads the builder’s systems for the lender.")
 b += '  <div style="display:flex; flex-direction:row; gap:40px; align-items:start">\n    ' + svg + '\n    <div style="display:flex; flex-direction:column; flex:1">\n'
-b += (f'      <div style="display:grid; grid-template-columns:190px 250px 120px 1fr; gap:14px; padding:0 0 8px; border-bottom:2px solid {INK}">\n'
+b += (f'      <div style="display:grid; grid-template-columns:180px 240px 110px 1fr; gap:14px; padding:0 0 8px; border-bottom:2px solid {INK}">\n'
       f'        {caps("Who")}\n        {caps("Reads")}\n        {caps("Serves")}\n        {caps("Where it stops")}\n      </div>\n')
 for i, (who, reads, serves, stop) in enumerate(comp):
     last = i == len(comp) - 1
     bg = f" background:{PANEL2}; border-top:2px solid {CORAL};" if last else f" border-top:1px solid {RULE};"
     wc = CORAL2 if last else INK
-    b += (f'      <div style="display:grid; grid-template-columns:190px 250px 120px 1fr; gap:14px; padding:8px 0;{bg}">\n'
-          f'        <p style="{F} font-size:22px; font-weight:600; line-height:1.3; color:{wc}">{who}</p>\n'
-          f'        <p style="{F} font-size:22px; line-height:1.3; color:{INK}">{reads}</p>\n'
-          f'        <p style="{F} font-size:22px; line-height:1.3; color:{INK}">{serves}</p>\n'
-          f'        <p style="{F} font-size:22px; line-height:1.3; color:{BODY}">{stop}</p>\n      </div>\n')
+    b += (f'      <div style="display:grid; grid-template-columns:180px 240px 110px 1fr; gap:14px; padding:6px 0;{bg}">\n'
+          f'        <p style="{F} font-size:24px; font-weight:600; line-height:1.3; color:{wc}">{who}</p>\n'
+          f'        <p style="{F} font-size:24px; line-height:1.3; color:{INK}">{reads}</p>\n'
+          f'        <p style="{F} font-size:24px; line-height:1.3; color:{INK}">{serves}</p>\n'
+          f'        <p style="{F} font-size:24px; line-height:1.3; color:{BODY}">{stop}</p>\n      </div>\n')
 b += '    </div>\n  </div>\n  <div style="flex:1"></div>\n'
 b += p("About sixty products and firms reviewed, November 2026; sources and detail in appendix A8.", 24, MUTED)
 S["competition"] = section("competition", b, 28, "Korrix Intelligence Partners (Sydney): Assess (builder financial health check from nine registers and reports), Monitor (monthly: progress meetings, site walks, covenant register, risk brief; proposed as a loan condition at a fixed monthly fee), Protect (insurance layer in development); reports only to the lender; no software integrations. SteelCap: a landing page, coming soon. IPEX: payment-account control with vendor-claimed lender mandates; moves money, does not read the position. Built: draw management for 300+ US lenders, reads Procore financials, checks the submitted package; no ANZ presence. Cintech: one record per project from thirteen named connectors (Aconex, Procore, ProcurePro, PayApps, Jobpac and others), cited answers, AI workers, time bars; founders ex-CIO and ex-infrastructure lead at Tier 2 builders; no customers named. Vyne: decision intelligence and organisational memory for builders; illustrative preview, no live systems. Procore with Datagrid: agents over the builder's ERP and documents, for the builder. Lendbase: a commercial-lending origination marketplace, upstream of the facility; a channel rather than a competitor. The lender's existing controls are the QS certificate, IPEX, project trust accounts and CreditorWatch or iCIRT ratings. IPEX is not a partner. Full review: research/competitive-landscape.md.")
 
 # 11 market and model ---------------------------------------------------------------
-def trow(cells, bold=False, top=False, color=INK, size=22):
+def trow(cells, bold=False, top=False, color=INK, size=24):
     st = f"border-top:{'2px solid ' + INK if top else '1px solid ' + RULE};"
     w = "600" if bold else "400"
-    s_ = f'      <div style="display:grid; grid-template-columns:1fr 92px 92px 92px 92px 92px; gap:10px; padding:7px 0; {st}">\n'
+    s_ = f'      <div style="display:grid; grid-template-columns:1fr 100px 100px 100px 100px 100px; gap:10px; padding:6px 0; {st}">\n'
     s_ += f'        <p style="{F} font-size:{size}px; font-weight:{w}; line-height:1.3; color:{color}">{cells[0]}</p>\n'
     for v in cells[1:]:
         s_ += f'        <p style="{F} font-size:{size}px; font-weight:{w}; line-height:1.3; text-align:right; color:{color}">{v}</p>\n'
@@ -237,42 +243,41 @@ def trow(cells, bold=False, top=False, color=INK, size=22):
 b = label("Market and model") + pageno("11")
 b += h2("A $291M market a year in Australia at our prices.", "Each lender brings its book, so the curve bends in Year 3.")
 b += '  <div style="display:flex; flex-direction:row; gap:48px; align-items:start">\n    <div style="display:flex; flex-direction:column; width:560px; flex:none">\n'
-for n, nc, t, c2 in [("$291M", CORAL, "Total market, Australia · modelled", "About 4,300 live jobs of $10M and over at our prices: facilities at 15 bps, subscriptions, assessments."),
-                     ("$55M", INK, "Serviceable, Queensland · modelled", "About 820 live jobs; South East Queensland, where the founders and the first builders and lender are."),
-                     ("$49.5M", INK, "Obtainable · month-60 run rate, base case", "Twenty lenders on about 370 facilities and seventeen builders on 92 jobs. About 17% of Australia.")]:
+for n, nc, t, c2 in [("$291M", CORAL, "Total market, Australia · modelled", "About 4,300 live jobs of $10M and over at our prices: facilities, subscriptions, assessments."),
+                     ("$55M", INK, "Serviceable, Queensland · modelled", "About 820 live jobs; South East Queensland holds about 80% of the state’s pipeline."),
+                     ("$49.5M", INK, "Obtainable · month-60 run rate, base case", "Twenty lenders on about 370 facilities; seventeen builders on 92 jobs. About 17% of Australia.")]:
     b += (f'      <div style="display:flex; flex-direction:column; gap:6px; padding:12px 0 14px; border-top:3px solid {INK}">\n'
           f'        <p style="{F} font-size:48px; font-weight:600; line-height:1; letter-spacing:-2px; color:{nc}">{n}</p>\n'
           f'        <p style="{F} font-size:24px; font-weight:600; line-height:1.3; color:{INK}">{t}</p>\n'
-          f'        <p style="{F} font-size:22px; line-height:1.35; color:{BODY}">{c2}</p>\n      </div>\n')
+          f'        <p style="{F} font-size:24px; line-height:1.35; color:{BODY}">{c2}</p>\n      </div>\n')
 b += '    </div>\n    <div style="display:flex; flex-direction:column; flex:1">\n'
-b += (f'      <div style="display:grid; grid-template-columns:1fr 92px 92px 92px 92px 92px; gap:10px; padding:0 0 6px">\n        {caps("Base case · A$K")}\n'
-      + ''.join(f'        <p style="{F} font-size:22px; font-weight:600; line-height:1.3; text-align:right; color:{MUTED}">Y{y}</p>\n' for y in range(1, 6)) + '      </div>\n')
+b += (f'      <div style="display:grid; grid-template-columns:1fr 100px 100px 100px 100px 100px; gap:10px; padding:0 0 6px">\n        {caps("Base case · A$K")}\n'
+      + ''.join(f'        <p style="{F} font-size:24px; font-weight:600; line-height:1.3; text-align:right; color:{MUTED}">Y{y}</p>\n' for y in range(1, 6)) + '      </div>\n')
 b += trow(["IRIS for Lenders, paid by developers", "8", "1,559", "8,114", "20,527", "36,846"], top=True)
 b += trow(["IRIS for Builders", "178", "756", "1,162", "1,911", "3,157"])
-b += trow(["IRIS for Developers (direct)", "–", "–", "35", "202", "348"])
+b += trow(["IRIS for Developers, direct, from Year 3", "–", "–", "35", "202", "348"])
 b += trow(["Distressed-project assessments", "–", "–", "62", "266", "488"])
 b += trow(["Revenue", "186", "2,315", "9,373", "22,906", "40,839"], bold=True)
-b += trow(["People", "237", "1,694", "4,256", "8,472", "14,110"], top=True)
+b += trow(["People", "224", "1,655", "4,256", "8,472", "14,110"], top=True)
 b += trow(["Platform, cloud, security", "224", "242", "499", "930", "1,521"])
-b += trow(["Sales, onboarding, legal, insurance, office", "61", "607", "1,871", "3,860", "5,975"])
+b += trow(["Sales, legal, insurance, office", "61", "607", "1,871", "3,860", "5,975"])
 b += trow(["Total costs, with 5% contingency", "519", "2,629", "6,958", "13,926", "22,687"], bold=True)
 b += trow(["Operating result (EBITDA)", "−332", "−315", "+2,416", "+8,980", "+18,152"], bold=True, color=CORAL2)
-b += trow(["Lenders · facilities · team at year end", "1 · 1 · 2", "3 · 30 · 18", "8 · 109 · 37", "14 · 229 · 70", "20 · 373 · 103"], size=20)
 b += '    </div>\n  </div>\n  <div style="flex:1"></div>\n'
-b += p("Upside $63M and conservative $7.6M of revenue in Year 5. Cash stays positive in the base and conservative cases with the $3M seed in month 15. The lender adoption cadence is a company target; each input and its source is on the workbook’s Inputs sheet (appendix A5, A6).", 22, MUTED)
+b += p("At year end: 1 / 3 / 8 / 14 / 20 lenders on 1 / 30 / 109 / 229 / 373 facilities; team 2 / 18 / 37 / 70 / 103. Upside $63M and conservative $7.6M in Year 5; cash positive with the $3M seed. The lender cadence is a company target; inputs and sources in appendix A5, A6.", 24, MUTED)
 S["economics"] = section("economics", b, 24, "All figures from financial-model/IRIS_model_5y.xlsx, base case (D-37, 4 November 2026). Market: IBISWorld building work in scope converted to value under construction by build period, divided by a $40M average contract; facility fee 15 bps on the project debt stack at 1.2 times the build contract, within a $3,500 floor and $10,000 cap a month; assessments at 4% of funded projects a year × a $35,000 fee benchmarked to QS reports. Lender line: lenders adopting at months 12, 18, 22, 26, 29, 32, 34, 36 and then about every two months to 20 at month 60; each adds 0.8 new facilities a month and ten facilities from its existing book over 18 months as loans re-paper; 24-month term; $80M average facility, so the cap binds at $120,000 a year. Builder line: two pilots paid from month 6, then builders at months 12, 20, 28, 33, 37, 40, 43, 46, 48, 50, 52, 54, 56, 58, 60; each starts with two jobs and grows to six; $3,500 a month per job. Developer-direct: 0.5 projects a month from month 30 at $2,500. Assessments from month 30: 60% of on-platform distressed facilities, plus off-platform wins ramping to eight a year. Costs: founders at $100K then $180K from Year 3; fixed roles by start month; deployment analysts one per eight live jobs; a lender success manager per two lenders; two engineers plus one per 1.5 lenders; commissions 8% of first-year fees on new facilities; $4,000 to connect each facility; cloud $250 a month per live job; PI insurance to $500K; sales and marketing to $1.6M; 5% contingency. Year 1 costs about equal the $500K use of funds. Upside: lenders faster, 1.0 facilities a month, 14 from the book; conservative: seven lenders at 0.5 a month, $60M facilities at 12.5 bps, overheads at half. Seed $3M at month 15 in all cases; Series A optional and shown separately.")
 
 # 12 team (v440) --------------------------------------------------------------------
-S["team"] = set_page(rd(V440, "team"), "12")
+S["team"] = set_page(rd(V440, "team"), "12").replace("co-founding Advisor", "Co-founding advisor")
 
 # 13 the round + close (flex rebuild of the v440 slide) ---------------------------
 aside = rd(V440, "raise").split("<aside>")[1].split("</aside>")[0]
 uof = [("Founder salaries, both full-time, with super", "$224K"), ("Platform build and R&D", "$170K"), ("Enterprise security and cyber audit", "$30K"),
        ("Cloud and LLM infrastructure", "$16K"), ("Sales, marketing and customer success", "$20K"), ("Legal, accounting and IP", "$20K"), ("Contingency and insurance", "$20K")]
 ms = [("Months 1–3", "Two builder pilots live by API; a design-partner lender engaged. <span style=\"color:#6f6a63\">Evidence: signed pilot agreements; the partner’s letter.</span>"),
-      ("Month 6", "Reconciles to builders’ cost reports; security certified. <span style=\"color:#6f6a63\">Evidence: the comparison with live cost reports; the certificate.</span>"),
+      ("Month 6", "Reconciles to builders’ cost reports; first paying builder; security certified. <span style=\"color:#6f6a63\">Evidence: the signed comparison; the security certificate.</span>"),
       ("Month 9", "The lender view live on a facility beside its QS; PI cover, reliance terms, legal opinion. <span style=\"color:#6f6a63\">Evidence: the partner’s written review; the opinion.</span>"),
-      ("Month 12", "Paying builders; a drafted condition with one lender; assessments scoped. <span style=\"color:#6f6a63\">Evidence: paid invoices; the drafted condition; the assessment fee.</span>"),
+      ("Month 12", "Builders paying across their jobs; a drafted condition with one lender; assessments scoped. <span style=\"color:#6f6a63\">Evidence: paid invoices and the drafted condition.</span>"),
       ("Months 15–18", "Seed raise on that evidence, with or without a lender mandate.")]
 b = label("The round") + pageno("13")
 b += h2("$500K, SAFE at a $5M cap, to prove IRIS on live data<br>and open the paid routes to the lender.")
@@ -297,7 +302,7 @@ b += (f'  <div style="display:flex; flex-direction:row; gap:48px; padding:18px 0
       f'      <p style="{F} font-size:24px; line-height:1.35; color:{INK}">Walk through the product and the round with the founders.</p>\n    </div>\n  </div>\n')
 S["raise"] = section("raise", b, 24, aside + " Contacts: James Thompson +61 409 383 030, Gopesh Khanna +61 436 112 249.")
 
-order = ["cover", "summary", "stakes", "mechanism", "evidence", "product", "mvp", "why-now", "go-to-market", "competition", "economics", "team", "raise"]
+order = ["cover", "summary", "stakes", "mechanism", "evidence", "product", "mvp", "why-now", "competition", "go-to-market", "economics", "team", "raise"]
 for k in order:
     html = S[k]
     html = html.replace("Investment summary · Pre-seed", "Investment summary · Pre-seed")

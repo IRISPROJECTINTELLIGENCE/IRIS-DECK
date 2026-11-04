@@ -8,7 +8,8 @@ The owner rejected v507 and attached the 30 October PDF (v440) as the version he
 
 | Version | Slide | Change | Reason |
 |---|---|---|---|
-| v4 | 1 Cover | v440; November 2026. | — |
+| v509 (v4) | 1 Cover | v440; November 2026. | — |
+| v509 | All | Independent review against owner-standards.md before publishing: go-to-market heading rewritten without the triplet, gating line rewritten, page number added; People row corrected to the workbook (224 / 1,655); evidence heading "months"; competition moved before go-to-market; table text to 24px; product panels and market captions cut to fit; milestones say when builders start paying. | Reviewer findings. |
 | v4 | 2 Simply put | The owner's v500 text; "Three uses" row becomes "Two products, one platform" (IRIS for Builders now; IRIS for Lenders alongside and at scale; assessments); "Where we are" adds the unnamed lender signal (D-36). | D-35, D-36. |
 | v4 | 3 Problem | v440 with the owner's v496 heading line; consequence sentence shortened. | — |
 | v4 | 4 Mechanism (consolidated) | The systems strip of v440 slide 6 above three causes from v440 slide 4 (time bar; cost moving before notice; cash strain in the trades, the owner's row); one line on the 2021 shifts. Replaces v440 slides 4, 5, 6 (now A2, A3, A11). | Owner: too deep. |
