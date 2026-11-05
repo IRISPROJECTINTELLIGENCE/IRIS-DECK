@@ -53,7 +53,7 @@ setw(wi, {"A": 60, "B": 13, "C": 13, "D": 13, "E": 15, "F": 14, "G": 120})
 wi["A1"] = "IRIS five-year model: inputs"
 wi["A1"].font = font(bold=True, size=14)
 wi["A2"] = ("Blue cells are inputs. Three cases run side by side. Yellow cells are owner decisions. A$ excluding GST. "
-            "Month 1 is the month the pre-seed round closes. 999 = not in this case.")
+            "Month 1 is the month the pre-seed round closes. A blank start month means that lender, builder, hire or round does not occur in that case within the five years.")
 wi["A2"].font = font(GREY, italic=True)
 for i, h in enumerate(["Input", "Base", "Upside", "Conservative", "Unit", "Type", "Source or basis"], 1):
     c = wi.cell(row=4, column=i, value=h)
@@ -77,7 +77,7 @@ def inp(key, label, base, up, cons, unit, typ, source, fmt, key_decision=False):
     global row
     wi.cell(row=row, column=1, value=label).font = font()
     for col, val in ((2, base), (3, up), (4, cons)):
-        c = wi.cell(row=row, column=col, value=val)
+        c = wi.cell(row=row, column=col, value=(None if val == 999 else val))
         c.font = font(BLUE)
         c.number_format = fmt
         if key_decision:
@@ -107,7 +107,7 @@ def table(key, title, rows_, header, source, fmt=F_INT):
     for r in rows_:
         wi.cell(row=row, column=1, value=r[0]).font = font()
         for col, val in zip((2, 3, 4), r[1:4]):
-            c = wi.cell(row=row, column=col, value=val)
+            c = wi.cell(row=row, column=col, value=(None if val == 999 else val))
             c.font = font(BLUE)
             c.number_format = fmt
         row += 1
@@ -332,7 +332,7 @@ def build_month_sheet(ws, col, title):
     row_def("lenders", "Lenders with the condition", "lenders", lambda m, p: f"=COUNTIF({lst},\"<=\"&{m}$3)", F_CNT, "stock")
     row_def("newf", "New facilities under the condition", "facilities", lambda m, p: f"={m}{R['lenders']}*{I('per_lender',col)}", F_CNT1)
     row_def("rollf", "Existing book re-papered under the condition", "facilities",
-            lambda m, p: f"=SUMPRODUCT(({lst}<{m}$3)*({lst}+{I('book_m',col)}>={m}$3))*{I('book_fac',col)}/{I('book_m',col)}", F_CNT1)
+            lambda m, p: f"=SUMPRODUCT(ISNUMBER({lst})*({lst}<{m}$3)*({lst}+{I('book_m',col)}>={m}$3))*{I('book_fac',col)}/{I('book_m',col)}", F_CNT1)
     row_def("endf", "Facilities completing", "facilities",
             lambda m, p: f"=IF({m}$3>{I('fac_term',col)},INDEX(${mcol(1)}${R['newf']}:${mcol(MONTHS)}${R['newf']},1,{m}$3-{I('fac_term',col)})+INDEX(${mcol(1)}${R['rollf']}:${mcol(MONTHS)}${R['rollf']},1,{m}$3-{I('fac_term',col)}),0)", F_CNT1)
     row_def("livef", "Facilities under the condition, end of month", "facilities",
@@ -346,7 +346,7 @@ def build_month_sheet(ws, col, title):
             lambda m, p: f"=IF(AND({m}$3>={I('rd_start',col)},{m}$3<{I('paid_start',col)}),{I('rd_n',col)},0)", F_CNT1, "stock")
     row_def("builders", "Paying builders", "builders", lambda m, p: f"=COUNTIF({bst},\"<=\"&{m}$3)", F_CNT, "stock")
     row_def("paid", "Paid builder jobs, end of month", "projects",
-            lambda m, p: (f"=SUMPRODUCT(({bst}<={m}$3)*((({I('jobs_start',col)}+{I('jobs_ramp',col)}*({m}$3-{bst}))>{I('jobs_cap',col)})*{I('jobs_cap',col)}"
+            lambda m, p: (f"=SUMPRODUCT(ISNUMBER({bst})*({bst}<={m}$3)*((({I('jobs_start',col)}+{I('jobs_ramp',col)}*({m}$3-{bst}))>{I('jobs_cap',col)})*{I('jobs_cap',col)}"
                           f"+(({I('jobs_start',col)}+{I('jobs_ramp',col)}*({m}$3-{bst}))<={I('jobs_cap',col)})*({I('jobs_start',col)}+{I('jobs_ramp',col)}*({m}$3-{bst}))))"), F_CNT1, "stock")
     row_def("rev_b", "IRIS for Builders revenue", "A$", lambda m, p: f"={m}{R['paid']}*{I('price_b',col)}", F_MONEY)
     blank()
@@ -373,7 +373,7 @@ def build_month_sheet(ws, col, title):
     row_def("n_ls", "Lender success managers", "people", lambda m, p: f"=IF({m}$3<16,0,ROUNDUP({m}{R['lenders']}/{I('ls_ratio',col)},0))", F_CNT, "stock")
     row_def("n_eng", "Engineers", "people", lambda m, p: f"=IF({m}$3<16,0,{I('eng_base',col)}+ROUNDUP({m}{R['lenders']}/{I('eng_ratio',col)},0))", F_CNT, "stock")
     row_def("c_found", "Founders", "A$", lambda m, p: f"={I('n_found',col)}*IF({m}$4<=2,{I('sal_found',col)},{I('sal_found2',col)})/12*(1+{I('oncost',col)})*(1+{I('sal_raise',col)})^MAX(0,{m}$4-3)", F_MONEY)
-    row_def("c_hire", "Fixed roles", "A$", lambda m, p: f"=SUMPRODUCT(({hst}<={m}$3)*{sal})/12*(1+{I('oncost',col)})*(1+{I('sal_raise',col)})^MAX(0,{m}$4-2)", F_MONEY)
+    row_def("c_hire", "Fixed roles", "A$", lambda m, p: f"=SUMPRODUCT(ISNUMBER({hst})*({hst}<={m}$3)*{sal})/12*(1+{I('oncost',col)})*(1+{I('sal_raise',col)})^MAX(0,{m}$4-2)", F_MONEY)
     row_def("c_an", "Deployment analysts", "A$", lambda m, p: f"={m}{R['n_an']}*{I('an_sal',col)}/12*(1+{I('oncost',col)})*(1+{I('sal_raise',col)})^MAX(0,{m}$4-2)", F_MONEY)
     row_def("c_ls", "Lender success", "A$", lambda m, p: f"={m}{R['n_ls']}*{I('ls_sal',col)}/12*(1+{I('oncost',col)})*(1+{I('sal_raise',col)})^MAX(0,{m}$4-2)", F_MONEY)
     row_def("c_eng", "Engineers", "A$", lambda m, p: f"={m}{R['n_eng']}*{I('eng_sal',col)}/12*(1+{I('oncost',col)})*(1+{I('sal_raise',col)})^MAX(0,{m}$4-2)", F_MONEY)
@@ -395,7 +395,7 @@ def build_month_sheet(ws, col, title):
     blank("Cash")
     row_def("in_safe", "Pre-seed", "A$", lambda m, p: f"=IF({m}$3=1,{I('safe',col)},0)", F_MONEY)
     row_def("in_seed", "Seed", "A$", lambda m, p: f"=IF({m}$3={I('seed_m',col)},{I('seed',col)},0)", F_MONEY)
-    row_def("in_a", "Series A", "A$", lambda m, p: f"=IF({m}$3={I('ser_a_m',col)},{I('ser_a',col)},0)", F_MONEY)
+    row_def("in_a", "Series A", "A$", lambda m, p: f"=IF(AND(ISNUMBER({I('ser_a_m',col)}),{m}$3={I('ser_a_m',col)}),{I('ser_a',col)},0)", F_MONEY)
     row_def("cash0", "Cash with pre-seed only, end of month", "A$", lambda m, p: f"={(p + str(R['cash0']) + '+') if p else ''}{m}{R['op']}+{m}{R['in_safe']}", F_MONEY, "stock")
     row_def("cash1", "Cash with seed, end of month", "A$", lambda m, p: f"={(p + str(R['cash1']) + '+') if p else ''}{m}{R['op']}+{m}{R['in_safe']}+{m}{R['in_seed']}", F_MONEY, "stock", bold=True)
     row_def("cash2", "Cash with seed and Series A, end of month", "A$", lambda m, p: f"={(p + str(R['cash2']) + '+') if p else ''}{m}{R['op']}+{m}{R['in_safe']}+{m}{R['in_seed']}+{m}{R['in_a']}", F_MONEY, "stock")
