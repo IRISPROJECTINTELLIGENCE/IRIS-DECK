@@ -2,6 +2,22 @@
 
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
+
+## 24 November 2026 (v675 → v686)
+
+| Slide | Change | Why |
+|---|---|---|
+| 1 | Terms line to $750K SAFE · $4M cap; diagram labels 20px → 24px. | D-39; text floor. |
+| 2 | Where we are: R&D partnership secured; concept validated by builders with the Tier 1 manager as the example; lender confirmed. Round row: from proof of concept to an enterprise product. Product row states cost to complete and completion date. | Owner comments; D-40–D-42. |
+| 3 | Body: it takes a finished project to repay the lender. Today line covers the QS report and the builder's own report. | Owner comments. |
+| 4 | Row 2 states the two costs to complete (contract sum less certified; the builder's own cost to finish). | D-42. |
+| 5 | Heading and footer without "the position"; Project C reworked: builder's report and lender's QS report disagreed on delay allowance left in the same month. | D-42; O-11. |
+| 6, 8, 10 | Shorthand removed; slide 10 stacked line replaced; first builder shown as the R&D partner. | Owner standards 3 and 4; D-41. |
+| 7 | Renamed proof of concept; footer states the R&D partnership; safety and compliance noted as following in the enterprise build. | D-41. |
+| 11 | Year 1: platform 374, total costs 669, EBITDA −482. | D-39. |
+| 13 | Rebuilt at $750K: build line first ($320K), runway reserve $100K, milestones as what exists at each point, second builder wanted. | D-39, D-40. |
+| Model | `safe` 750,000; `build_y1` 320,000; regenerated and recalculated, zero errors. | D-39. |
+
 ## 4 November 2026, v4 (D-37, D-38), on `refinement/institutional-v2`
 
 The owner rejected v507 and attached the 30 October PDF (v440) as the version he liked, "too deep". v4 starts from v440 and consolidates to 13 slides in that deck's language. The five-year model (D-37) replaces the 36-month one. An independent reviewer checks every slide against review/owner-standards.md before the owner sees it.

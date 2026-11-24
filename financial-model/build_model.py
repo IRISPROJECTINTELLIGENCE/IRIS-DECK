@@ -229,7 +229,7 @@ table("sal", "Hire salaries (A$ a year, Year 1 terms; grow with the salary-growt
 
 section("8. Other costs")
 for key, label, vals, unit, typ, src in [
-    ("build_y", "Platform build and contract engineering, by year", [170000, 90000, 90000, 60000, 60000], "A$ a year", "Company", "Year 1 from the use of funds (slide 13)."),
+    ("build_y", "Platform build and contract engineering, by year", [320000, 90000, 90000, 60000, 60000], "A$ a year", "Company", "Year 1 from the use of funds (slide 13): the enterprise build, D-39."),
     ("cloud_fix", "Cloud, models and tools, fixed, by year", [9600, 24000, 60000, 120000, 180000], "A$ a year", "Estimate", "Hosting, monitoring, development tools; grows with the team."),
     ("sec_y", "Security certification and audits, by year", [30000, 35000, 60000, 80000, 100000], "A$ a year", "Estimate", "ISO 27001 or SOC 2 in Year 1 for lender onboarding; surveillance audits and penetration testing after."),
     ("ins_y", "Insurance (PI and cyber), by year", [10000, 45000, 150000, 300000, 500000], "A$ a year", "Estimate", "Lender reliance raises professional indemnity cover as facilities under the condition grow."),
@@ -245,7 +245,7 @@ inp("cont_y1", "Contingency, Year 1", 10000, 10000, 10000, "A$", "Company", "Use
 inp("cont_pct", "Contingency, Years 2–5", 0.05, 0.05, 0.05, "% of costs", "Estimate", "", F_PCT)
 
 section("9. Funding")
-inp("safe", "Pre-seed SAFE, received month 1", 500000, 500000, 500000, "A$", "Owner decision D-21", "$500K at a $5M cap.", F_MONEY, key_decision=True)
+inp("safe", "Pre-seed SAFE, received month 1", 750000, 750000, 750000, "A$", "Owner decision D-39", "$750K at a $4M cap (24 Nov 2026; previously $500K at $5M, D-21).", F_MONEY, key_decision=True)
 inp("seed", "Seed round", 3000000, 3000000, 3000000, "A$", "Company", "Slide 13: seed in months 15–18 on the evidence of Year 1.", F_MONEY)
 inp("seed_m", "Seed round received", 15, 15, 15, "month", "Company", "", F_INT)
 inp("ser_a", "Series A (shown separately)", 8000000, 8000000, 0, "A$", "Company", "Optional: funds a faster lender rollout and national sales from Year 4. Cash is shown with and without it.", F_MONEY)
