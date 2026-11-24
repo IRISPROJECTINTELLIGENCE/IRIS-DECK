@@ -3,6 +3,16 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 24 November 2026, evening (v695; appendix v8)
+
+| Slide | Change | Why |
+|---|---|---|
+| 10 | Footer: the developer "can borrow at a lower rate from a lender that sees inside the project" (was "may finance on better terms"). Notes aligned. | D-46; owner correction. |
+| A6 | Year 1 EBITDA −$0.33M → −$0.48M to match the workbook after D-39. "every" removed in two places ("a new builder at intervals of four to eight months"; "about six a year"). Notes updated to the five-year model (five years, three cases; 0.8 new facilities a month plus ten re-papered; cloud $250 a month per live job). | D-39 follow-through missed on 24 Nov; banned-word rule. |
+
+Banned-word check across the main deck and the appendix: no hits. Open: O-20 (builders pricing in the condition).
+
+
 ## 24 November 2026 (v675 → v686)
 
 | Slide | Change | Why |
