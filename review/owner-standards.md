@@ -41,4 +41,4 @@ Every criticism the project owner has made of the deck between 24 October and 4 
 
 ## Terms and sequence (do not change without a decision)
 
-26. $500K SAFE at a $5M cap. Builders now, a lender design partner alongside, the condition at scale, assessments after proof (D-07, D-21). Cover line "A risk tool for development and construction lending." with the thesis sentence as the owner wrote it.
+26. $750K SAFE at a $4M cap (D-39). Builders now, a lender design partner alongside, the condition at scale, assessments after proof (D-07, D-21). Cover line "A risk tool for development and construction lending." with the thesis sentence as the owner wrote it.
