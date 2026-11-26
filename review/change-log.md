@@ -3,6 +3,10 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, 17:51: the cap is post-money (v817, 1795679517-7326)
+
+- D-58 replaces D-57's pre-money setting. "$4M post-money cap" on the cover label, slide 2's round row and slide 13's runway line ("The cap is post-money. ..."); slide 13's notes add that post-money is the Australian standard and the investors hold 18.75% for $750K before the seed. Workbook Inputs basis and Read me updated; recalculated with no errors; tie-out 84 checks, 0 failed. Line fit measured: cover label 1,394 of 1,664px; slide 2 round row two lines; slide 13 runway line one.
+
 ## 26 November 2026, 17:31: institutional refinement reverted, five parts kept (v816, 1795678639-db0a; appendix v29, 1795678646-676a)
 
 Owner's direction: revert the evening's refinement and keep the slide 8 correction, the pre-money cap, the lender view in the initial enterprise build, the market tiers and the model work (D-56 amended, D-57).

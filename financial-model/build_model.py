@@ -296,7 +296,7 @@ inp("cont_y1", "Contingency, Year 1", 10000, 10000, 10000, "A$", "Company", "Use
 inp("cont_pct", "Contingency, Years 2–5", 0.05, 0.05, 0.05, "% of costs", "Estimate", "", F_PCT)
 
 section("8. Funding")
-inp("safe", "Pre-seed SAFE, received month 1", 750000, 750000, 750000, "A$", "Company decision", "$750K SAFE at a $4M pre-money valuation cap.", F_MONEY, key_decision=True)
+inp("safe", "Pre-seed SAFE, received month 1", 750000, 750000, 750000, "A$", "Company decision", "$750K SAFE at a $4M post-money valuation cap.", F_MONEY, key_decision=True)
 inp("seed", "Seed round", 3000000, 3000000, 3000000, "A$", "Company", "Seed in months 15–18, raised on a product in paid use.", F_MONEY)
 inp("seed_m", "Seed round received", 15, 15, 15, "month", "Company", "", F_INT)
 inp("ser_a", "Series A (shown separately)", 8000000, 8000000, 0, "A$", "Company", "Optional: funds a faster lender rollout and national sales from Year 4. Cash is shown with and without it.", F_MONEY)
@@ -867,7 +867,7 @@ lines = [
     ("What the model assumes", font(bold=True)),
     ("Three revenue lines. IRIS for Lenders: a lender writes IRIS into facilities as a condition of drawdown, and the developer pays 15 bps a year on the facility, senior debt alone or with mezzanine, above a $3,500 a month floor, with no cap. IRIS for Builders: $3,500 a month per live job, following the builder from job to job. Assessments: a fixed fee per engagement on troubled projects, benchmarked to QS report fees.", font()),
     ("The market is counted on all live jobs of $10M or more at a $40M average contract. The lender line uses the facilities IRIS is written into, which average $80M in the base case. The two are kept apart so that targeting larger jobs does not shrink the market. The serviceable market is the jobs that carry a construction facility, where a lender can set the condition; Queensland, where the first builders are, is shown as the first market.", font()),
-    ("The round is a $750K pre-seed SAFE at a $4M pre-money valuation cap, received in month 1. A $3M seed is assumed in month 15. A Series A is optional and shown separately.", font()),
+    ("The round is a $750K pre-seed SAFE at a $4M post-money valuation cap, received in month 1. A $3M seed is assumed in month 15. A Series A is optional and shown separately.", font()),
     ("Not included: R&D tax refunds, insurer or surety revenue, interest income. Costs are paid in the month incurred. A$ excluding GST.", font()),
 ]
 for i, (text, fnt) in enumerate(lines, 1):

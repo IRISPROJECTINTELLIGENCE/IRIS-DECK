@@ -95,7 +95,7 @@ def sens(change):
     return dict(rev5=SN.cell(row=r, column=3).value, e5=SN.cell(row=r, column=5).value, low=SN.cell(row=r, column=7).value, neg=neg)
 s21 = sens("At month 21")
 need_by = int(s21["neg"].split()[1]) - 1
-chk("13", "runway line", f"The cap is pre-money. The round covers {RW} months of costs before any revenue; the seed is needed by month {need_by} (A11)", ra)
+chk("13", "runway line", f"The cap is post-money. The round covers {RW} months of costs before any revenue; the seed is needed by month {need_by} (A11)", ra)
 chk("13 notes", "runway notes", f"covers {RW} months of the plan’s costs; with the plan’s revenue cash stays above ${int(rnd(low/1000))}K", ran)
 # A5
 a5r = lambda key: mv(key)
