@@ -5,7 +5,7 @@ Substantive changes to the deck, newest first. Versions are the Slides artifact'
 
 ## 26 November 2026, early afternoon (v733 → v769; appendix v15 → v16; workbook)
 
-Owner direction in session (D-49): the lender fee applies across projects of different sizes and to the whole debt facility, so the model takes one average facility and flexes it by case. While that was being carried through, the owner reviewed slides 3, 4, 5, 9 and 10 in the page and sent seven comments; each is answered in its thread.
+Owner direction in session (D-49): the lender fee applies across projects of different sizes and to the whole debt facility, so the model takes one average facility and flexes it by case. While that was being carried through, the owner reviewed slides 3, 4, 5, 9 and 10 in the page and sent six comments; each is answered in its thread.
 
 | Item | Change | Why |
 |---|---|---|
