@@ -101,13 +101,13 @@ PAGES = [
   rows=[
    [("Lenders with the condition", "key"), "First at month 12. A company target.", ("1", "num"), ("8", "num"), ("20", "num")],
    [("Facilities", "key"), "0.8 a month per lender, plus its book", ("1", "num"), ("109", "num"), ("373", "num")],
-   [("Fee per facility a year", "key"), "15 bps on $80M, at the cap. Bull $102M, bear $48M", ("$120K", "num"), ("$120K", "num"), ("$120K", "num")],
+   [("Fee per facility a year", "key"), "15 bps on $80M. Bull $102M, bear $48M", ("$120K", "num"), ("$120K", "num"), ("$120K", "num")],
    [("Paid builder jobs", "key"), "$3,500 a month each", ("12", "num"), ("34", "num"), ("92", "num")],
    [("Assessments", "key"), "$35,000 each, from month 30", ("–", "num"), ("2", "num"), ("14", "num")],
    [("Team", "key"), "Hires after the $3M seed at month 15", ("2", "num"), ("36", "num"), ("102", "num")],
    [("Revenue, base case", "total"), "", ("$0.19M", "numb"), ("$9.3M", "numb"), ("$40.5M", "numb")],
   ],
-  foot="Biggest lever: each $10M of average facility below $80M takes about $4.6M off Year 5 revenue."),
+  foot="Biggest lever: each $10M of average facility is about $4.6M of Year 5 revenue."),
 
  dict(id="apx-sources", num="A7", label="Appendix A7 · Backs slides 2, 3 and 8 · Sources",
   h2="Where the deck’s public figures come from.",

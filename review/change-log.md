@@ -3,6 +3,11 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, mid-afternoon (v798 → v799; appendix v19 → v20; workbook) — D-51
+
+- Fee cap removed from the model (Inputs row and both fee formulas); base contract set to exactly $80M ÷ 1.2. Recalculated, 0 errors. Base case unchanged; upside Year 5 $78M.
+- Slide 11: footer upside $78M; notes without the cap. A6: fee row and footer without the cap; A5 and A6 notes updated. Tie-out 57 checks, 0 failed.
+
 ## 26 November 2026, mid-afternoon (v797 → v798; appendix v18 → v19; workbook) — D-50
 
 - Average facility: $80M base at the $10,000 cap ($66.7M × 1.2), $102M upside, $48M conservative. Workbook rebuilt and recalculated (9,272 formulas, 0 errors).

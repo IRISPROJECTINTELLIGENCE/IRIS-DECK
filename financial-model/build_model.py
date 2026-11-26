@@ -5,7 +5,7 @@ All inputs live on the Inputs sheet (three cases side by side: Base, Upside, Con
 Every other number is a formula. Month 1 is the month the pre-seed round closes.
 Version of 26 November 2026: five years, three revenue lines, lender book conversion (D-37), terms of D-39.
 D-49 (owner, 26 November): one average facility for the market and the lender line, contract value × debt
-multiple, flexed by case. D-50 (owner, 26 November): $80M base at the $10,000 cap ($66.7M × 1.2), $102M
+multiple, flexed by case. D-50 (owner, 26 November): $80M base ($66.7M × 1.2), $102M
 upside ($85M × 1.2), $48M conservative ($40M × 1.2).
 The investor copy (D-47): labels cleared of internal references, the round's use of funds added to the Inputs
 and Summary sheets. D-48 (owner, 26 November): the developer-direct line of the 4 November build is removed,
@@ -166,7 +166,7 @@ inp("q_mu", "Queensland share of multi-unit work", 0.196, 0.196, 0.196, "% of va
 inp("q_ci", "Queensland share of C&I work", 0.182, 0.182, 0.182, "% of value", "Reported (proxy)", IB21 + ", share of establishments; used as the proxy for work done.", F_PCT)
 inp("build_mu", "Average build period, apartments", 29, 29, 29, "months", "Measured", "ABS average completion time, FY2025-26: 9.54 quarters (10.03 in Queensland).", F_INT)
 inp("build_ci", "Average build period, C&I jobs of $10M or more", 24, 24, 24, "months", "Estimate", "Cross-check: ABS non-residential work yet to be done $76.4bn at March 2026 against about $70bn of work a year.", F_INT)
-inp("proj_val", "Average contract value, jobs of $10M or more", 66.7, 85, 40, "A$M", "Estimate", "Owner's direction of 26 November 2026 (D-50): the base case prices an $80M average facility, so the build contract is $66.7M at 1.2 times. IRIS targets the upper end of the market, mid- and high-rise jobs that carry senior and mezzanine debt. Cross-checks: the top 50 builders' 2025 starts averaged about $61M (Hubexo, April 2026); SEQ apartment jobs on hold average about $48M (PRD, Sep 2026); a listed lender's senior construction loans about $39M (Jun 2026). Upside $85M contract ($102M facility); conservative $40M ($48M facility). The Market sheet uses the base case.", F_NUM)
+inp("proj_val", "Average contract value, jobs of $10M or more", 200 / 3, 85, 40, "A$M", "Estimate", "Owner's direction of 26 November 2026 (D-50): the base case prices an $80M average facility, so the build contract is $66.7M at 1.2 times. IRIS targets the upper end of the market, mid- and high-rise jobs that carry senior and mezzanine debt. Cross-checks: the top 50 builders' 2025 starts averaged about $61M (Hubexo, April 2026); SEQ apartment jobs on hold average about $48M (PRD, Sep 2026); a listed lender's senior construction loans about $39M (Jun 2026). Upside $85M contract ($102M facility); conservative $40M ($48M facility). The Market sheet uses the base case.", F_NUM)
 inp("fac_ratio", "Project debt stack as a multiple of the build contract", 1.2, 1.2, 1.2, "times", "Estimate",
     "The fee is charged on the whole debt facility, senior alone or senior plus mezzanine. Lenders fund 60–80% of total development cost (banks 60–70%, non-banks 75–80%: Feasly, Vertex Capital 2026) and the build is about two-thirds of that cost. Senior plus mezzanine at 80% of cost is 1.2 times the build contract, in all three cases.", '0.00')
 inp("distress", "Share of live funded projects that stall or default in a year", 0.04, 0.05, 0.03, "% a year", "Estimate",
@@ -176,8 +176,7 @@ section("2. Pricing (company decisions)")
 inp("price_b", "IRIS for Builders: subscription per live job", 3500, 3500, 3500, "A$ a month", "Company", "Follows the builder across its jobs.", F_MONEY)
 inp("bps", "IRIS for Lenders: facility fee", 15, 15, 12.5, "bps a year", "Company", "On the full project debt stack, paid by the developer as a condition of the facility, as it pays the QS. Cross-check: QS progress monitoring on a job of this size is in the same range (Pekaj Group 2026; Feasly 2026).", '0.0')
 inp("fee_floor", "Facility fee floor", 3500, 3500, 3500, "A$ a month", "Company", "No facility pays less than a builder subscription.", F_MONEY)
-inp("fee_cap", "Facility fee cap", 10000, 12500, 10000, "A$ a month", "Company", "Keeps the fee proportionate on large facilities. At 15 bps the cap is reached at $80M, the base-case average facility, which pays the cap: $120,000 a year. The upside cap of $12,500 is reached at $100M.", F_MONEY)
-derived("fac_avg", "Average facility, full debt stack", lambda L: f"={L}{REF['proj_val']}*{L}{REF['fac_ratio']}", "A$M", "Average contract value × debt multiple, from section 1, so the lender line and the Market sheet price the same facility. Base case: $80M, which is $120,000 a year at 15 bps, at the cap.", F_NUM)
+derived("fac_avg", "Average facility, full debt stack", lambda L: f"={L}{REF['proj_val']}*{L}{REF['fac_ratio']}", "A$M", "Average contract value × debt multiple, from section 1, so the lender line and the Market sheet price the same facility. Base case: $80M, which is $120,000 a year at 15 bps. No cap (owner, 26 November 2026, D-51).", F_NUM)
 inp("assess_fee", "Distressed-project assessment, per engagement", 35000, 45000, 25000, "A$", "Estimate (benchmarked)",
     "Benchmark: a QS initial financier's report on a commercial job is $8,000–20,000, non-bank lenders at the upper end; a final account review $2,000–5,000 (Pekaj Group, 2026); full QS cost management runs 0.5–2% of build value (Feasly, 2026). An assessment on a stalled $40M job sits between an initial report and a cost-management engagement.", F_MONEY)
 
@@ -380,7 +379,7 @@ def build_month_sheet(ws, col, title):
     row_def("livef", "Facilities under the condition, end of month", "facilities",
             lambda m, p: f"={(p + str(R['livef']) + '+') if p else ''}{m}{R['newf']}+{m}{R['rollf']}-{m}{R['endf']}", F_CNT1, "stock")
     row_def("fee_f", "Fee per facility", "A$ a month",
-            lambda m, p: f"=MIN(MAX({I('fac_avg',col)}*1000000*{I('bps',col)}/10000/12,{I('fee_floor',col)}),{I('fee_cap',col)})", F_MONEY, "stock")
+            lambda m, p: f"=MAX({I('fac_avg',col)}*1000000*{I('bps',col)}/10000/12,{I('fee_floor',col)})", F_MONEY, "stock")
     row_def("rev_f", "IRIS for Lenders revenue (paid by developers)", "A$", lambda m, p: f"={m}{R['livef']}*{m}{R['fee_f']}", F_MONEY)
     blank()
     blank("IRIS for Builders")
@@ -539,7 +538,7 @@ mline("live_n", "Live projects in scope, Australia", f"={mref('live_val')}*1000/
 mline("live_dev", "of which developer-funded (facility fee)", f"={mref('dev_live')}*1000/{IB('proj_val')}", "projects", "", F_CNT)
 mline("live_oth", "of which other (builder subscription)", f"={mref('live_n')}-{mref('live_dev')}", "projects", "", F_CNT)
 msec("C. Price per job")
-mline("fee_fac", "Facility fee per facility a year", f"=MIN(MAX({IB('fac_avg')}*1000000*{IB('bps')}/10000,{IB('fee_floor')}*12),{IB('fee_cap')}*12)", "A$ a year", "Average facility (Inputs, section 2) × bps, within floor and cap.", F_MONEY)
+mline("fee_fac", "Facility fee per facility a year", f"=MAX({IB('fac_avg')}*1000000*{IB('bps')}/10000,{IB('fee_floor')}*12)", "A$ a year", "Average facility (Inputs, section 2) × bps, above the floor.", F_MONEY)
 mline("fee_b", "Builder subscription per job a year", f"={IB('price_b')}*12", "A$ a year", "", F_MONEY)
 mline("fee_a", "Assessments a year, Australia", f"={mref('live_dev')}*{IB('distress')}*{IB('assess_fee')}/1000000", "A$M a year", "Distressed funded projects a year × fee.", F_MONEY_M)
 msec("D. Market, A$ millions a year")
@@ -746,7 +745,7 @@ lines = [
     ("Summary: five years for each case, unit economics, the market, and the round with its use of funds. Market: the total, serviceable and obtainable market, built up from building work a year. Inputs: each input with its unit, type and source. Base, Upside and Conservative: the monthly model for each case over 60 months, with yearly totals at the right.", font()),
     ("", None),
     ("What the model assumes", font(bold=True)),
-    ("Three revenue lines. IRIS for Lenders: a lender writes IRIS into facilities as a drawdown condition; the developer pays 15 bps a year on the full project debt stack, senior debt alone or senior with mezzanine, within a floor and a cap; the average facility is the average contract value times the debt multiple, which is $80M in the base case, $102M in the upside and $48M in the conservative case; each lender adds new facilities each month and its existing book comes under the condition as loans re-paper. IRIS for Builders: a subscription per live job that follows the builder. Assessments: a per-engagement fee, benchmarked to QS reports, on distressed facilities on the platform and a small number won off it.", font()),
+    ("Three revenue lines. IRIS for Lenders: a lender writes IRIS into facilities as a drawdown condition; the developer pays 15 bps a year on the full project debt stack, senior debt alone or senior with mezzanine, above a floor of $3,500 a month and with no cap; the average facility is the average contract value times the debt multiple, which is $80M in the base case, $102M in the upside and $48M in the conservative case; no cap (D-51); each lender adds new facilities each month and its existing book comes under the condition as loans re-paper. IRIS for Builders: a subscription per live job that follows the builder. Assessments: a per-engagement fee, benchmarked to QS reports, on distressed facilities on the platform and a small number won off it.", font()),
     ("The lender adoption cadence (20 lenders by Year 5) and the facilities each lender adds are company targets. The distress rate (4% a year) is a company estimate. Each input carries its type and source on the Inputs sheet.", font()),
     ("The round is a $750K pre-seed SAFE at a $4M valuation cap, received in month 1. A $3M seed is assumed in month 15. A Series A is optional and shown separately.", font()),
     ("No R&D tax refund, no insurer or surety revenue, no interest income. Costs are paid in the month incurred. A$ excluding GST.", font()),
