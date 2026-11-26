@@ -1,0 +1,60 @@
+<section id="apx-architecture" data-transition="fade" style="display:flex; flex-direction:column; gap:24px; padding:112px 128px 160px; background:#ffffff">
+  <p data-iris-label="1" style="position:absolute; top:62px; left:128px; width:1500px; font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1; letter-spacing:3px; text-transform:uppercase; color:#0a0a0a">Appendix A12 · Backs slides 6 and 7 · Architecture</p>
+  <h2 style="font-family:Inter, Arial, sans-serif; font-size:52px; font-weight:600; line-height:1.1; letter-spacing:-1px; color:#0a0a0a">Rules produce each finding; models read and explain the records.</h2>
+  <p style="font-family:Inter, Arial, sans-serif; font-size:26px; line-height:1.4; color:#2a2a2a"><b>Slides 6 and 7</b> show the product. How it is built and what exists today; R1 to R7 are its releases, in order.</p>
+  <div style="display:flex; flex-direction:column; flex:1">
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; padding:0 0 12px; border-bottom:2px solid #0a0a0a">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.2; letter-spacing:3px; text-transform:uppercase; color:#6b6b6b">Layer</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.2; letter-spacing:3px; text-transform:uppercase; color:#6b6b6b">What it does</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.2; letter-spacing:3px; text-transform:uppercase; color:#6b6b6b">Status</p>
+    </div>
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; align-items:center; flex:1; padding:8px 0">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Connectors</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Read-only API access; nothing written back</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Procore, proof of concept</p>
+    </div>
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Canonical project model</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">One model of the job, whatever the vendor</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">In build, R1</p>
+    </div>
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Verification checks</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Rules held as data; each finding keeps one ID</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">In build, R1</p>
+    </div>
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Evidence links</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Each finding opens the records behind it</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Proof of concept</p>
+    </div>
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Isolation, roles, audit log</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Each customer walled off; each read logged</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">R1 and R2</p>
+    </div>
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Correspondence and email</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Notices and claims read into the model</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Planned, R3</p>
+    </div>
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Chat over the records</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Answers cite records; says when it cannot tell</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Demo; R4</p>
+    </div>
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Aconex, ProcurePro, PayApps</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">More systems on the same framework</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Planned, R5</p>
+    </div>
+    <div style="display:grid; grid-template-columns:470px 1fr 330px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Lender and developer views</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Scoped views behind an audited boundary</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Planned, R7</p>
+    </div>
+  </div>
+  <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.42; color:#6b6b6b">The moat: the project model and its library of checks, which a follower must rebuild, and the condition in lenders’ documents.</p>
+  <p style="position:absolute; right:128px; bottom:64px; width:200px; font-family:Inter, Arial, sans-serif; font-size:24px; text-align:right; color:#6b6b6b">A12</p>
+  <aside>Backs slides 6 and 7. The platform plan (draft for review, November 2026) sets seven constraints: read-only access to the source systems; lineage from each figure to its source record; findings produced by deterministic rules, with models used to classify, extract and explain; tenant isolation by row-level security, tested; contract mechanics such as notice periods and time bars held as data; a canonical project model independent of any vendor’s schema; and retained content encrypted, access-logged and deleted on exit. Layers: source records are landed as received, mapped into the canonical project model, and checked by the verification engine, which writes findings, findings of absence (what should exist and does not) and the links to the evidence; the views and reports read from there. The engine holds its checks as data, gives each finding a stable identity from one run to the next, records the version of the check that produced it, and counts each exposure once in a headline figure. Hosting: Microsoft Azure, Australia East. Today the proof of concept runs on prototype infrastructure against a Procore sandbox; its chat is a demonstration. Each release is anchored to a business milestone: R1 pilot proof, in progress (contract position, programme position, and cost and cash flow on live data; verification checks; evidence drill to source; sign-in and deployment); R2 enterprise foundation (tenant isolation, role-based access, orchestration, point-in-time history, data-quality testing, self-serve onboarding, certification readiness); R3 unstructured intelligence (email and file stores read into the model, with document-derived facts kept as a distinct class of evidence); R4 conversational intelligence (answers that cite records and decline when the data cannot support an answer); R5 multi-source connectors (Aconex, ProcurePro and PayApps, with entity resolution, which completes reconciliation across systems); R6 full domain coverage (trade letting, design and documentation, quality); R7 portfolio and capital layer (scoped developer and funder views with an enforced, auditable boundary). Jobpac is not yet scheduled (O-23). Which releases this round funds is set by the engineering partner’s statement of work. The moat: the canonical model and the library of checks, which encode contract mechanics and grow with each job and each standard form of contract; an evidence trail a lender can audit; and, once the condition is in a lender’s documents, the cost to that lender of changing a monitoring standard written into its facilities. Across enough facilities, the record of findings against outcomes becomes a measure of construction risk that no single builder or lender holds. Not claimed: universal coverage, an accuracy figure, or certification.</aside>
+</section>

@@ -31,6 +31,14 @@ VARIANTS = [
     ("Projects that stall a year (base 4%)", "2%", {"distress": [0.02, 0.05, 0.03]}),
     ("Projects that stall a year (base 4%)", "6%", {"distress": [0.06, 0.05, 0.03]}),
     ("Seed round (base month 15)", "Month 18", {"seed_m": [18, 15, 15]}),
+    # Downside cases (kind "down"): lender adoption, retention and the seed.
+    ("Lender adoption", "Every lender twelve months later", {"table:lenders_shift": 12}, "down"),
+    ("Lender adoption", "No lender in five years: builders and assessments alone", {"table:lenders_shift": 60}, "down"),
+    ("Lender retention", "Each lender stops adding facilities after three years", {"lend_life": [36, 60, 60]}, "down"),
+    ("Seed round ($3M at month 15)", "At month 21", {"seed_m": [21, 15, 15]}, "down"),
+    ("Seed round ($3M at month 15)", "$1.5M", {"seed": [1500000, 3000000, 3000000]}, "down"),
+    ("Seed round ($3M at month 15)", "No seed", {"seed": [0, 3000000, 3000000]}, "down"),
+    ("Combined", "Lenders twelve months later and a $1.5M seed at month 21", {"table:lenders_shift": 12, "seed": [1500000, 3000000, 3000000], "seed_m": [21, 15, 15]}, "down"),
 ]
 
 def run(override):
@@ -47,10 +55,13 @@ def run(override):
                 if isinstance(v, str) and v.startswith(l): return i
         g = lambda l, c=6: S.cell(row=row(l), column=c).value
         return {"rev5": g("Total revenue"), "ebitda5": g("Operating result"), "arr60": g("Annualised revenue at year end"),
-                "low_cash": g("Lowest cash with seed (base)", 2), "ebitda3": g("Operating result", 4)}
+                "low_cash": g("Lowest cash with seed (base)", 2), "ebitda3": g("Operating result", 4),
+                "neg_month": g("First month cash with seed goes negative, base", 2)}
 
 results = {"base": run({}), "variants": []}
-for grp, lab, ov in VARIANTS:
-    results["variants"].append({"group": grp, "change": lab, **run(ov)})
+for v in VARIANTS:
+    grp, lab, ov = v[:3]
+    kind = v[3] if len(v) > 3 else "one"
+    results["variants"].append({"group": grp, "change": lab, "kind": kind, **run(ov)})
     print(grp, lab, results["variants"][-1])
 json.dump(results, open(os.path.join(HERE, "sensitivities.json"), "w"), indent=1)

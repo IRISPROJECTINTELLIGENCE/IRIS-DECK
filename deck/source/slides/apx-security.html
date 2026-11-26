@@ -1,0 +1,60 @@
+<section id="apx-security" data-transition="fade" style="display:flex; flex-direction:column; gap:24px; padding:112px 128px 160px; background:#ffffff">
+  <p data-iris-label="1" style="position:absolute; top:62px; left:128px; width:1500px; font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1; letter-spacing:3px; text-transform:uppercase; color:#0a0a0a">Appendix A13 · Backs slides 6 and 10 · Security and reliance</p>
+  <h2 style="font-family:Inter, Arial, sans-serif; font-size:52px; font-weight:600; line-height:1.1; letter-spacing:-1px; color:#0a0a0a">The builder grants access, and each read of its data is logged.</h2>
+  <p style="font-family:Inter, Arial, sans-serif; font-size:26px; line-height:1.4; color:#2a2a2a">What a lender’s security and credit teams will ask, and how IRIS answers.</p>
+  <div style="display:flex; flex-direction:column; flex:1">
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; padding:0 0 12px; border-bottom:2px solid #0a0a0a">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.2; letter-spacing:3px; text-transform:uppercase; color:#6b6b6b">Requirement</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.2; letter-spacing:3px; text-transform:uppercase; color:#6b6b6b">How IRIS meets it</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.2; letter-spacing:3px; text-transform:uppercase; color:#6b6b6b">Status</p>
+    </div>
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; align-items:center; flex:1; padding:8px 0">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Hosting</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Azure, Australia; encrypted in transit and at rest</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">R1</p>
+    </div>
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Access</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">The builder authorises each connection, read-only</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">By design</p>
+    </div>
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Who sees what</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Lender: its job, as totals and records; rates stay</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Proposed rule</p>
+    </div>
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Isolation</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Each customer’s data walled off and tested</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">R2</p>
+    </div>
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Audit trail</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Each data access logged; findings keep history</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">R1</p>
+    </div>
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Data handling</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Builder controls, IRIS processes; deleted on exit</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Before live use</p>
+    </div>
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Assurance</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Security audit and penetration test</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">After the raise</p>
+    </div>
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Reliance</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">The builder’s records, reconciled and dated</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Terms of use</p>
+    </div>
+    <div style="display:grid; grid-template-columns:430px 1fr 300px; gap:28px; align-items:center; flex:1; padding:8px 0; border-top:1px solid #d6d6d6">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#0a0a0a">Insurance</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.35; color:#2a2a2a">Professional indemnity and cyber cover</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:#d03b39">Before paid use</p>
+    </div>
+  </div>
+  <p style="font-family:Inter, Arial, sans-serif; font-size:24px; line-height:1.42; color:#6b6b6b">IRIS values and certifies nothing. The QS, the valuer and the lender’s credit judgement stay.</p>
+  <p style="position:absolute; right:128px; bottom:64px; width:200px; font-family:Inter, Arial, sans-serif; font-size:24px; text-align:right; color:#6b6b6b">A13</p>
+  <aside>Backs slides 6 and 10. From the security and privacy section of the platform plan (draft for review, November 2026). Hosting in Microsoft Azure, Australia East; data classified, collected to the minimum the checks need, and encrypted in transit and at rest. Access: the builder authorises each connection, per project, read-only; nothing is written back. Sign-in is by invitation with email and password in the first release, and single sign-on with multi-factor authentication in the second. Authorisation is by organisation and project in the first release, by domain in the second and by record in the seventh, enforced twice: by row-level security in the database and by a filter in the interface. Who sees what (proposed rule, O-20): the builder sees all of its own data; a lender or developer sees the job it funds, as totals, movement and the records behind them, with trade letting and rates kept in the builder’s view unless cost to finish exceeds what is left in the contract or the lender steps in. Auditability: each access to data is logged from the first release; each finding records the version of the check that produced it and links to its source records, and the history is kept, so a lender can see what was known and when. Data handling: the builder is the controller and IRIS the processor; no customer’s data is used for another without permission; a data-processing agreement is signed before any live deployment; retention is set with counsel; on exit the data is deleted and a deletion certificate issued. Assurance: an independent security audit, penetration test and access review, with the questionnaire pack lenders send, in the months after the raise; certification-ready at the second release; formal certification (ISO 27001 or SOC 2) when a lender’s procurement requires it; incident response in place before the first paid deployment. Reliance: what IRIS gives a lender is the builder’s own records, reconciled, dated and linked to their source. IRIS values nothing, certifies nothing and does not assess cost to complete, so the lender relies on where each figure comes from and keeps its QS, its valuer and its own credit judgement. Terms of use say so and are set with the design partner; there is no reliance letter. Professional indemnity and cyber insurance are in place before the first paid deployment, and grow as lender use grows. Service targets proposed for the enterprise release: 99.5% availability in business hours, recovery within four hours, and no more than a day of data lost.</aside>
+</section>
