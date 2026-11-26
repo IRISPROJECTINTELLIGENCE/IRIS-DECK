@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the eleven appendix pages (A1-A11) of the IRIS Investment Summary.
+"""Generate the eleven appendix pages (A1-A11) of the IRIS Investor Pitch Deck.
 
 Usage: python3 -I build_appendix.py <out_dir> [inter-variable.woff2]
 

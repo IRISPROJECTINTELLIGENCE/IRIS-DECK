@@ -3,6 +3,10 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, 19:04: deck renamed (v828, 1795683967-ec21; appendix v30, 1795683970-e0ad)
+
+- Owner's direction: the deck is now "IRIS Investor Pitch Deck" (was "IRIS Investment Summary"); the appendix is "IRIS Investor Pitch Deck · Appendix". Cover label to match: "Investor pitch deck · Pre-seed · AUD $750K SAFE · $4M post-money cap · November 2026" (1,379 of 1,664px, one line). Exports are named IRIS-Investor-Pitch-Deck-v<N>.pdf from here on.
+
 ## 26 November 2026, 18:09: the fee basis stated (v827, 1795680549-d34b)
 
 - Owner comment on slide 10 ("bps of what?"). Who pays, scale row: "Developer, 15 bps of the loan; fee per assessment" (was "Developer, 15 bps; …"). To hold it on two lines the table's columns go from 250 / 560 / 1fr / 230px to 225 / 560 / 1fr / 280px; measured, every cell keeps its line count (the cell 270 of 280px; the tightest others "Now · Builder pilots" 214 of 225px and the design-partner gate 483 of 495px), so the panel height is unchanged.
