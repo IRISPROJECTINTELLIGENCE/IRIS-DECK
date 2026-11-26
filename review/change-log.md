@@ -20,7 +20,7 @@ Owner decisions in session (D-48): the developer-direct line comes out of the mo
 | A10 | Builder-access row states the R&D partnership (was "negotiated, not assumed"); notes point to slides 13 and 9. | Status changed on 22–24 November. |
 | Product requirements | Developer-direct subscriptions taken out of the users table and R7 (they were added in the 15 November markup, not in the first draft). | D-48. |
 
-Tie-out after the changes: 48 figures on slides 6, 10, 11, 13, A5 and A6 checked by script against the workbook, all equal. Banned-word check across both decks and both workbooks: no hits. Open after the check: O-22 (two facility sizes), O-18 (market labels), O-21 and O-23 (deck against the product documents), O-16, O-15, O-13, O-19.
+Tie-out after the changes: 47 checks covering 120 figures on slides 6, 10, 11, 13, A5 and A6, run by script against the workbook. One difference was found (A6 Year 2 EBITDA) and fixed; all now equal. Banned-word check across both decks and both workbooks: no hits. Open after the check: O-22 (two facility sizes), O-18 (market labels), O-21 and O-23 (deck against the product documents), O-16, O-15, O-13, O-19.
 
 
 ## 26 November 2026, late morning (v712 → v726; workbook; competitor table)
