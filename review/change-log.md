@@ -3,6 +3,12 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, late afternoon (v806 → v807; appendix v25 → v26) — original fonts, new colours
+
+Owner: "put the font back to how it was before i asked for suggestions but keep the colours how they are now."
+
+- Both decks: typography restored exactly to the pre-suggestion version (Inter, original weights and spacing, spaced-capital labels); colours kept from the Swiss restyle (white, neutral greys, red #D7141A, black section labels). Checked slide by slide: colours identical to v806, typography identical to the version of 15:06 (main) and e97d0ab (appendix), speaker notes unchanged. Faces: Inter only.
+
 ## 26 November 2026, late afternoon (v805 → v806; appendix v24 → v25) — design reverted to Swiss
 
 Owner rejected the serif of direction 2. Both decks restored exactly to the Swiss version (main v804, appendix v23): white, near-black, red #D7141A, Inter Tight headings, Inter body. Repo files restored from 6eb4d26 and checked byte for byte against what was published; `restyle_research.py` removed.

@@ -15,7 +15,6 @@ import html, io, json, os, re, sys
 
 F = "font-family:Inter, Arial, sans-serif"
 INK, BODY, MUTED, CORAL, RULE, RULE2 = "#0a0a0a", "#2a2a2a", "#6b6b6b", "#d7141a", "#d6d6d6", "#e6e6e6"
-FT = "font-family:'Inter Tight', Inter, Arial, sans-serif"  # headings (Swiss restyle, 26 Nov 2026)
 W, H, GAP, COLGAP = 1664, 808, 24, 28
 
 # ---------------------------------------------------------------- content
@@ -191,7 +190,7 @@ CELL = {
  "num":    f"{F}; font-size:24px; line-height:1.35; text-align:right; font-variant-numeric:tabular-nums; color:{INK}",
  "numb":   f"{F}; font-size:24px; font-weight:600; line-height:1.35; text-align:right; font-variant-numeric:tabular-nums; color:{INK}",
 }
-HEAD = f"{F}; font-size:24px; font-weight:600; line-height:1.2; color:{MUTED}"
+HEAD = f"{F}; font-size:24px; font-weight:600; line-height:1.2; letter-spacing:3px; text-transform:uppercase; color:{MUTED}"
 ROWPAD = 8
 
 def p(text, style): return f'<p style="{style}">{inline(text)}</p>'
@@ -225,8 +224,8 @@ def group_block(pg, label, rows, first):
 
 def page_html(pg):
     out = [f'<section id="{pg["id"]}" data-transition="fade" style="display:flex; flex-direction:column; gap:{GAP}px; padding:112px 128px 160px; background:#ffffff">']
-    out.append(f'  <p data-iris-label="1" style="position:absolute; top:62px; left:128px; width:1500px; {F}; font-size:24px; font-weight:600; line-height:1; color:{INK}">{esc(pg["label"])}</p>')
-    out.append(f'  <h2 style="{FT}; font-size:52px; font-weight:600; line-height:1.1; letter-spacing:-1.5px; color:{INK}">{esc(pg["h2"])}</h2>')
+    out.append(f'  <p data-iris-label="1" style="position:absolute; top:62px; left:128px; width:1500px; {F}; font-size:24px; font-weight:600; line-height:1; letter-spacing:3px; text-transform:uppercase; color:{INK}">{esc(pg["label"])}</p>')
+    out.append(f'  <h2 style="{F}; font-size:52px; font-weight:600; line-height:1.1; letter-spacing:-1px; color:{INK}">{esc(pg["h2"])}</h2>')
     out.append(f'  <p style="{F}; font-size:26px; line-height:1.4; color:{BODY}">{inline(pg["stand"])}</p>')
     out.append('  <div style="display:flex; flex-direction:column; flex:1">')
     if pg.get("head"): out.append(head_row(pg))
@@ -289,12 +288,12 @@ def measure(pg, lines):
         return lines(rs, 24, w)
     n, ws = lines([(pg["h2"], 600)], 52, W, -1.0); h = n * 52 * 1.1; rep.append(f"h2 {n} line(s) {ws}")
     n, ws = lines(runs(pg["stand"]), 26, W); h += GAP + n * 26 * 1.4; rep.append(f"standfirst {n} line(s) {ws}")
-    n, ws = lines([(pg["label"], 600)], 24, 1500); rep.append(f"label {n} line(s) {ws}")
+    n, ws = lines([(pg["label"].upper(), 600)], 24, 1500, 3.0); rep.append(f"label {n} line(s) {ws}")
     table = 0.0; px = colpx(pg["cols"])
     if pg.get("head"):
         m = 1
         for c, w in zip(pg["head"], px):
-            n, ws = lines([(norm(c)[0], 600)], 24, w); m = max(m, n)
+            n, ws = lines([(norm(c)[0].upper(), 600)], 24, w, 3.0); m = max(m, n)
             if n > 1: rep.append(f"  HEADER WRAPS: {norm(c)[0]} {ws} / {round(w)}")
         table += m * 24 * 1.2 + 12 + 2
     def row_h(row, widths, tag):
