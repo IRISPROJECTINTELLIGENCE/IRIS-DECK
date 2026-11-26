@@ -3,6 +3,10 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, mid-afternoon (v800 → v801; appendix v21 → v22; workbook) — D-53
+
+- Inputs: the back-solved $66.7M and $85M contracts removed; the facility under IRIS is an input ($80M / $102M / $48M). Summary sheet identical cell for cell. Slide 11 and A6 notes updated. Tie-out 58 checks, 0 failed.
+
 ## 26 November 2026, mid-afternoon (v799 → v800; appendix v20 → v21; workbook) — D-52
 
 - New input: average contract across the market ($40M), used by the Market sheet for the job count and the market facility fee; the facilities under IRIS stay $80M base. Recalculated, 0 errors.

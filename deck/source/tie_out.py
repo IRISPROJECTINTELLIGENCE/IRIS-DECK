@@ -69,7 +69,7 @@ assert ue("First month cash with seed goes negative, base") == 99 and ue("First 
 checks.append((True, "11", "cash positive with the seed in all three cases (year ends; base and conservative month by month)", "check"))
 # slide 11 notes
 chk("11 notes", "Year 1 costs", f"Year 1 costs (${k(cost[0])}K)", ecn)
-chk("11 notes", "facility basis", f"average ${int(rnd(fa[0]))}M across the whole debt stack, a ${rnd(iv('Average build contract on facilities'),1)}M contract at {iv('Project debt stack as a multiple')} times", ecn)
+chk("11 notes", "facility basis", f"average ${int(rnd(fa[0]))}M across the whole debt stack (senior alone or senior with mezzanine), entered directly by case", ecn)
 chk("11 notes", "fee per facility", f"${int(ue('Annualised fee per facility')):,} a year at 15 bps", ecn)
 # slide 13 notes
 chk("13 notes", "Year 1 costs and revenue", f"${k(cost[0])}K against $650K of spend lines here; Year 1 revenue of ${k(rev[0])}K", ran)
@@ -101,9 +101,9 @@ chk("A6 notes", "each basis point", f"each basis point of fee is about ${rnd(ue(
 chk("A6 notes", "revenue list", "revenue " + " / ".join(m2(x) for x in rev), a6n)
 chk("A6 notes", "EBITDA list", "EBITDA " + " / ".join(m2(x) for x in op), a6n)
 chk("A6 notes", "upside and conservative", f"Upside ${int(rnd(sv('Total revenue',1)[4]/1e6))}M and conservative ${rnd(sv('Total revenue',2)[4]/1e6,1)}M in Year 5", a6n)
-chk("A6 notes", "facility by case", f"${rnd(iv('Average build contract on facilities'),1)}M at 1.2 times in the base case (${int(rnd(fa[0]))}M), ${int(iv('Average build contract on facilities',3))}M at 1.2 times in the upside (${int(rnd(fa[1]))}M", a6n)
+chk("A6 notes", "facility by case", f"average ${int(rnd(fa[0]))}M in the base case, ${int(rnd(fa[1]))}M in the upside and ${int(rnd(fa[2]))}M in the conservative case", a6n)
 chk("A6 notes", "Years 2 and 4", f"{int(rnd(len_[1]))} and {int(rnd(len_[3]))} lenders on {int(rnd(fac[1]))} and {int(rnd(fac[3]))} facilities; {int(rnd(jobs[1]))} and {int(rnd(jobs[3]))} paid builder jobs; {int(rnd(team[1]))} and {int(rnd(team[3]))} people", a6n)
-assert iv("Average build contract on facilities", 3) == 85 and iv("Project debt stack as a multiple", 4) == 1.2
+assert fa == [80, 102, 48] and iv("Project debt stack as a multiple", 4) == 1.2
 bad = [c for c in checks if not c[0]]
 for ok, where, label, shown in checks:
     print(("ok  " if ok else "FAIL"), f"{where:9s}", label, "|", shown[:110])

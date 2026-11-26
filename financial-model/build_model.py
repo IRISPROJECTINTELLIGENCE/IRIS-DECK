@@ -6,8 +6,7 @@ Every other number is a formula. Month 1 is the month the pre-seed round closes.
 Version of 26 November 2026: five years, three revenue lines, lender book conversion (D-37), terms of D-39.
 D-49 (owner, 26 November): one average facility for the market and the lender line, contract value × debt
 multiple, flexed by case. D-52: the market counts jobs at the $40M market average; the lender line uses the facilities under IRIS.
-D-50 (owner, 26 November): $80M base ($66.7M × 1.2), $102M
-upside ($85M × 1.2), $48M conservative ($40M × 1.2).
+D-50 (owner, 26 November): facilities under IRIS of $80M base, $102M upside, $48M conservative, entered directly.
 The investor copy (D-47): labels cleared of internal references, the round's use of funds added to the Inputs
 and Summary sheets. D-48 (owner, 26 November): the developer-direct line of the 4 November build is removed,
 and the workbook is formatted as plain Excel (Calibri 11, black text, bold headings, thin rules, no fills).
@@ -168,9 +167,8 @@ inp("q_ci", "Queensland share of C&I work", 0.182, 0.182, 0.182, "% of value", "
 inp("build_mu", "Average build period, apartments", 29, 29, 29, "months", "Measured", "ABS average completion time, FY2025-26: 9.54 quarters (10.03 in Queensland).", F_INT)
 inp("build_ci", "Average build period, C&I jobs of $10M or more", 24, 24, 24, "months", "Estimate", "Cross-check: ABS non-residential work yet to be done $76.4bn at March 2026 against about $70bn of work a year.", F_INT)
 inp("mkt_job", "Average contract value, all live jobs of $10M or more (market)", 40, 40, 40, "A$M", "Estimate", "Counts the live jobs in the market. Cross-checks: SEQ apartment jobs on hold average about $48M (PRD, Sep 2026); a listed lender's senior construction loans about $39M (Jun 2026); the top 50 builders' 2025 starts averaged about $61M (Hubexo, April 2026). Kept apart from the facilities under IRIS below (D-52), so targeting larger jobs does not shrink the count of jobs in the market.", F_NUM)
-inp("proj_val", "Average build contract on facilities under IRIS", 200 / 3, 85, 40, "A$M", "Estimate", "Owner's direction of 26 November 2026 (D-50): the facilities IRIS is written into average $80M, so the build contract is $66.7M at 1.2 times. The lenders that adopt first write the larger mid- and high-rise jobs that carry senior and mezzanine debt. Upside $85M contract ($102M facility); conservative $40M ($48M facility).", F_NUM)
 inp("fac_ratio", "Project debt stack as a multiple of the build contract", 1.2, 1.2, 1.2, "times", "Estimate",
-    "The fee is charged on the whole debt facility, senior alone or senior plus mezzanine. Lenders fund 60–80% of total development cost (banks 60–70%, non-banks 75–80%: Feasly, Vertex Capital 2026) and the build is about two-thirds of that cost. Senior plus mezzanine at 80% of cost is 1.2 times the build contract, in all three cases.", '0.00')
+    "The fee is charged on the whole debt facility, senior alone or senior plus mezzanine. Lenders fund 60–80% of total development cost (banks 60–70%, non-banks 75–80%: Feasly, Vertex Capital 2026) and the build is about two-thirds of that cost. Senior plus mezzanine at 80% of cost is 1.2 times the build contract. Used to turn the market's average job into an average facility.", '0.00')
 inp("distress", "Share of live funded projects that stall or default in a year", 0.04, 0.05, 0.03, "% a year", "Estimate",
     "Construction was 24.5% of FY2025-26 insolvencies (3,472 of 14,153, ASIC) and 37% in July–August 2026 with Bathla. There is no public series for funded $10M-plus projects; 4% is the company's estimate.", F_PCT)
 
@@ -178,7 +176,7 @@ section("2. Pricing (company decisions)")
 inp("price_b", "IRIS for Builders: subscription per live job", 3500, 3500, 3500, "A$ a month", "Company", "Follows the builder across its jobs.", F_MONEY)
 inp("bps", "IRIS for Lenders: facility fee", 15, 15, 12.5, "bps a year", "Company", "On the full project debt stack, paid by the developer as a condition of the facility, as it pays the QS. Cross-check: QS progress monitoring on a job of this size is in the same range (Pekaj Group 2026; Feasly 2026).", '0.0')
 inp("fee_floor", "Facility fee floor", 3500, 3500, 3500, "A$ a month", "Company", "No facility pays less than a builder subscription.", F_MONEY)
-derived("fac_avg", "Average facility under IRIS, full debt stack", lambda L: f"={L}{REF['proj_val']}*{L}{REF['fac_ratio']}", "A$M", "Build contract on facilities under IRIS × debt multiple; drives the lender line. Base case: $80M, which is $120,000 a year at 15 bps. No cap (D-51).", F_NUM)
+inp("fac_avg", "Average facility under IRIS, full debt stack", 80, 102, 48, "A$M", "Company (owner, D-50)", "The size of the facilities IRIS is written into, senior debt alone or senior with mezzanine. Set by the owner on 26 November 2026: the lenders that adopt first write the larger mid- and high-rise jobs. Base $80M is $120,000 a year at 15 bps; no cap (D-51). Drives the lender line only; the market is sized on the market average job above.", F_NUM)
 derived("mkt_fac", "Average facility across the market, full debt stack", lambda L: f"={L}{REF['mkt_job']}*{L}{REF['fac_ratio']}", "A$M", "Market average job × debt multiple; prices the facility fee in the Market sheet ($48M, $72,000 a year at 15 bps).", F_NUM)
 inp("assess_fee", "Distressed-project assessment, per engagement", 35000, 45000, 25000, "A$", "Estimate (benchmarked)",
     "Benchmark: a QS initial financier's report on a commercial job is $8,000–20,000, non-bank lenders at the upper end; a final account review $2,000–5,000 (Pekaj Group, 2026); full QS cost management runs 0.5–2% of build value (Feasly, 2026). An assessment on a stalled $40M job sits between an initial report and a cost-management engagement.", F_MONEY)
