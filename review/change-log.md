@@ -3,6 +3,14 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, 18:09: the fee basis stated (v827, 1795680549-d34b)
+
+- Owner comment on slide 10 ("bps of what?"). Who pays, scale row: "Developer, 15 bps of the loan; fee per assessment" (was "Developer, 15 bps; …"). To hold it on two lines the table's columns go from 250 / 560 / 1fr / 230px to 225 / 560 / 1fr / 280px; measured, every cell keeps its line count (the cell 270 of 280px; the tightest others "Now · Builder pilots" 214 of 225px and the design-partner gate 483 of 495px), so the panel height is unchanged.
+- Slide 6, IRIS for Lenders: "the developer pays 15 bps of the loan a year" (same gap; still three lines, 493 of 528px).
+- Notes on both slides state the basis: 15 bps a year of the loan amount, the full project debt (senior alone or with mezzanine), floor $3,500 a month, no cap, $120,000 a year on the base case's $80M facility (D-50, D-51).
+- Owner's in-page edits synced from 1795680124-00c9: cover thesis sentence "project data" (was "records"); slide 4 row 2 "Cost to complete on the contract sum", row 3 "what each trade is owed, how late, and what's in dispute"; slide 9 IRIS row "for both the lender and builder".
+- Slide 8 footer (owner comment): relevance and earlier wording answered in the thread, with a proposed rewrite that ties the valuation rule to what IRIS reads; not applied pending the owner's go-ahead.
+
 ## 26 November 2026, 17:51: the cap is post-money (v817, 1795679517-7326)
 
 - D-58 replaces D-57's pre-money setting. "$4M post-money cap" on the cover label, slide 2's round row and slide 13's runway line ("The cap is post-money. ..."); slide 13's notes add that post-money is the Australian standard and the investors hold 18.75% for $750K before the seed. Workbook Inputs basis and Read me updated; recalculated with no errors; tie-out 84 checks, 0 failed. Line fit measured: cover label 1,394 of 1,664px; slide 2 round row two lines; slide 13 runway line one.
