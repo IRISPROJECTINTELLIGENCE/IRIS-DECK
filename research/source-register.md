@@ -13,7 +13,10 @@ Every public source the deck cites or relies on, with the figure taken, the date
 | Redemptions paused: Centuria Bass 14 Aug; CVS Lane and MA Financial late Aug | ABC News; Alternative Credit Investor | 28 Aug; 1 Oct 2026 | https://www.abc.net.au/news/2026-08-28/cvs-lane-joins-list-of-firms-limiting-investor-redemptions/107089304 |
 | A senior Bathla loan sold for about $31.2M; receiver appointed to settle presales; ASIC commissioner "beyond warnings" | ABC News | 17 Oct 2026 | https://www.abc.net.au/news/2026-10-17/major-lender-in-bathla-development-sells-debts/107269278 |
 | MA Financial suspended redemptions on a $2.3bn secured loan fund; a second fund wound up | Financial Standard | 22 Oct 2026 | https://www.financialstandard.com.au/news/ma-financial-locks-down-flagship-private-credit-fund-shutters-another-179814352 |
-| Lender exits before the failure; about 12 lenders refinanced the projects | The Urban Developer; Rampart | 25 Aug; 6 Sep 2026 | not re-read in this pass |
+| A lender of about ten years exited its exposure by January 2026, refinancing its remaining projects to about 12 other lenders from late 2024 | The Urban Developer; Rampart (open section) | 25 Aug; 6 Sep 2026 | Re-read 26 Nov 2026. https://www.theurbandeveloper.com/articles/bathla-group-administration-sydney-developer-collapse-debts-teneo-appointed ; Rampart is paywalled after its opening and its link is withheld because the title names a lender this repository does not name |
+| A construction loan on 339 apartments at Rouse Hill, among six facilities ($278M) to the group; the lender paying subcontractors directly; both of its construction projects close to completion | Centuria Capital Group, FY26 results presentation, slide 16 | 27 Aug 2026 | https://investorpa.com/announcement-pdf/20260827/333892.pdf |
+| Occupation certificate for that 339-apartment project | The North West News; the lender's ASX announcement of the same day | 22 Sep 2026 | https://www.thenorthwestnews.au/news/item/2943-bathla-rouse-hill-project-clears-major-hurdle-with-occupation-certificate |
+| Slide 3: that project "rated low to medium risk at 83% complete in December 2025" | Cited in the slide notes to Rampart, 6 Sep 2026 | n/a | NOT CONFIRMED on 26 Nov 2026: neither figure is in the open section of the article, and neither was found in ASX material, The Urban Developer, ABC or Financial Standard. Open item O-25 |
 | 76 frozen mortgage funds holding about $25bn by Aug 2009 | ASIC media release 09-148MR | Aug 2009 | https://asic.gov.au (release 09-148MR) |
 
 ## Regulation and valuations
@@ -26,6 +29,16 @@ Every public source the deck cites or relies on, with the figure taken, the date
 | Three listed credit funds halted before the open 28 Sep 2026; about $168M (4.7% of $3.55bn combined NAV) written down; audit not signed by 30 Sep | The Urban Developer | 30 Sep 2026 | https://www.theurbandeveloper.com/articles/metrics-delays-reporting-after-aud168m-fund-write-down |
 | Quotation and trading reinstated for the three funds | CFS notice | 7 Oct 2026 | https://www.cfs.com.au/content/dam/cfs-au/web/documents/corporate/metrics-funds-lift-suspension-notice.pdf |
 | June 2026 ASIC notice on valuations before 30 June; FSC standard from 1 Jul 2027 | ASIC; FSC (reported) | Jun 2026 | add release number and standard reference before circulation |
+
+## The lender's QS report and trade payment (slide 4, rows 2 and 3; read 26 Nov 2026)
+
+| Figure on the deck | Source | Date | URL |
+|---|---|---|---|
+| The lender's QS assesses cost to complete on the footing that the original contractor completes the works, and says whether funding is sufficient to complete; the builder's declaration is obtained before a drawdown is certified | AIQS guidance note, Construction Financing Reports, 2nd edition | Jul 2019 | https://www.aiqs.com.au/sites/default/files/uploaded-content/website-content/cfr2019.pdf |
+| With each payment claim a Queensland head contractor declares that its subcontractors have been paid what is owed, an amount being owed once its due date has passed; up to 100 penalty units for a false or missing statement | QBCC, supporting statement (BIF Act s 75, from 1 Oct 2020) | read 26 Nov 2026 | https://www.qbcc.qld.gov.au/running-your-business/getting-paid/request-payment/supporting-statement |
+| Of 40 contractors on eight large commercial projects in NSW, Victoria and Queensland, two may have signed false declarations that subcontractors were paid; false declarations may signal cash flow problems | ASIC media release 16-325MR | 27 Sep 2016 | https://asic.gov.au/about-asic/news-centre/find-a-media-release/2016-releases/16-325mr-asic-warns-directors-of-construction-companies-using-false-declarations |
+| Queensland project trust accounts apply to private-sector contracts of $10M or more; the rollout below $10M is paused (not on the slide; the likely question on row 3) | QBCC | 10 Feb 2025 | https://www.qbcc.qld.gov.au/news/pausing-further-rollout-trust-accounts |
+| "The QS certifies progress, not payment"; a cost-to-complete forecast assumes payment to subcontractors follows (a vendor's partner content, used as corroboration, not cited on the deck) | IPEX via The Urban Developer | 24 Mar 2026 | https://www.theurbandeveloper.com/articles/ipex-cash-to-complete-construction-payment-gap |
 
 ## Rates, housing, lending terms
 

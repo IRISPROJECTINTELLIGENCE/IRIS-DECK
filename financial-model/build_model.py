@@ -4,6 +4,8 @@ Run: python3 build_model.py <output.xlsx>
 All inputs live on the Inputs sheet (three cases side by side: Base, Upside, Conservative).
 Every other number is a formula. Month 1 is the month the pre-seed round closes.
 Version of 26 November 2026: five years, three revenue lines, lender book conversion (D-37), terms of D-39.
+D-49 (owner, 26 November): one average facility for the market and the lender line, contract value × debt
+multiple, flexed by case ($48M base, $73M upside, $40M conservative); it replaces the $80M input of D-33.
 The investor copy (D-47): labels cleared of internal references, the round's use of funds added to the Inputs
 and Summary sheets. D-48 (owner, 26 November): the developer-direct line of the 4 November build is removed,
 and the workbook is formatted as plain Excel (Calibri 11, black text, bold headings, thin rules, no fills).
@@ -55,7 +57,7 @@ def setw(ws, widths):
 setw(wi, {"A": 60, "B": 13, "C": 13, "D": 13, "E": 22, "F": 22, "G": 120})
 wi["A1"] = "IRIS five-year model: inputs"
 wi["A1"].font = font(bold=True, size=14)
-wi["A2"] = ("Inputs are in columns B to D, one column for each case. A$ excluding GST. "
+wi["A2"] = ("Inputs are in columns B to D, one column for each case; a row marked Derived is worked out from the rows it names. A$ excluding GST. "
             "Month 1 is the month the pre-seed round closes. A blank start month means that lender, builder, hire or round does not occur in that case within the five years.")
 wi["A2"].font = font(GREY, italic=True)
 for i, h in enumerate(["Input", "Base", "Upside", "Conservative", "Unit", "Type", "Source or basis"], 1):
@@ -96,6 +98,25 @@ def inp(key, label, base, up, cons, unit, typ, source, fmt, key_decision=False):
     s = wi.cell(row=row, column=7, value=source)
     s.font = font(GREY)
     s.alignment = Alignment(wrap_text=True, vertical="top")
+    REF[key] = row
+    row += 1
+
+
+def derived(key, label, fn, unit, source, fmt):
+    """A row on the Inputs sheet worked out from other inputs: one formula for each case."""
+    global row
+    wi.cell(row=row, column=1, value=label).font = font()
+    for col, letter in ((2, "B"), (3, "C"), (4, "D")):
+        c = wi.cell(row=row, column=col, value=fn(letter))
+        c.font = font()
+        c.number_format = fmt
+    u = wi.cell(row=row, column=5, value=unit)
+    u.font = font(GREY)
+    u.alignment = Alignment(indent=1)
+    wi.cell(row=row, column=6, value="Derived").font = font(GREY)
+    sc = wi.cell(row=row, column=7, value=source)
+    sc.font = font(GREY)
+    sc.alignment = Alignment(wrap_text=True, vertical="top")
     REF[key] = row
     row += 1
 
@@ -144,9 +165,9 @@ inp("q_mu", "Queensland share of multi-unit work", 0.196, 0.196, 0.196, "% of va
 inp("q_ci", "Queensland share of C&I work", 0.182, 0.182, 0.182, "% of value", "Reported (proxy)", IB21 + ", share of establishments; used as the proxy for work done.", F_PCT)
 inp("build_mu", "Average build period, apartments", 29, 29, 29, "months", "Measured", "ABS average completion time, FY2025-26: 9.54 quarters (10.03 in Queensland).", F_INT)
 inp("build_ci", "Average build period, C&I jobs of $10M or more", 24, 24, 24, "months", "Estimate", "Cross-check: ABS non-residential work yet to be done $76.4bn at March 2026 against about $70bn of work a year.", F_INT)
-inp("proj_val", "Average contract value, jobs of $10M or more", 40, 40, 40, "A$M", "Estimate", "Cross-checks: SEQ apartment jobs on hold average about $48M (PRD, Sep 2026); Qualitas senior construction loans about $39M (Jun 2026); top-50 builders' 2025 starts about $61M (Hubexo).", F_NUM)
-inp("fac_ratio", "Project debt stack as a multiple of the build contract", 1.2, 1.2, 1.2, "times", "Estimate",
-    "Lenders fund 60–80% of total development cost (banks 60–70%, non-banks 75–80%: Feasly, Vertex Capital 2026); the build is about two-thirds of that cost, so the full stack (senior plus mezzanine) is about 1.1–1.2 times the build contract.", '0.00')
+inp("proj_val", "Average contract value, jobs of $10M or more", 40, 61, 40, "A$M", "Estimate", "Cross-checks for $40M: SEQ apartment jobs on hold average about $48M (PRD, Sep 2026); Qualitas senior construction loans about $39M (Jun 2026). Upside: the lenders that adopt first write the larger jobs; the top 50 builders' 2025 starts averaged about $61M (Hubexo). The Market sheet uses the base case.", F_NUM)
+inp("fac_ratio", "Project debt stack as a multiple of the build contract", 1.2, 1.2, 1.0, "times", "Estimate",
+    "The fee is charged on the whole debt facility, senior alone or senior plus mezzanine. Lenders fund 60–80% of total development cost (banks 60–70%, non-banks 75–80%: Feasly, Vertex Capital 2026) and the build is about two-thirds of that cost. Senior plus mezzanine at 80% of cost is 1.2 times the build contract; the conservative case is senior debt alone at about 65% of cost, which is 1.0 times.", '0.00')
 inp("distress", "Share of live funded projects that stall or default in a year", 0.04, 0.05, 0.03, "% a year", "Estimate",
     "Construction was 24.5% of FY2025-26 insolvencies (3,472 of 14,153, ASIC) and 37% in July–August 2026 with Bathla. There is no public series for funded $10M-plus projects; 4% is the company's estimate.", F_PCT)
 
@@ -154,14 +175,14 @@ section("2. Pricing (company decisions)")
 inp("price_b", "IRIS for Builders: subscription per live job", 3500, 3500, 3500, "A$ a month", "Company", "Follows the builder across its jobs.", F_MONEY)
 inp("bps", "IRIS for Lenders: facility fee", 15, 15, 12.5, "bps a year", "Company", "On the full project debt stack, paid by the developer as a condition of the facility, as it pays the QS. Cross-check: QS progress monitoring on a job of this size is in the same range (Pekaj Group 2026; Feasly 2026).", '0.0')
 inp("fee_floor", "Facility fee floor", 3500, 3500, 3500, "A$ a month", "Company", "No facility pays less than a builder subscription.", F_MONEY)
-inp("fee_cap", "Facility fee cap", 10000, 12500, 10000, "A$ a month", "Company", "Keeps the fee proportionate on large facilities. At $80M and 15 bps the cap binds.", F_MONEY)
-inp("fac_avg", "Average facility, full debt stack", 80, 80, 60, "A$M", "Company decision", "IRIS is written into the whole stack; $80M average. Qualitas senior loans average $39M; with mezzanine and larger jobs the stack is about double.", F_NUM, key_decision=True)
+inp("fee_cap", "Facility fee cap", 10000, 12500, 10000, "A$ a month", "Company", "Keeps the fee proportionate on large facilities. At 15 bps the cap is reached at $80M; the base-case average facility pays $6,000 a month, between the floor and the cap.", F_MONEY)
+derived("fac_avg", "Average facility, full debt stack", lambda L: f"={L}{REF['proj_val']}*{L}{REF['fac_ratio']}", "A$M", "Average contract value × debt multiple, from section 1, so the lender line and the Market sheet price the same facility. Base case: $48M, which is $72,000 a year at 15 bps.", F_NUM)
 inp("assess_fee", "Distressed-project assessment, per engagement", 35000, 45000, 25000, "A$", "Estimate (benchmarked)",
     "Benchmark: a QS initial financier's report on a commercial job is $8,000–20,000, non-bank lenders at the upper end; a final account review $2,000–5,000 (Pekaj Group, 2026); full QS cost management runs 0.5–2% of build value (Feasly, 2026). An assessment on a stalled $40M job sits between an initial report and a cost-management engagement.", F_MONEY)
 
 section("3. IRIS for Lenders: adoption and book conversion")
 inp("per_lender", "New facilities per lender a month after adoption", 0.8, 1.0, 0.5, "facilities a month", "Estimate",
-    "About ten facilities a year of $80M, roughly $770M of originations: a $1.5bn construction book turning over on 24-month terms. Larger lenders write more; the average across twenty includes smaller funds.", "0.00")
+    "About ten facilities a year of $48M, roughly $460M of originations: a construction book of about $0.9bn turning over on 24-month terms. Larger lenders write more; the average across twenty includes smaller funds.", "0.00")
 inp("book_fac", "Existing facilities per lender that come under the condition at re-papering", 10, 14, 6, "facilities", "Estimate",
     "A lender's live book re-papers at extensions and refinances; about half of a 20-facility book is assumed to come under the condition in the 18 months after adoption. The rest completes before it re-papers.", F_INT)
 inp("book_m", "Months over which the existing book converts", 18, 15, 24, "months", "Estimate", "Extensions and refinances fall across the book's remaining terms.", F_INT)
@@ -455,7 +476,7 @@ wm = wb.create_sheet("Market", 1)
 setw(wm, {"A": 62, "B": 16, "C": 14, "D": 110})
 wm["A1"] = "Market: total, serviceable and obtainable"
 wm["A1"].font = font(bold=True, size=14)
-wm["A2"] = "Built from IBISWorld's figures for the two industries IRIS serves. Each figure is a formula on the Inputs sheet."
+wm["A2"] = "Built from IBISWorld's figures for the two industries IRIS serves, on the base-case inputs. Each figure is a formula on the Inputs sheet."
 wm["A2"].font = font(GREY, italic=True)
 for i, h in enumerate(["Line", "Value", "Unit", "How it is worked out"], 1):
     c = wm.cell(row=4, column=i, value=h)
@@ -517,7 +538,7 @@ mline("live_n", "Live projects in scope, Australia", f"={mref('live_val')}*1000/
 mline("live_dev", "of which developer-funded (facility fee)", f"={mref('dev_live')}*1000/{IB('proj_val')}", "projects", "", F_CNT)
 mline("live_oth", "of which other (builder subscription)", f"={mref('live_n')}-{mref('live_dev')}", "projects", "", F_CNT)
 msec("C. Price per job")
-mline("fee_fac", "Facility fee per facility a year", f"=MIN(MAX({IB('proj_val')}*{IB('fac_ratio')}*1000000*{IB('bps')}/10000,{IB('fee_floor')}*12),{IB('fee_cap')}*12)", "A$ a year", "Average debt stack × bps, within floor and cap.", F_MONEY)
+mline("fee_fac", "Facility fee per facility a year", f"=MIN(MAX({IB('fac_avg')}*1000000*{IB('bps')}/10000,{IB('fee_floor')}*12),{IB('fee_cap')}*12)", "A$ a year", "Average facility (Inputs, section 2) × bps, within floor and cap.", F_MONEY)
 mline("fee_b", "Builder subscription per job a year", f"={IB('price_b')}*12", "A$ a year", "", F_MONEY)
 mline("fee_a", "Assessments a year, Australia", f"={mref('live_dev')}*{IB('distress')}*{IB('assess_fee')}/1000000", "A$M a year", "Distressed funded projects a year × fee.", F_MONEY_M)
 msec("D. Market, A$ millions a year")
@@ -724,7 +745,7 @@ lines = [
     ("Summary: five years for each case, unit economics, the market, and the round with its use of funds. Market: the total, serviceable and obtainable market, built up from building work a year. Inputs: each input with its unit, type and source. Base, Upside and Conservative: the monthly model for each case over 60 months, with yearly totals at the right.", font()),
     ("", None),
     ("What the model assumes", font(bold=True)),
-    ("Three revenue lines. IRIS for Lenders: a lender writes IRIS into facilities as a drawdown condition; the developer pays 15 bps a year on the full project debt stack, within a floor and a cap; each lender adds new facilities each month and its existing book comes under the condition as loans re-paper. IRIS for Builders: a subscription per live job that follows the builder. Assessments: a per-engagement fee, benchmarked to QS reports, on distressed facilities on the platform and a small number won off it.", font()),
+    ("Three revenue lines. IRIS for Lenders: a lender writes IRIS into facilities as a drawdown condition; the developer pays 15 bps a year on the full project debt stack, senior debt alone or senior with mezzanine, within a floor and a cap; the average facility is the average contract value times the debt multiple, which is $48M in the base case, $73M in the upside and $40M in the conservative case; each lender adds new facilities each month and its existing book comes under the condition as loans re-paper. IRIS for Builders: a subscription per live job that follows the builder. Assessments: a per-engagement fee, benchmarked to QS reports, on distressed facilities on the platform and a small number won off it.", font()),
     ("The lender adoption cadence (20 lenders by Year 5) and the facilities each lender adds are company targets. The distress rate (4% a year) is a company estimate. Each input carries its type and source on the Inputs sheet.", font()),
     ("The round is a $750K pre-seed SAFE at a $4M valuation cap, received in month 1. A $3M seed is assumed in month 15. A Series A is optional and shown separately.", font()),
     ("No R&D tax refund, no insurer or surety revenue, no interest income. Costs are paid in the month incurred. A$ excluding GST.", font()),
