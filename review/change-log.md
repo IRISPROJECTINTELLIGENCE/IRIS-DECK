@@ -3,6 +3,26 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, midday (v727 → v732; appendix v12 → v15; workbook; competitor table; product requirements)
+
+Owner decisions in session (D-48): the developer-direct line comes out of the model and the deck, and the two workbooks are formatted as plain Excel. He then asked for a check that the deck, appendix, workbook, competitor table and product requirements agree.
+
+| Item | Change | Why |
+|---|---|---|
+| Workbook | Developer-direct line removed: its three inputs, four monthly rows, two Summary lines and its terms in the revenue, analyst, onboarding and cloud formulas. Three revenue lines remain. Every remaining figure equals a scratch run of the previous build with the line switched off; 9,269 formulas, zero errors. Year 5 revenue $40.8M → $40.5M, EBITDA $18.2M → $18.1M, run rate $49.5M → $49.2M, team 37 / 70 / 103 → 36 / 69 / 102. Formatting: Calibri 11, black text, bold headings, thin rules, no fills, no coloured fonts; colour legend removed from the notes. | D-48. |
+| Competitor table | Same plain formatting with a thin grid; restructuring advisers named as on A8. | D-48; consistency with A8. |
+| 11 | Developer row removed; revenue, cost, EBITDA, team, run-rate and conservative figures updated; Year 1 builders 178 → 179 and revenue 186 → 187 (rounded as Excel shows them); row spacing widened so the table ends level with the tiles. | D-48; ties to the workbook. |
+| 13 | Month 6: "first paying builder" → "first paying builders". | The workbook has two builders paying from month 6 (D-33). |
+| 2 | Owner's in-page edits synced ("the project lender/s"; closing sentence in bold). | Owner (in page). |
+| 3 | Notes point to A7 for the ASIC figures (was A6). | Wrong appendix page. |
+| A6 | Figures to the workbook; builders by year "(3 / 4 / 6)" (was 5); Year 2 EBITDA −$0.31M (was −$0.32M, a rounding slip). | Ties to the workbook. |
+| A8 | Korrix and Cintech, Vyne added (they are on slide 9, which points here); US draw tools merged into one row and the three other source systems into one; dated October–November 2026; "none found" dropped from the partnership line. | Slide 9 named products A8 did not carry. |
+| A10 | Builder-access row states the R&D partnership (was "negotiated, not assumed"); notes point to slides 13 and 9. | Status changed on 22–24 November. |
+| Product requirements | Developer-direct subscriptions taken out of the users table and R7 (they were added in the 15 November markup, not in the first draft). | D-48. |
+
+Tie-out after the changes: 48 figures on slides 6, 10, 11, 13, A5 and A6 checked by script against the workbook, all equal. Banned-word check across both decks and both workbooks: no hits. Open after the check: O-22 (two facility sizes), O-18 (market labels), O-21 and O-23 (deck against the product documents), O-16, O-15, O-13, O-19.
+
+
 ## 26 November 2026, late morning (v712 → v726; workbook; competitor table)
 
 | Item | Change | Why |

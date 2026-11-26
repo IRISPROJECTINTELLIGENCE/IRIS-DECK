@@ -2,26 +2,24 @@
 
 Run: python3 build_competitor_table.py <output.xlsx>
 Source: research/competitive-landscape.md (about sixty products and firms, October to November 2026) and slide 9.
-Formatting follows the financial model workbook: Arial 10, grey header, sand section bands, wrapped notes.
-Rows auto-fit to their wrapped text, as in the model workbook.
+Plain Excel formatting, as the model workbook (D-48): Calibri 11, black text, bold headings, a thin grid on the
+table, no fills. Rows auto-fit to their wrapped text.
 """
 import sys
 import openpyxl
-from openpyxl.styles import Font, PatternFill, Alignment
+from openpyxl.styles import Font, Alignment, Border, Side
 from openpyxl.worksheet.properties import PageSetupProperties
 
 OUT = sys.argv[1]
-FONT = "Arial"
-BLACK, GREY = "000000", "6F6A63"
-FILL_HDR = PatternFill("solid", fgColor="F2F2F2")
-FILL_SEC = PatternFill("solid", fgColor="E7E2D8")
-FILL_OUT = PatternFill("solid", fgColor="FBE9E4")
+FONT = "Calibri"
 WIDTHS = {"A": 34, "B": 72, "C": 15, "D": 12, "E": 66}
 AS_AT = "26 November 2026"
+THIN = Side(style="thin")
+GRID = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 
 
-def font(color=BLACK, bold=False, italic=False, size=10):
-    return Font(name=FONT, color=color, bold=bold, italic=italic, size=size)
+def font(bold=False, size=11):
+    return Font(name=FONT, bold=bold, size=size, family=2, scheme="minor")
 
 
 IRIS = ("IRIS (Gold Coast)",
@@ -131,7 +129,7 @@ GROUPS = [
          "No", "Yes",
          "Loan administration and draw tools. No Australian construction product found."),
         ("Services to lenders",
-         "Builder due-diligence advisers, restructuring and insolvency firms, and trackers lenders have built in-house.",
+         "Builder due-diligence advisers; restructuring advisers (KordaMentha, McGrathNicol, FTI); trackers lenders have built in-house.",
          "No", "Yes",
          "Work done by hand: before the contract, or once a project is in distress."),
         ("Research",
@@ -171,40 +169,40 @@ for col, w in WIDTHS.items():
 
 ws["A1"] = "IRIS: competitive landscape"
 ws["A1"].font = font(bold=True, size=14)
+ws["A1"].alignment = Alignment(wrap_text=False)
 ws["A2"] = f"Who else gives a lender or a builder a view of project delivery risk, what each reads, and where it stops. Head office in brackets where stated. As of {AS_AT}."
 ws["A3"] = "We found no other product that reads a project's source systems and reconciles them into one position for the lender, the builder and the developer."
 for ref in ("A2", "A3"):
-    ws[ref].font = font(GREY, italic=True)
+    ws[ref].font = font()
 HEAD_ROW = 5
 
 HEAD = ["Competitor", "What it is", "Reads the builder's systems", "Serves the lender", "Where it stops"]
 for i, h in enumerate(HEAD, 1):
     c = ws.cell(row=HEAD_ROW, column=i, value=h)
     c.font = font(bold=True)
-    c.fill = FILL_HDR
+    c.border = GRID
     c.alignment = Alignment(wrap_text=True, vertical="top", horizontal=("center" if i in (3, 4) else None))
 ws.freeze_panes = f"A{HEAD_ROW + 1}"
 
 row = HEAD_ROW + 1
 
 
-def put(r, vals, fill=None, bold_name=True):
+def put(r, vals, bold_name=True):
     for i, v in enumerate(vals, 1):
         c = ws.cell(row=r, column=i, value=v)
         c.font = font(bold=(i == 1 and bold_name))
+        c.border = GRID
         c.alignment = Alignment(wrap_text=True, vertical="top", horizontal=("center" if i in (3, 4) else None))
-        if fill:
-            c.fill = fill
 
 
-put(row, IRIS, fill=FILL_OUT)
+put(row, IRIS)
 row += 1
 for title, rows_ in GROUPS:
-    row += 1
-    c = ws.cell(row=row, column=1, value=title)
-    c.font = font(bold=True)
     for col in range(1, 6):
-        ws.cell(row=row, column=col).fill = FILL_SEC
+        c = ws.cell(row=row, column=col, value=(title if col == 1 else None))
+        c.font = font(bold=True)
+        # one box around the heading row, so the heading runs across the columns
+        c.border = Border(top=THIN, bottom=THIN, left=(THIN if col == 1 else None), right=(THIN if col == 5 else None))
     row += 1
     for vals in rows_:
         put(row, vals, bold_name=(title != "Also reviewed"))
@@ -212,7 +210,7 @@ for title, rows_ in GROUPS:
 
 row += 1
 for note in NOTES:
-    ws.cell(row=row, column=1, value=note).font = font(GREY, italic=True)
+    ws.cell(row=row, column=1, value=note).font = font()
     row += 1
 
 ws.page_setup.orientation = "landscape"
