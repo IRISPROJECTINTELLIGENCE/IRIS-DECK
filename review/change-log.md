@@ -3,6 +3,12 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, mid-afternoon (v797 → v798; appendix v18 → v19; workbook) — D-50
+
+- Average facility: $80M base at the $10,000 cap ($66.7M × 1.2), $102M upside, $48M conservative. Workbook rebuilt and recalculated (9,272 formulas, 0 errors).
+- Slide 11: heading $274M; tiles $274M / $52M / $49.2M (about 2,600 and 490 live jobs; 18% of Australia); table and footer to the new base case. Slide 13 notes: Year 1 costs $669K, revenue $187K.
+- A5 and A6 to the new figures; A6 shows the bull and bear facility sizes. Tie-out: 57 checks, 0 failed.
+
 ## 26 November 2026, mid-afternoon (appendix v16 → v18)
 
 Owner: "clean up the appendix … relevant and clear and link directly to the deck's assumptions or gaps"; "this cannot be an information overload."
