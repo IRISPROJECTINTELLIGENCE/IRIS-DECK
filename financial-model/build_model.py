@@ -3,7 +3,9 @@
 Run: python3 build_model.py <output.xlsx>
 All inputs live on the Inputs sheet (three cases side by side: Base, Upside, Conservative).
 Every other number is a formula. Month 1 is the month the pre-seed round closes.
-Version of 4 November 2026 (D-37): five years, four revenue lines, lender book conversion.
+Version of 26 November 2026: five years, four revenue lines, lender book conversion (D-37), terms of D-39.
+The investor copy (D-47): labels cleared of internal references, the round's use of funds added to the Inputs
+and Summary sheets. No assumption changed from the 24 November build.
 """
 import sys
 import openpyxl
@@ -52,7 +54,7 @@ def setw(ws, widths):
 setw(wi, {"A": 60, "B": 13, "C": 13, "D": 13, "E": 15, "F": 14, "G": 120})
 wi["A1"] = "IRIS five-year model: inputs"
 wi["A1"].font = font(bold=True, size=14)
-wi["A2"] = ("Blue cells are inputs. Three cases run side by side. Yellow cells are owner decisions. A$ excluding GST. "
+wi["A2"] = ("Blue cells are inputs. Three cases run side by side. Yellow cells are company decisions. A$ excluding GST. "
             "Month 1 is the month the pre-seed round closes. A blank start month means that lender, builder, hire or round does not occur in that case within the five years.")
 wi["A2"].font = font(GREY, italic=True)
 for i, h in enumerate(["Input", "Base", "Upside", "Conservative", "Unit", "Type", "Source or basis"], 1):
@@ -135,19 +137,19 @@ inp("build_mu", "Average build period, apartments", 29, 29, 29, "months", "Measu
 inp("build_ci", "Average build period, C&I jobs of $10M or more", 24, 24, 24, "months", "Estimate", "Cross-check: ABS non-residential work yet to be done $76.4bn at March 2026 against about $70bn of work a year.", F_INT)
 inp("proj_val", "Average contract value, jobs of $10M or more", 40, 40, 40, "A$M", "Estimate", "Cross-checks: SEQ apartment jobs on hold average about $48M (PRD, Sep 2026); Qualitas senior construction loans about $39M (Jun 2026); top-50 builders' 2025 starts about $61M (Hubexo).", F_NUM)
 inp("fac_ratio", "Project debt stack as a share of the build contract", 1.2, 1.2, 1.2, "x", "Estimate",
-    "Lenders fund 60–80% of total development cost (banks 60–70%, non-banks 75–80%: Feasly, Vertex Capital 2026); the build is about two-thirds of that cost, so the full stack (senior plus mezzanine) is about 1.1–1.2 times the build contract (D-33).", '0.00"x"')
+    "Lenders fund 60–80% of total development cost (banks 60–70%, non-banks 75–80%: Feasly, Vertex Capital 2026); the build is about two-thirds of that cost, so the full stack (senior plus mezzanine) is about 1.1–1.2 times the build contract.", '0.00"x"')
 inp("distress", "Share of live funded projects that stall or default in a year", 0.04, 0.05, 0.03, "% a year", "Estimate",
-    "Construction was 24.5% of FY2025-26 insolvencies (3,472 of 14,153, ASIC) and 37% in July–August 2026 with Bathla. No public series for funded $10M-plus projects; 4% is an estimate and the weakest input in the assessment line.", F_PCT)
+    "Construction was 24.5% of FY2025-26 insolvencies (3,472 of 14,153, ASIC) and 37% in July–August 2026 with Bathla. There is no public series for funded $10M-plus projects; 4% is the company's estimate.", F_PCT)
 
 section("2. Pricing (company decisions)")
-inp("price_b", "IRIS for Builders: subscription per live job", 3500, 3500, 3500, "A$ a month", "Company", "Follows the builder across its jobs (D-33).", F_MONEY)
+inp("price_b", "IRIS for Builders: subscription per live job", 3500, 3500, 3500, "A$ a month", "Company", "Follows the builder across its jobs.", F_MONEY)
 inp("bps", "IRIS for Lenders: facility fee", 15, 15, 12.5, "bps a year", "Company", "On the full project debt stack, paid by the developer as a condition of the facility, as it pays the QS. Cross-check: QS progress monitoring on a job of this size is in the same range (Pekaj Group 2026; Feasly 2026).", '0.0')
 inp("fee_floor", "Facility fee floor", 3500, 3500, 3500, "A$ a month", "Company", "No facility pays less than a builder subscription.", F_MONEY)
 inp("fee_cap", "Facility fee cap", 10000, 12500, 10000, "A$ a month", "Company", "Keeps the fee proportionate on large facilities. At $80M and 15 bps the cap binds.", F_MONEY)
-inp("fac_avg", "Average facility, full debt stack", 80, 80, 60, "A$M", "Owner decision D-33", "IRIS is written into the whole stack; $80M average (owner, 1 Nov 2026). Qualitas senior loans average $39M; with mezzanine and larger jobs the stack is about double.", F_NUM, key_decision=True)
+inp("fac_avg", "Average facility, full debt stack", 80, 80, 60, "A$M", "Company decision", "IRIS is written into the whole stack; $80M average. Qualitas senior loans average $39M; with mezzanine and larger jobs the stack is about double.", F_NUM, key_decision=True)
 inp("price_d", "IRIS for Developers: project with no lender condition", 2500, 2500, 2500, "A$ a month", "Company", "Developer-direct PCG view, from Year 3. Priced below the builder subscription because the developer brings no systems of its own.", F_MONEY)
 inp("assess_fee", "Distressed-project assessment, per engagement", 35000, 45000, 25000, "A$", "Estimate (benchmarked)",
-    "Benchmark: a QS initial financier's report on a commercial job is $8,000–20,000, non-bank lenders at the upper end; a final account review $2,000–5,000 (Pekaj Group, 2026); full QS cost management runs 0.5–2% of build value (Feasly, 2026). An assessment on a stalled $40M job sits between an initial report and a cost-management engagement. No engagement has set the fee (D-37).", F_MONEY)
+    "Benchmark: a QS initial financier's report on a commercial job is $8,000–20,000, non-bank lenders at the upper end; a final account review $2,000–5,000 (Pekaj Group, 2026); full QS cost management runs 0.5–2% of build value (Feasly, 2026). An assessment on a stalled $40M job sits between an initial report and a cost-management engagement.", F_MONEY)
 
 section("3. IRIS for Lenders: adoption and book conversion")
 inp("per_lender", "New facilities per lender a month after adoption", 0.8, 1.0, 0.5, "facilities a month", "Estimate",
@@ -162,40 +164,39 @@ table("lenders", "Lender adoption: month each lender's first facility comes unde
           (39, 34, 999), (41, 36, 999), (43, 38, 999), (45, 40, 999), (47, 42, 999), (48, 44, 999), (50, 46, 999), (52, 48, 999),
           (54, 50, 999), (56, 52, 999), (58, 54, 999), (60, 56, 999)], 1)],
       ["Lender", "Base", "Upside", "Conservative"],
-      "Owner target (4 Nov 2026): 1 / 3 / 8 / 14 / 20 lenders by the end of Years 1–5. The design partner is lender 1 (month 12). Lenders 2 onwards follow a live result at lender 1. "
-      "This cadence is a company target, not a sourced figure; the design-partner letter and the first written condition are the evidence that would ground it.")
+      "Company target: 1 / 3 / 8 / 14 / 20 lenders by the end of Years 1–5. The design partner is lender 1 (month 12). Lenders 2 onwards follow a live result at lender 1.")
 
 section("4. IRIS for Builders: the wedge")
-inp("rd_start", "R&D deployments go live", 3, 3, 3, "month", "Company", "Two builder deployments live by month 3 (slide 13).", F_INT)
+inp("rd_start", "R&D deployments go live", 3, 3, 3, "month", "Company", "Two live jobs connected through the R&D partnership by month 3.", F_INT)
 inp("rd_n", "R&D deployments", 2, 2, 2, "projects", "Company", "", F_INT)
 inp("paid_start", "Builders start paying", 6, 6, 7, "month", "Company", "After the position reconciles to the builder's own cost reports.", F_INT)
 inp("jobs_start", "Paid jobs per builder at signing", 2, 2, 2, "projects", "Company", "", F_INT)
-inp("jobs_ramp", "Further jobs added per builder a month", 0.5, 0.5, 0.33, "projects a month", "Estimate", "About one new job every two months.", "0.00")
-inp("jobs_cap", "Live jobs per builder at maturity", 6, 7, 5, "projects", "Estimate", "A SEQ Tier 2 builder runs about three to eight jobs of $10M or more at a time (founder observation; the pilot builder's own count is the first evidence).", F_INT)
+inp("jobs_ramp", "Further jobs added per builder a month", 0.5, 0.5, 0.33, "projects a month", "Estimate", "A new job about once in two months.", "0.00")
+inp("jobs_cap", "Live jobs per builder at maturity", 6, 7, 5, "projects", "Estimate", "A SEQ Tier 2 builder runs about three to eight jobs of $10M or more at a time (founder observation).", F_INT)
 table("builders", "Builder adoption: month each builder starts paying",
       [(f"Builder {i}", b, u, c) for i, (b, u, c) in enumerate([
           (6, 6, 7), (6, 6, 7), (12, 11, 15), (20, 17, 24), (28, 22, 33), (33, 26, 42), (37, 30, 51), (40, 33, 60), (43, 36, 999), (46, 39, 999),
           (48, 42, 999), (50, 44, 999), (52, 46, 999), (54, 48, 999), (56, 50, 999), (58, 52, 999), (60, 54, 999), (999, 56, 999), (999, 58, 999), (999, 60, 999)], 1)],
       ["Builder", "Base", "Upside", "Conservative"],
-      "Owner input (1 Nov 2026): five builders at about six jobs each by month 36. From Year 4 builders under a lender condition bring their other jobs and the count rises with lender adoption.")
+      "Company target: five builders at about six jobs each by month 36, and a sixth from month 33. From Year 4 builders under a lender condition bring their other jobs and the count rises with lender adoption.")
 
 section("5. IRIS for Developers (developer-direct, no lender condition)")
 inp("dev_start", "Developer-direct projects start", 30, 27, 36, "month", "Company", "After the lender view exists; sold to developers whose facility carries no condition.", F_INT)
 inp("dev_add", "New developer-direct projects a month", 0.5, 0.75, 0.25, "projects a month", "Estimate", "A small line; the developer's main route is through its lender's condition.", "0.00")
 
 section("6. Distressed-project assessments")
-inp("assess_start", "Assessments offered from", 30, 27, 36, "month", "Company", "After the platform is proven on live jobs (D-07).", F_INT)
+inp("assess_start", "Assessments offered from", 30, 27, 36, "month", "Company", "After the platform is proven on live jobs.", F_INT)
 inp("assess_off", "Off-platform assessments won a year, by Year 5", 8, 12, 3, "engagements a year", "Estimate",
     "Lenders, receivers and administrators on projects not under the condition. Ramps linearly from the start month. About 140 funded $10M-plus projects a year stall nationally at a 4% rate; 8 is about 6% of them.", F_INT)
 inp("assess_on", "Share of on-platform distressed facilities that buy an assessment", 0.6, 0.75, 0.4, "%", "Estimate", "A lender already on IRIS usually needs the assessment when a facility stalls.", F_PCT)
 
 section("7. Team")
 inp("n_found", "Founders, full-time from month 1", 2, 2, 2, "people", "Company", "", F_INT)
-inp("sal_found", "Founder salary, each", 100000, 100000, 100000, "A$ a year", "Owner decision D-21", "", F_MONEY, key_decision=True)
+inp("sal_found", "Founder salary, each", 100000, 100000, 100000, "A$ a year", "Company decision", "", F_MONEY, key_decision=True)
 inp("oncost", "On-costs on salaries", 0.12, 0.12, 0.12, "% of salary", "Reported", "Superannuation guarantee 12% from 1 July 2025.", F_PCT)
 inp("sal_raise", "Salary growth a year, from Year 3", 0.03, 0.03, 0.03, "% a year", "Estimate", "", F_PCT)
 inp("sal_found2", "Founder salary, each, from Year 3", 180000, 180000, 150000, "A$ a year", "Company", "Market rate once the seed is in and lenders are live.", F_MONEY)
-inp("an_ratio", "Live facilities and jobs per deployment analyst", 8, 10, 10, "per analyst", "Estimate", "An analyst keeps each position checked against its source records monthly; about eight live jobs each. Analysts are hired as the count grows (formula, not a fixed list).", F_INT)
+inp("an_ratio", "Live facilities and jobs per deployment analyst", 8, 10, 10, "per analyst", "Estimate", "An analyst keeps each position checked against its source records monthly; about eight live jobs each. Analysts are hired by formula as the count grows.", F_INT)
 inp("an_sal", "Deployment analyst salary", 110000, 110000, 110000, "A$ a year", "Estimate", "", F_MONEY)
 inp("ls_ratio", "Lenders per lender success manager", 2, 3, 3, "per manager", "Estimate", "Onboards each lender's book, runs credit-committee reviews, holds the relationship.", F_INT)
 inp("ls_sal", "Lender success manager salary", 140000, 140000, 140000, "A$ a year", "Estimate", "", F_MONEY)
@@ -223,13 +224,13 @@ HIRES = [
 ]
 table("hires", "Hires: the month each role starts",
       [(r[0], r[2], r[3], r[4]) for r in HIRES], ["Role", "Base start", "Upside start", "Cons. start"],
-      "Fixed roles only. Deployment analysts, lender success managers and engineers are hired by formula as facilities and lenders grow (inputs above). Salaries in the next table.")
+      "Fixed roles. Deployment analysts, lender success managers and engineers are hired by formula as facilities and lenders grow (inputs above). Salaries in the next table.")
 table("sal", "Hire salaries (A$ a year, Year 1 terms; grow with the salary-growth input from Year 3)",
       [(r[0], r[1], r[1], r[1]) for r in HIRES], ["Role", "Base", "Upside", "Conservative"], "Market rates for Brisbane and Gold Coast, 2026 (estimate).", F_MONEY)
 
 section("8. Other costs")
 for key, label, vals, unit, typ, src in [
-    ("build_y", "Platform build and contract engineering, by year", [320000, 90000, 90000, 60000, 60000], "A$ a year", "Company", "Year 1 from the use of funds (slide 13): the enterprise build, D-39."),
+    ("build_y", "Platform build and contract engineering, by year", [320000, 90000, 90000, 60000, 60000], "A$ a year", "Company", "Year 1 is the enterprise product build in the use of funds."),
     ("cloud_fix", "Cloud, models and tools, fixed, by year", [9600, 24000, 60000, 120000, 180000], "A$ a year", "Estimate", "Hosting, monitoring, development tools; grows with the team."),
     ("sec_y", "Security certification and audits, by year", [30000, 35000, 60000, 80000, 100000], "A$ a year", "Estimate", "ISO 27001 or SOC 2 in Year 1 for lender onboarding; surveillance audits and penetration testing after."),
     ("ins_y", "Insurance (PI and cyber), by year", [10000, 45000, 150000, 300000, 500000], "A$ a year", "Estimate", "Lender reliance raises professional indemnity cover as facilities under the condition grow."),
@@ -245,11 +246,25 @@ inp("cont_y1", "Contingency, Year 1", 10000, 10000, 10000, "A$", "Company", "Use
 inp("cont_pct", "Contingency, Years 2–5", 0.05, 0.05, 0.05, "% of costs", "Estimate", "", F_PCT)
 
 section("9. Funding")
-inp("safe", "Pre-seed SAFE, received month 1", 750000, 750000, 750000, "A$", "Owner decision D-39", "$750K at a $4M cap (24 Nov 2026; previously $500K at $5M, D-21).", F_MONEY, key_decision=True)
-inp("seed", "Seed round", 3000000, 3000000, 3000000, "A$", "Company", "Slide 13: seed in months 15–18 on the evidence of Year 1.", F_MONEY)
+inp("safe", "Pre-seed SAFE, received month 1", 750000, 750000, 750000, "A$", "Company decision", "$750K SAFE at a $4M valuation cap.", F_MONEY, key_decision=True)
+inp("seed", "Seed round", 3000000, 3000000, 3000000, "A$", "Company", "Seed in months 15–18, raised on a product in paid use.", F_MONEY)
 inp("seed_m", "Seed round received", 15, 15, 15, "month", "Company", "", F_INT)
 inp("ser_a", "Series A (shown separately)", 8000000, 8000000, 0, "A$", "Company", "Optional: funds a faster lender rollout and national sales from Year 4. Cash is shown with and without it.", F_MONEY)
 inp("ser_a_m", "Series A received", 36, 33, 999, "month", "Company", "", F_INT)
+
+# The budget the pre-seed round is raised against. These seven lines do not drive the model: Year 1 costs come from
+# sections 7 and 8. The Summary sheet sets the two side by side and bridges the round to cash at the end of Year 1.
+section("10. Use of funds for the pre-seed round (set beside Year 1 costs on the Summary sheet)")
+for key, label, val, src in [
+    ("uof_build", "Enterprise product build", 320000, "The production platform, built with an engineering partner."),
+    ("uof_found", "Founder salaries, full-time, with super", 224000, "Two founders at $100,000 each plus 12% superannuation."),
+    ("uof_sec", "Security audit, cloud and models", 46000, "Security audit $30,000; cloud, models and tools $16,000."),
+    ("uof_sales", "Sales, marketing and customer success", 20000, ""),
+    ("uof_legal", "Legal, accounting and IP", 20000, ""),
+    ("uof_cont", "Contingency and insurance", 20000, "Contingency $10,000; professional indemnity and cyber insurance $10,000."),
+    ("uof_res", "Runway reserve to the seed", 100000, "Held in cash to the seed round."),
+]:
+    inp(key, label, val, val, val, "A$", "Company", src, F_MONEY)
 
 # ---------------------------------------------------------------- monthly sheets
 C0 = 3
@@ -396,7 +411,7 @@ def build_month_sheet(ws, col, title):
     row_def("in_safe", "Pre-seed", "A$", lambda m, p: f"=IF({m}$3=1,{I('safe',col)},0)", F_MONEY)
     row_def("in_seed", "Seed", "A$", lambda m, p: f"=IF({m}$3={I('seed_m',col)},{I('seed',col)},0)", F_MONEY)
     row_def("in_a", "Series A", "A$", lambda m, p: f"=IF(AND(ISNUMBER({I('ser_a_m',col)}),{m}$3={I('ser_a_m',col)}),{I('ser_a',col)},0)", F_MONEY)
-    row_def("cash0", "Cash with pre-seed only, end of month", "A$", lambda m, p: f"={(p + str(R['cash0']) + '+') if p else ''}{m}{R['op']}+{m}{R['in_safe']}", F_MONEY, "stock")
+    row_def("cash0", "Cash with the pre-seed alone, end of month", "A$", lambda m, p: f"={(p + str(R['cash0']) + '+') if p else ''}{m}{R['op']}+{m}{R['in_safe']}", F_MONEY, "stock")
     row_def("cash1", "Cash with seed, end of month", "A$", lambda m, p: f"={(p + str(R['cash1']) + '+') if p else ''}{m}{R['op']}+{m}{R['in_safe']}+{m}{R['in_seed']}", F_MONEY, "stock", bold=True)
     row_def("cash2", "Cash with seed and Series A, end of month", "A$", lambda m, p: f"={(p + str(R['cash2']) + '+') if p else ''}{m}{R['op']}+{m}{R['in_safe']}+{m}{R['in_seed']}+{m}{R['in_a']}", F_MONEY, "stock")
     row_def("neg1", "Helper: month if cash with seed is negative", "month", lambda m, p: f"=IF({m}{R['cash1']}<0,{m}$3,99)", F_INT, "helper")
@@ -596,6 +611,7 @@ sline("arr", "Annualised revenue at year end", "arr", F_MONEY, bold=True)
 
 sr += 1
 ssec("Unit economics and checks (base case)")
+ue_row = sr - 1
 nm, R = SHEETS["base"]
 nmc, Rc = SHEETS["cons"]
 for text, fn, fmt in (
@@ -617,6 +633,7 @@ for text, fn, fmt in (
     sr += 1
 sr += 1
 ssec("Market (from the Market sheet)")
+mk_row = sr - 1
 for text, key, fmt in (("Total market (TAM), Australia, A$M a year", "tam", F_MONEY_M), ("Serviceable (SAM), Queensland, A$M a year", "sam", F_MONEY_M),
                        ("Obtainable (SOM), month-60 run rate, base, A$M", "som_base", F_MONEY_M), ("Month-36 run rate, base, A$M", "som36_base", F_MONEY_M),
                        ("SOM as a share of TAM", "som_sh", F_PCT), ("Live projects in scope, Australia", "live_n", F_CNT), ("Live projects in scope, Queensland", "q_live", F_CNT)):
@@ -626,19 +643,89 @@ for text, key, fmt in (("Total market (TAM), Australia, A$M a year", "tam", F_MO
     c.font = font(GREEN)
     sr += 1
 
+# The round, set to the right of the two base-case blocks above and on the same bands: the use of funds beside the
+# model's Year 1 costs, then the bridge from the round to cash at the end of Year 1.
+nm, R = SHEETS["base"]
+Y1 = CL(YCOL[1])
+LAB, V1, V2 = 8, 12, 13  # labels in column H, values in columns L and M
+ws.cell(row=ue_row, column=LAB, value="The round: use of funds and Year 1 costs (base case)").font = font(bold=True)
+rr = ue_row + 1
+for col, h in ((V1, "Use of funds"), (V2, "Year 1 costs")):
+    c = ws.cell(row=rr, column=col, value=h)
+    c.font = font(bold=True)
+    c.fill = FILL_HDR
+    c.alignment = Alignment(horizontal="right")
+rr += 1
+uof_first = rr
+for text, ukey, keys in (
+    ("Enterprise product build", "uof_build", ("c_build",)),
+    ("Founder salaries, full-time, with super", "uof_found", ("c_found", "c_hire", "c_an", "c_ls", "c_eng")),
+    ("Security audit, cloud and models", "uof_sec", ("c_sec", "c_cloud")),
+    ("Sales, marketing and customer success", "uof_sales", ("c_sm", "c_comm", "c_onb")),
+    ("Legal, accounting and IP", "uof_legal", ("c_lg",)),
+    ("Contingency and insurance", "uof_cont", ("c_cont", "c_ins", "c_off")),
+    ("Runway reserve to the seed", "uof_res", None),
+):
+    ws.cell(row=rr, column=LAB, value=text).font = font()
+    c = ws.cell(row=rr, column=V1, value=f"=Inputs!$B${REF[ukey]}")
+    c.number_format = F_MONEY
+    c.font = font(GREEN)
+    if keys:
+        c = ws.cell(row=rr, column=V2, value="=" + "+".join(f"{nm}!${Y1}${R[k]}" for k in keys))
+        c.number_format = F_MONEY
+        c.font = font(GREEN)
+    rr += 1
+uof_total = rr
+ws.cell(row=rr, column=LAB, value="Total").font = font(bold=True)
+for col in (V1, V2):
+    c = ws.cell(row=rr, column=col, value=f"=SUM({CL(col)}{uof_first}:{CL(col)}{rr - 1})")
+    c.number_format = F_MONEY
+    c.font = font(bold=True)
+    c.border = TOPLINE
+assert rr < mk_row, "the use-of-funds block must end above the Market band"
+
+ws.cell(row=mk_row, column=LAB, value="From the round to cash at the end of Year 1 (base case)").font = font(bold=True)
+rr = mk_row + 1
+bridge_first = rr
+for text, fn, link in (
+    ("Pre-seed SAFE", f"=Inputs!$B${REF['safe']}", True),
+    ("Revenue in Year 1", f"={nm}!${Y1}${R['rev']}", True),
+    ("Costs in Year 1", f"=-${CL(V2)}${uof_total}", False),
+):
+    ws.cell(row=rr, column=LAB, value=text).font = font()
+    c = ws.cell(row=rr, column=V1, value=fn)
+    c.number_format = F_MONEY
+    c.font = font(GREEN if link else BLACK)
+    rr += 1
+ws.cell(row=rr, column=LAB, value="Cash at the end of Year 1, before the seed").font = font(bold=True)
+c = ws.cell(row=rr, column=V1, value=f"=SUM({CL(V1)}{bridge_first}:{CL(V1)}{rr - 1})")
+c.number_format = F_MONEY
+c.font = font(bold=True)
+c.border = TOPLINE
+rr += 1
+for note in ("Year 1 costs include the cloud use, onboarding and commissions that come with the first paid jobs.",
+             "Year 1 revenue covers them and the reserve stays in cash."):
+    ws.cell(row=rr, column=LAB, value=note).font = font(GREY, italic=True)
+    rr += 1
+assert rr <= sr, "the round block must end within the rows of the Market block"
+
 # ---------------------------------------------------------------- Read me
 wr = wb.create_sheet("Read me", 0)
 setw(wr, {"A": 120})
 lines = [
     ("IRIS five-year model", font(bold=True, size=14)),
-    ("Version of 4 November 2026 (D-37). The source for the IRIS investor deck's market and model slides and appendix A5–A6.", font(GREY, italic=True)),
+    ("IRIS Intelligence Pty Ltd (ACN 700 449 618). Version of 26 November 2026. The model behind the market, model and round pages of the IRIS Investment Summary.", font(GREY, italic=True)),
     ("", None),
     ("How to use it", font(bold=True)),
-    ("Change inputs on the Inputs sheet. Blue = input. Black = formula. Green = link. Yellow = owner decision. Three cases (Base, Upside, Conservative) run side by side.", font()),
+    ("Change inputs on the Inputs sheet. Blue = input. Black = formula. Green = link. Yellow = company decision. Three cases (Base, Upside, Conservative) run side by side; the deck shows the base case.", font()),
+    ("", None),
+    ("What is on each sheet", font(bold=True)),
+    ("Summary: five years for each case, unit economics, the market, and the round with its use of funds. Market: the total, serviceable and obtainable market, built up from building work a year. Inputs: each input with its unit, type and source. Base, Upside and Conservative: the monthly model for each case over 60 months, with yearly totals at the right.", font()),
     ("", None),
     ("What the model assumes", font(bold=True)),
     ("Four revenue lines. IRIS for Lenders: a lender writes IRIS into facilities as a drawdown condition; the developer pays 15 bps a year on the full project debt stack, within a floor and a cap; each lender adds new facilities each month and its existing book comes under the condition as loans re-paper. IRIS for Builders: a subscription per live job that follows the builder. IRIS for Developers: a developer-direct view for projects with no lender condition, from Year 3. Assessments: a per-engagement fee, benchmarked to QS reports, on distressed facilities on the platform and a small number won off it.", font()),
-    ("The lender adoption cadence (20 by Year 5) and the per-lender facility rate are company targets, not sourced figures. The distress rate (4% a year) is an estimate. Everything else carries its source on the Inputs sheet.", font()),
+    ("The lender adoption cadence (20 lenders by Year 5) and the facilities each lender adds are company targets. The distress rate (4% a year) is a company estimate. Each input carries its type and source on the Inputs sheet.", font()),
+    ("The round is a $750K pre-seed SAFE at a $4M valuation cap, received in month 1. A $3M seed is assumed in month 15. A Series A is optional and shown separately.", font()),
     ("No R&D tax refund, no insurer or surety revenue, no interest income. Costs are paid in the month incurred. A$ excluding GST.", font()),
 ]
 for i, (text, fnt) in enumerate(lines, 1):
@@ -654,6 +741,12 @@ for sheet in wb.worksheets:
     sheet.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
     sheet.page_setup.fitToWidth = 1
     sheet.page_setup.fitToHeight = 0
+# Reading order: Read me, Summary, Market, Inputs, then the three monthly sheets.
+wb.move_sheet("Inputs", offset=2)
 wb.active = 0
+wb.properties.title = "IRIS five-year model"
+wb.properties.subject = "Market, revenue, cost and cash model: five years, three cases"
+wb.properties.creator = "IRIS Intelligence Pty Ltd"
+wb.properties.lastModifiedBy = "IRIS Intelligence Pty Ltd"
 wb.save(OUT)
 print("saved", OUT)
