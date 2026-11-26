@@ -13,9 +13,9 @@ the source of record once the owner has edited a page in the artifact.
 """
 import html, io, json, os, re, sys
 
-F = "font-family:Inter, Arial, sans-serif"
-INK, BODY, MUTED, CORAL, RULE, RULE2 = "#0a0a0a", "#2a2a2a", "#6b6b6b", "#d7141a", "#d6d6d6", "#e6e6e6"
-FT = "font-family:'Inter Tight', Inter, Arial, sans-serif"  # headings (Swiss restyle, 26 Nov 2026)
+F = "font-family:'IBM Plex Sans', Arial, sans-serif"
+INK, BODY, MUTED, CORAL, RULE, RULE2 = "#0a0a0a", "#2a2a2a", "#6b6b6b", "#a3121c", "#d6d6d6", "#e6e6e6"
+FT = "font-family:'Source Serif 4', Georgia, serif"  # headings (research-note restyle, 26 Nov 2026)
 W, H, GAP, COLGAP = 1664, 808, 24, 28
 
 # ---------------------------------------------------------------- content
@@ -202,11 +202,11 @@ def head_row(pg):
     for c in pg["head"]:
         t, st = norm(c)
         cells.append(f'<p style="{HEAD}{"; text-align:right" if st == "num" else ""}">{esc(t)}</p>')
-    return f'    <div style="{grid(pg["cols"])}; padding:0 0 12px; border-bottom:2px solid {INK}">\n      ' + "\n      ".join(cells) + "\n    </div>"
+    return f'    <div style="{grid(pg["cols"])}; padding:0 0 12px; border-bottom:1px solid {INK}">\n      ' + "\n      ".join(cells) + "\n    </div>"
 
 def body_row(pg, row, first):
     total = norm(row[0])[1] == "total"
-    border = f"border-top:2px solid {INK}" if total else ("" if first else f"border-top:1px solid {RULE}")
+    border = f"border-top:1px solid {INK}" if total else ("" if first else f"border-top:1px solid {RULE}")
     cells = [p(*[norm(c)[0], CELL[norm(c)[1]]]) for c in row]
     st = f'{grid(pg["cols"])}; align-items:center; flex:1; padding:{ROWPAD}px 0' + (f"; {border}" if border else "")
     return f'    <div style="{st}">\n      ' + "\n      ".join(cells) + "\n    </div>"
@@ -226,7 +226,7 @@ def group_block(pg, label, rows, first):
 def page_html(pg):
     out = [f'<section id="{pg["id"]}" data-transition="fade" style="display:flex; flex-direction:column; gap:{GAP}px; padding:112px 128px 160px; background:#ffffff">']
     out.append(f'  <p data-iris-label="1" style="position:absolute; top:62px; left:128px; width:1500px; {F}; font-size:24px; font-weight:600; line-height:1; color:{INK}">{esc(pg["label"])}</p>')
-    out.append(f'  <h2 style="{FT}; font-size:52px; font-weight:600; line-height:1.1; letter-spacing:-1.5px; color:{INK}">{esc(pg["h2"])}</h2>')
+    out.append(f'  <h2 style="{FT}; font-size:52px; font-weight:600; line-height:1.1; letter-spacing:-0.5px; color:{INK}">{esc(pg["h2"])}</h2>')
     out.append(f'  <p style="{F}; font-size:26px; line-height:1.4; color:{BODY}">{inline(pg["stand"])}</p>')
     out.append('  <div style="display:flex; flex-direction:column; flex:1">')
     if pg.get("head"): out.append(head_row(pg))

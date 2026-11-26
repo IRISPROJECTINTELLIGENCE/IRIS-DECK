@@ -3,6 +3,13 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, late afternoon (v804 → v805; appendix v23 → v24) — design, direction 2
+
+Owner: "now the number 2 one" (financial research note).
+
+- Both decks: red to oxblood #A3121C; headings and large figures to Source Serif 4 at display optical size; body and tables to IBM Plex Sans (measured: the same overall width as Inter; table figures fit their columns); heavy black rules thinned. Faces: Inter (fallback), Source Serif 4, IBM Plex Sans. Every heading re-measured: widest 1,595px of 1,664.
+- The Swiss version stays in history (main v804, appendix v23).
+
 ## 26 November 2026, late afternoon (v801 → v804; appendix v22 → v23) — design
 
 Owner: the deck "looks very very claude like"; chose direction 1 (Swiss institutional), keeping red, black and white.
