@@ -3,6 +3,17 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026 (v696 → v711; appendix v11)
+
+| Slide | Change | Why |
+|---|---|---|
+| 8 | "The market's answer so far" rewritten to what lenders have done since Bathla: presales or sales evidence wanted before full leverage, experienced sponsors on senior terms favoured, thin-equity deals largely unfunded; the lines on lender-side monitoring and builder-side AI removed (slide 9 carries the names). Row 1 refreshed: cash rate 4.85% (+125 bps in 2026), CPI 4.9% to October, dwelling values 6.7% below the March peak. Columns stretched to fill the height with even row spacing; footer set on the bottom margin in two lines. | Owner comments, 26 Nov; figures verified at source the same day. |
+| 7, 9 | Owner's in-page edits synced to the repository. Slide 7 now carries the heading, a new screenshot and the footer; the right-hand text is gone. Slide 9: the QS row reads "Certifies work in place monthly" and the matrix spacing is adjusted. | Owner (in page). |
+| A7 | Rates, housing and lending sources refreshed (RBA 3 November; ABS and Cotality October; Gravity Capital index added). | Follows slide 8. |
+
+Banned-word check across both decks: no hits. Slide 7 as edited in page places the screenshot and footer below the 920px line and over the page number; left as the owner set it, flagged to him.
+
+
 ## 24 November 2026, evening (v695; appendix v8)
 
 | Slide | Change | Why |
