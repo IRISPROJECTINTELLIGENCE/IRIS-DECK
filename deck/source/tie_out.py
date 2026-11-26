@@ -55,13 +55,13 @@ chk("11", "TAM tile", f"${int(rnd(tam))}M Total market", ec)
 chk("11", "SAM tile", f"${int(rnd(sam))}M Serviceable", ec)
 chk("11", "SOM tile", f"${rnd(som,1)}M Obtainable", ec)
 chk("11", "SOM share", f"About {int(rnd(som/tam*100))}% of Australia", ec)
-chk("11", "live jobs Australia (about 2,600)", "About 2,600 live jobs", ec); assert round(mv("Live projects in scope, Australia"), -2) == 2600
-chk("11", "live jobs Queensland (about 490)", "About 490 live jobs", ec); assert round(mv("Live projects in scope, Queensland"), -1) == 490
+chk("11", "live jobs Australia (about 4,300)", "About 4,300 live jobs", ec); assert round(mv("Live projects in scope, Australia"), -2) == 4300
+chk("11", "live jobs Queensland (about 820)", "About 820 live jobs", ec); assert round(mv("Live projects in scope, Queensland"), -1) == 820
 chk("11", "about 370 facilities; 92 jobs", "about 370 facilities; seventeen builders on 92 jobs", ec); assert round(fac[4], -1) == 370 and round(jobs[4]) == 92 and round(bld[4]) == 17 and round(len_[4]) == 20
 chk("11", "lenders at year end", " / ".join(str(int(rnd(x))) for x in len_) + " lenders", ec)
 chk("11", "facilities at year end", " / ".join(str(int(rnd(x))) for x in fac) + " facilities", ec)
 chk("11", "team", "team " + " / ".join(str(int(rnd(x))) for x in team), ec)
-fa = [iv("Average facility, full debt stack", c) for c in (2, 3, 4)]
+fa = [iv("Average facility under IRIS, full debt stack", c) for c in (2, 3, 4)]
 chk("11", "average facility, base", f"facilities averaging ${int(rnd(fa[0]))}M", ec)
 chk("11", "upside and conservative", f"Year 5 upside ${int(rnd(sv('Total revenue',1)[4]/1e6))}M on ${int(rnd(fa[1]))}M facilities, conservative ${rnd(sv('Total revenue',2)[4]/1e6,1)}M on ${int(rnd(fa[2]))}M", ec)
 assert min(S.cell(row=srow("Cash at year end, with seed"), column=c).value for c in list(range(2,7))+list(range(8,13))+list(range(14,19))) > 0
@@ -69,7 +69,7 @@ assert ue("First month cash with seed goes negative, base") == 99 and ue("First 
 checks.append((True, "11", "cash positive with the seed in all three cases (year ends; base and conservative month by month)", "check"))
 # slide 11 notes
 chk("11 notes", "Year 1 costs", f"Year 1 costs (${k(cost[0])}K)", ecn)
-chk("11 notes", "facility basis", f"${rnd(iv('Average contract value'),1)}M contract at {iv('Project debt stack as a multiple')} times, ${int(rnd(fa[0]))}M", ecn)
+chk("11 notes", "facility basis", f"average ${int(rnd(fa[0]))}M across the whole debt stack, a ${rnd(iv('Average build contract on facilities'),1)}M contract at {iv('Project debt stack as a multiple')} times", ecn)
 chk("11 notes", "fee per facility", f"${int(ue('Annualised fee per facility')):,} a year at 15 bps", ecn)
 # slide 13 notes
 chk("13 notes", "Year 1 costs and revenue", f"${k(cost[0])}K against $650K of spend lines here; Year 1 revenue of ${k(rev[0])}K", ran)
@@ -78,6 +78,7 @@ for lab, shown in uof:
     r = srow(lab, S, 8); v = S.cell(row=r, column=12).value
     chk("13", f"use of funds: {lab}", f"{lab if lab!='Founder salaries' else 'Founder salaries, full-time, with super'} {shown}", ra); assert f"${int(v/1000)}K" == shown
 # A5
+chk("A5", "market facility", f"15 bps on ${int(rnd(iv('Average facility across the market')))}M", a5)
 chk("A5", "price per job", f"${int(mv('Facility fee per facility a year')/1000)}K · ${int(mv('Builder subscription per job a year')/1000)}K", a5)
 chk("A5", "revenue potential", f"${int(rnd(tam))}M ${int(rnd(sam))}M", a5)
 chk("A5", "heading and standfirst", f"${int(rnd(tam))}M market", a5); chk("A5", "Queensland", f"${int(rnd(sam))}M in Queensland", a5)
@@ -100,9 +101,9 @@ chk("A6 notes", "each basis point", f"each basis point of fee is about ${rnd(ue(
 chk("A6 notes", "revenue list", "revenue " + " / ".join(m2(x) for x in rev), a6n)
 chk("A6 notes", "EBITDA list", "EBITDA " + " / ".join(m2(x) for x in op), a6n)
 chk("A6 notes", "upside and conservative", f"Upside ${int(rnd(sv('Total revenue',1)[4]/1e6))}M and conservative ${rnd(sv('Total revenue',2)[4]/1e6,1)}M in Year 5", a6n)
-chk("A6 notes", "facility by case", f"${rnd(iv('Average contract value'),1)}M at 1.2 times in the base case (${int(rnd(fa[0]))}M), ${int(iv('Average contract value',3))}M at 1.2 times in the upside (${int(rnd(fa[1]))}M", a6n)
+chk("A6 notes", "facility by case", f"${rnd(iv('Average build contract on facilities'),1)}M at 1.2 times in the base case (${int(rnd(fa[0]))}M), ${int(iv('Average build contract on facilities',3))}M at 1.2 times in the upside (${int(rnd(fa[1]))}M", a6n)
 chk("A6 notes", "Years 2 and 4", f"{int(rnd(len_[1]))} and {int(rnd(len_[3]))} lenders on {int(rnd(fac[1]))} and {int(rnd(fac[3]))} facilities; {int(rnd(jobs[1]))} and {int(rnd(jobs[3]))} paid builder jobs; {int(rnd(team[1]))} and {int(rnd(team[3]))} people", a6n)
-assert iv("Average contract value", 3) == 85 and iv("Project debt stack as a multiple", 4) == 1.2
+assert iv("Average build contract on facilities", 3) == 85 and iv("Project debt stack as a multiple", 4) == 1.2
 bad = [c for c in checks if not c[0]]
 for ok, where, label, shown in checks:
     print(("ok  " if ok else "FAIL"), f"{where:9s}", label, "|", shown[:110])

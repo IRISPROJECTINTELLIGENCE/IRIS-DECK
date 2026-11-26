@@ -3,6 +3,11 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, mid-afternoon (v799 → v800; appendix v20 → v21; workbook) — D-52
+
+- New input: average contract across the market ($40M), used by the Market sheet for the job count and the market facility fee; the facilities under IRIS stay $80M base. Recalculated, 0 errors.
+- Slide 11: heading and tiles back to $291M / $55M on about 4,300 / 820 live jobs; obtainable 17% of Australia. A5 back to the $40M market average and $72K per facility across the market. Tie-out 58 checks, 0 failed.
+
 ## 26 November 2026, mid-afternoon (v798 → v799; appendix v19 → v20; workbook) — D-51
 
 - Fee cap removed from the model (Inputs row and both fee formulas); base contract set to exactly $80M ÷ 1.2. Recalculated, 0 errors. Base case unchanged; upside Year 5 $78M.
