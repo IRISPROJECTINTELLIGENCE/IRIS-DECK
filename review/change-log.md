@@ -3,6 +3,14 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, afternoon (workbook only)
+
+Owner: "this financial model needs to be able to be interrogated by investors and execs."
+
+- Inputs: every row's basis rewritten in plain English (what the number is, where it comes from, how it is worked out; "no outside source" where there is none) and typed consistently (`financial-model/basis.py`).
+- New Sensitivities sheet: Year 5 revenue, Year 5 EBITDA and lowest cash for 19 one-at-a-time changes (`sensitivities.py`). Largest: fee ±5 bps ±$12.3M of Year 5 revenue; facility $60M/$100M ±$9.2M; 0.5 facilities a month −$9.6M; lender rollout six months later −$8.6M. Director pay at $140K moves lowest cash to $164K and nothing in Year 5.
+- Read me: how to test the model, the inputs to test first, the market kept apart from the lender line. Summary sheet unchanged cell for cell; tie-out 58 checks, 0 failed.
+
 ## 26 November 2026, mid-afternoon (v800 → v801; appendix v21 → v22; workbook) — D-53
 
 - Inputs: the back-solved $66.7M and $85M contracts removed; the facility under IRIS is an input ($80M / $102M / $48M). Summary sheet identical cell for cell. Slide 11 and A6 notes updated. Tie-out 58 checks, 0 failed.

@@ -17,6 +17,12 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter as CL
 
 OUT = sys.argv[1]
+import os, json
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from basis import BASIS, YEAR_BASIS, TABLE_BASIS
+# Sensitivity runs pass input changes as JSON: {"key": [base, upside, conservative]} or {"table:lenders_shift": months}.
+OVERRIDE = json.loads(os.environ.get("IRIS_OVERRIDE", "{}"))
+SENS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sensitivities.json")
 FONT = "Calibri"
 BLUE = BLACK = GREEN = GREY = "000000"  # one text colour: inputs sit on the Inputs sheet, the rest is formula
 
@@ -85,6 +91,13 @@ def section(title):
 
 def inp(key, label, base, up, cons, unit, typ, source, fmt, key_decision=False):
     global row
+    if key in BASIS:
+        typ, source = BASIS[key]
+    elif key[:-1] in YEAR_BASIS:
+        typ = YEAR_BASIS[key[:-1]][0]
+        source = YEAR_BASIS[key[:-1]][1] if key.endswith("1") else "As Year 1."
+    if key in OVERRIDE:
+        base, up, cons = OVERRIDE[key]
     wi.cell(row=row, column=1, value=label).font = font()
     for col, val in ((2, base), (3, up), (4, cons)):
         c = wi.cell(row=row, column=col, value=(None if val == 999 else val))
@@ -115,6 +128,8 @@ def derived(key, label, fn, unit, source, fmt):
     u.font = font(GREY)
     u.alignment = Alignment(indent=1)
     wi.cell(row=row, column=6, value="Derived").font = font(GREY)
+    if key in BASIS:
+        source = BASIS[key][1]
     sc = wi.cell(row=row, column=7, value=source)
     sc.font = font(GREY)
     sc.alignment = Alignment(wrap_text=True, vertical="top")
@@ -124,6 +139,10 @@ def derived(key, label, fn, unit, source, fmt):
 
 def table(key, title, rows_, header, source, fmt=F_INT):
     global row
+    source = TABLE_BASIS.get(key, source)
+    shift = OVERRIDE.get(f"table:{key}_shift")
+    if shift:
+        rows_ = [(r[0], (999 if r[1] == 999 or r[1] + shift > 60 else r[1] + shift), r[2], r[3]) for r in rows_]
     wi.cell(row=row, column=1, value=title).font = font(bold=True)
     s = wi.cell(row=row, column=7, value=source)
     s.font = font(GREY)
@@ -286,8 +305,8 @@ for key, label, val, src in [
     ("uof_build", "Enterprise product build", 320000, "The production platform, built with an engineering partner."),
     ("uof_found", "Founder salaries, full-time, with super", 224000, "Two founders at $100,000 each plus 12% superannuation."),
     ("uof_sec", "Security audit, cloud and models", 46000, "Security audit $30,000; cloud, models and tools $16,000."),
-    ("uof_sales", "Sales, marketing and customer success", 20000, ""),
-    ("uof_legal", "Legal, accounting and IP", 20000, ""),
+    ("uof_sales", "Sales, marketing and customer success", 20000, "Events, travel and the first lender and builder conversations."),
+    ("uof_legal", "Legal, accounting and IP", 20000, "The SAFE, customer contracts, accounts and trademarks."),
     ("uof_cont", "Contingency and insurance", 20000, "Contingency $10,000; professional indemnity and cyber insurance $10,000."),
     ("uof_res", "Runway reserve to the seed", 100000, "Held in cash to the seed round."),
 ]:
@@ -732,6 +751,39 @@ for note in ("Year 1 costs include the cloud use, onboarding and commissions tha
     rr += 1
 assert rr <= sr, "the round block must end within the rows of the Market block"
 
+# ---------------------------------------------------------------- Sensitivities
+if os.path.exists(SENS_FILE) and not os.environ.get("IRIS_NO_SENS") and not OVERRIDE:
+    SD = json.load(open(SENS_FILE))
+    wsn = wb.create_sheet("Sensitivities")
+    setw(wsn, {"A": 52, "B": 18, "C": 16, "D": 14, "E": 16, "F": 14, "G": 20})
+    wsn.cell(row=1, column=1, value="What moves the result: one input changed at a time, base case").font = font(bold=True, size=14)
+    wsn.cell(row=2, column=1, value="Each row re-runs this model with the one input named changed, and every other input left as it is on the Inputs sheet. "
+             "These are values from those runs, made when the workbook was built. To test your own figure, change it on the Inputs sheet: every other sheet recalculates.").alignment = Alignment(wrap_text=True, vertical="top")
+    wsn.merge_cells("A2:G2"); wsn.row_dimensions[2].height = 45
+    hdr = ["Input changed", "Changed to", "Year 5 revenue", "vs base", "Year 5 EBITDA", "vs base", "Lowest cash, with seed"]
+    for k, h in enumerate(hdr, 1):
+        c = wsn.cell(row=4, column=k, value=h); c.font = font(bold=True); c.border = BOTTOMLINE
+        if k > 2: c.alignment = Alignment(horizontal="right")
+    b = SD["base"]
+    rr = 5
+    vals = [("Base case, as on the Inputs sheet", "", b)] + [(v["group"], v["change"], v) for v in SD["variants"]]
+    last = None
+    for grp, chg, v in vals:
+        wsn.cell(row=rr, column=1, value=grp if grp != last else None).font = font(bold=(rr == 5))
+        last = grp
+        wsn.cell(row=rr, column=2, value=chg).font = font()
+        for col, key, rel in ((3, "rev5", False), (4, "rev5", True), (5, "ebitda5", False), (6, "ebitda5", True), (7, "low_cash", False)):
+            val = (v[key] - b[key]) if rel else v[key]
+            c = wsn.cell(row=rr, column=col, value=(None if rel and rr == 5 else round(val)))
+            c.number_format = F_MONEY; c.font = font()
+        rr += 1
+    rr += 1
+    for t in ("Reading it: the lender inputs (facility size, fee, facilities per lender, rollout, book re-signed, term) move Year 5 revenue most. "
+              "Builder pricing moves early cash more than Year 5. Director pay to Year 3 and the seed's timing move the lowest cash balance, not Year 5. "
+              "The stall rate drives assessments only, about 1% of revenue.",):
+        c = wsn.cell(row=rr, column=1, value=t); c.alignment = Alignment(wrap_text=True, vertical="top")
+        wsn.merge_cells(start_row=rr, start_column=1, end_row=rr, end_column=7); wsn.row_dimensions[rr].height = 45
+
 # ---------------------------------------------------------------- Read me
 wr = wb.create_sheet("Read me", 0)
 setw(wr, {"A": 120})
@@ -739,17 +791,30 @@ lines = [
     ("IRIS five-year model", font(bold=True, size=14)),
     ("IRIS Intelligence Pty Ltd (ACN 700 449 618). Version of 26 November 2026. The model behind the market, model and round pages of the IRIS Investment Summary.", font(GREY, italic=True)),
     ("", None),
-    ("How to use it", font(bold=True)),
-    ("Change inputs on the Inputs sheet; the other sheets are formulas. Three cases (Base, Upside, Conservative) run side by side; the deck shows the base case.", font()),
+    ("How to test it", font(bold=True)),
+    ("1. Every input is on the Inputs sheet, in columns B, C and D (Base, Upside, Conservative). Every other number in the workbook is a formula. Change an input and every sheet recalculates.", font()),
+    ("2. Each input carries its unit, its type and a plain-English basis (columns E to G): what the number is, where it comes from and how it was worked out. Where there is no outside source, the basis says so.", font()),
+    ("3. Types: Reported (from a named published source); Measured (a published statistic); Estimate (the company's estimate, with its reasoning); Company target (a plan to achieve, not evidence); Company decision (a price, salary or funding term the company sets); Derived (worked out from other inputs).", font()),
+    ("4. The Sensitivities sheet shows Year 5 revenue, Year 5 EBITDA and the lowest cash balance when one input is changed at a time.", font()),
+    ("5. To trace a figure, follow its formula: the Summary links to the monthly sheets (Base, Upside, Conservative), and each monthly row is built from named Inputs cells.", font()),
+    ("", None),
+    ("The inputs to test first", font(bold=True)),
+    ("Lender rollout: 1 / 3 / 8 / 14 / 20 lenders by Years 1–5 (Inputs section 3). A company target, the largest single assumption in the plan.", font()),
+    ("New facilities per lender a month: 0.8, about ten a year. At $80M each that implies a construction book of about $1.5bn per lender.", font()),
+    ("Average facility under IRIS: $80M base, $102M upside, $48M conservative. Set by the owner; larger than the $48M market average because IRIS targets the larger jobs.", font()),
+    ("Facility fee: 15 bps a year, paid by the developer. A company decision; no lender has agreed it yet.", font()),
+    ("Existing loans each lender re-signs: 10. Lifts revenue early, as each lender's book comes under the condition.", font()),
+    ("Share of commercial work on jobs of $10M or more: 65%. Market size only; no outside source.", font()),
+    ("Jobs per deployment analyst: 8. The largest cost driver.", font()),
     ("", None),
     ("What is on each sheet", font(bold=True)),
-    ("Summary: five years for each case, unit economics, the market, and the round with its use of funds. Market: the total, serviceable and obtainable market, built up from building work a year. Inputs: each input with its unit, type and source. Base, Upside and Conservative: the monthly model for each case over 60 months, with yearly totals at the right.", font()),
+    ("Summary: five years for each case, unit economics, the market, and the round with its use of funds. Sensitivities: what moves the result. Market: the total, serviceable and obtainable market, built up from building work a year. Inputs: every input with its unit, type and basis. Base, Upside and Conservative: the monthly model for each case over 60 months, with yearly totals at the right.", font()),
     ("", None),
     ("What the model assumes", font(bold=True)),
-    ("Three revenue lines. IRIS for Lenders: a lender writes IRIS into facilities as a drawdown condition; the developer pays 15 bps a year on the full project debt stack, senior debt alone or senior with mezzanine, above a floor of $3,500 a month and with no cap; the market counts live jobs at a $40M average contract; the facilities IRIS is written into average $80M in the base case, $102M in the upside and $48M in the conservative case; no cap (D-51); each lender adds new facilities each month and its existing book comes under the condition as loans re-paper. IRIS for Builders: a subscription per live job that follows the builder. Assessments: a per-engagement fee, benchmarked to QS reports, on distressed facilities on the platform and a small number won off it.", font()),
-    ("The lender adoption cadence (20 lenders by Year 5) and the facilities each lender adds are company targets. The distress rate (4% a year) is a company estimate. Each input carries its type and source on the Inputs sheet.", font()),
+    ("Three revenue lines. IRIS for Lenders: a lender writes IRIS into facilities as a condition of drawdown, and the developer pays 15 bps a year on the facility, senior debt alone or with mezzanine, above a $3,500 a month floor, with no cap. IRIS for Builders: $3,500 a month per live job, following the builder from job to job. Assessments: a fixed fee per engagement on troubled projects, benchmarked to QS report fees.", font()),
+    ("The market is counted on all live jobs of $10M or more at a $40M average contract. The lender line uses the facilities IRIS is written into, which average $80M in the base case. The two are kept apart so that targeting larger jobs does not shrink the market.", font()),
     ("The round is a $750K pre-seed SAFE at a $4M valuation cap, received in month 1. A $3M seed is assumed in month 15. A Series A is optional and shown separately.", font()),
-    ("No R&D tax refund, no insurer or surety revenue, no interest income. Costs are paid in the month incurred. A$ excluding GST.", font()),
+    ("Not included: R&D tax refunds, insurer or surety revenue, interest income. Costs are paid in the month incurred. A$ excluding GST.", font()),
 ]
 for i, (text, fnt) in enumerate(lines, 1):
     c = wr.cell(row=i, column=1, value=text)
@@ -766,6 +831,8 @@ for sheet in wb.worksheets:
     sheet.page_setup.fitToHeight = 0
 # Reading order: Read me, Summary, Market, Inputs, then the three monthly sheets.
 wb.move_sheet("Inputs", offset=2)
+if "Sensitivities" in wb.sheetnames:
+    wb.move_sheet("Sensitivities", offset=-(wb.sheetnames.index("Sensitivities") - 2))
 wb.active = 0
 wb.properties.title = "IRIS five-year model"
 wb.properties.subject = "Market, revenue, cost and cash model: five years, three cases"

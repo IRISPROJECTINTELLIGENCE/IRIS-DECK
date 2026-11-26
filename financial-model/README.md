@@ -19,3 +19,7 @@ The round: Inputs section 9 holds the seven use-of-funds lines from slide 13 ($3
 The lender adoption cadence and the per-lender facility rate are company targets; the distress rate is an estimate. Any change to an assumption needs a decision in `../review/review-decisions.md`, and slides 11 and 13 and appendix A5–A6 move with the workbook. After a regeneration, compare every numeric cell with the previous build before committing.
 
 `build_model_36m_legacy.py` and `IRIS_model_36m_legacy.xlsx` are the 36-month model of 1 November 2026 (D-33), kept for reference.
+
+## Testing the model (26 November 2026)
+
+Every input on the Inputs sheet carries a type (Reported, Measured, Estimate, Company target, Company decision, Derived) and a plain-English basis, kept in `basis.py`. The Sensitivities sheet is built from `sensitivities.json`, written by `python3 sensitivities.py <recalc.py>`, which re-runs the model with one base-case input changed at a time (`IRIS_OVERRIDE`). Re-run it whenever an input changes, then rebuild.
