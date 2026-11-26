@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the sixteen appendix pages (A1-A16) of the IRIS Investment Summary.
+"""Generate the eleven appendix pages (A1-A11) of the IRIS Investment Summary.
 
 Usage: python3 -I build_appendix.py <out_dir> [inter-variable.woff2]
 
@@ -70,6 +70,36 @@ PAGES = [
 
 
 
+ dict(id="apx-reach", num="A4", label="Appendix A4 · Backs slide 10 · How the condition holds",
+  h2="The condition rests on documents lenders already use.",
+  stand="**Slide 10** assumes a lender writes IRIS into a facility. Part of that is established; part is untested.",
+  cols=["520px", "1fr", "300px"], head=["Question", "Answer", "Status"],
+  rows=[
+   [("Can a lender require a report?", "key"), "It does today: the QS report, paid by the borrower.", ("Established", "status")],
+   [("What binds the builder?", "key"), "The tender, the head contract and the side deed.", ("Standard documents", "status")],
+   [("A builder already under contract?", "key"), "Owes nothing new. New facilities come first.", ("By design", "status")],
+   [("What if a builder refuses?", "key"), "It sees each finding first and keeps its rates.", ("Untested", "status")],
+   [("Will the drafting hold?", "key"), "Lawyers confirm the documents.", ("Month 9 opinion", "status")],
+  ],
+  foot=None),
+
+ dict(id="apx-sources", num="A7", label="Appendix A7 · Backs slides 2, 3 and 8 · Sources",
+  h2="Where the deck’s public figures come from.",
+  stand="Dated sources for **slides 2, 3 and 8**. Market and model inputs are on A5 and A6.",
+  cols=["1fr", "110px", "720px"], head=["Figure", "Slide", "Source"],
+  rows=[
+   [("Construction, about one in four insolvencies", "key"), "2, 8", "ASIC, series 1, 14 September 2026"],
+   [("Bathla: 540 entities, $3.3bn, about 40 funds", "key"), "2, 8", "ASIC data; AFR; Bloomberg"],
+   [("$3.08bn owed to secured lenders", "key"), "3", "The Urban Developer, 25 September 2026"],
+   [("A project rated low to medium risk", "key"), "3", "Rampart, 6 September 2026; being confirmed"],
+   [("Replacement builder prices 20–40%", "key"), "3", "Founder observation"],
+   [("Cash rate, CPI, dwelling values", "key"), "8", "RBA, ABS, Cotality, November 2026"],
+   [("ASIC review and enforcement warning", "key"), "8", "ASIC, September 2026"],
+   [("Presales and lending terms", "key"), "8", "Stamford Capital; Gravity Capital, 2026"],
+   [("Valuation standard from July 2027", "key"), "8", "FSC Standard 30, Aug 2026; ASIC, June 2026"],
+  ],
+  foot=None),
+
  dict(id="apx-landscape", num="A8", label="Appendix A8 · Backs slide 9 · The landscape",
   h2="No product found reconciles a builder’s systems for the lender.",
   stand="**Slide 9** names nine. About sixty were reviewed, October–November 2026, in six groups.",
@@ -97,37 +127,24 @@ PAGES = [
   ],
   foot=None),
 
-]
-# ---------------------------------------------------------------- 26 November 2026, institutional pass
-# A4-A7 and A10 rewritten; A11-A16 added. Sources are linked where the address names no lender or fund.
-TGB = "https://thegoodbuilder.com.au/540-companies-in-one-day-why-the-insolvency-numbers-will-look-worse-next-year/"
-ACI = "https://alternativecreditinvestor.com/2026/10/01/bathla-collapse-set-to-sharpen-investor-scrutiny-of-australian-private-credit/"
-UTD_SEP = "https://www.theurbandeveloper.com/articles/bathla-update-construction-shut-down"
-UTD_AUG = "https://www.theurbandeveloper.com/articles/bathla-group-administration-sydney-developer-collapse-debts-teneo-appointed"
-RBA = "https://www.rba.gov.au/media-releases/2026/mr-26-30.html"
-ABS = "https://www.abs.gov.au/media-centre/media-releases/cpi-rose-49-year-october-2026"
-COT = "https://www.cotality.com/au/insights/articles/housing-downturn-broadens-as-brisbane-and-perth-lead-the-decline"
-CU = "https://www.claytonutz.com/insights/2026/october/private-credits-stress-test-from-developer-distress-to-fund-freezes-asics-enforcement-moment-arrives"
-STAM = "https://www.theurbandeveloper.com/articles/stamford-capital-lender-sentiment-construction-lending-2026"
-FSC = "https://fsc.org.au/news/media-release/media-release-fsc-releases-industry-standard-for-private-markets"
-ASICV = "https://asic.gov.au/about-asic/news-centre/news-items/asic-puts-private-credit-on-notice-ahead-of-30-june-valuations-and-reporting"
-
-PAGES_NEW = {
- "apx-reach": dict(id="apx-reach", num="A4", label="Appendix A4 · Backs slide 10 · How the condition holds",
-  h2="Each party has a reason to sign and a document that binds it.",
-  stand="**Slide 10** assumes a lender writes IRIS into a facility. Why each party agrees, and where their interests pull apart.",
-  cols=["520px", "1fr", "290px"], head=["Question", "Answer", "Status"],
+ dict(id="apx-risks", num="A10", label="Appendix A10 · Backs slide 13 · Risks",
+  h2="Six risks, each with a date by which we will know.",
+  stand="**Slide 13**’s milestones answer these. The first two are what this round is for.",
+  cols=["460px", "1fr", "220px"], head=["Risk", "What we are doing", "Know by"],
   rows=[
-   [("Why does the lender want it?", "key"), "Cost to finish and completion, from the records.", ("Design partner tests", "status")],
-   [("Why does the developer pay?", "key"), "A condition of its debt, as the QS fee is today.", ("QS precedent", "status")],
-   [("Why does the builder agree?", "key"), "A tender condition for all bidders; it sees findings first.", ("Untested", "status")],
-   [("What binds each party?", "key"), "Developer: the facility. Builder: tender, contract, side deed.", ("Standard documents", "status")],
-   [("A builder already under contract?", "key"), "Owes nothing new. New facilities come first.", ("By design", "status")],
-   [("The lender wants the builder’s detail?", "key"), "Totals and records; rates stay with the builder.", ("Proposed rule", "status")],
-   [("The developer pays, the lender relies?", "key"), "A fixed fee. IRIS reports what the records show.", ("By design", "status")],
-   [("Will the drafting hold?", "key"), "Lawyers confirm the documents.", ("Month 9 opinion", "status")],
+   [("No lender adds the condition", "key"), "A design partner runs IRIS on a live facility first.", ("Months 9–12", "status")],
+   [("Builders refuse access", "key"), "The builder sees findings first; our R&D partner agreed.", ("Months 1–3", "status")],
+   [("Connections take longer", "key"), "Procore first, then one system at a time.", ("Month 6", "status")],
+   [("A lender cannot rely on it", "key"), "Reconciled to builders’ cost reports; PI and reliance terms.", ("Months 6–9", "status")],
+   [("A platform or QS firm builds it", "key"), "Platforms serve their own customer; QS firms can be channels.", ("Ongoing", "status")],
+   [("Sales cycles run long", "key"), "The seed is raised on paid use, with or without a mandate.", ("Months 15–18", "status")],
   ],
   foot=None),
+]
+# ---------------------------------------------------------------- 26 November 2026, institutional pass
+# A5 and A6 rewritten and the downside cases added as A11 (owner, 26 Nov 2026: the rest of that pass was reverted).
+
+PAGES_NEW = {
 
  "apx-sizing": dict(id="apx-sizing", num="A5", label="Appendix A5 · Backs slide 11 · Market sizing",
   h2="The market counts each live job once, at one price.",
@@ -158,108 +175,15 @@ PAGES_NEW = {
    [("EBITDA margin, Year 5", "key"), ("45%", "num"), "Job costs $10.7M; lender staff $4.3M; fixed $7.4M"],
    [("Revenue, Year 5", "total"), ("$40.5M", "numb"), "Months 49 to 60. Month 60 × 12 is the $49.2M run rate"],
   ],
-  foot="Lenders a year late, no lender, or a late seed: A15. Each $10M of facility is about $4.6M of Year 5 revenue."),
+  foot="Lenders a year late, no lender, or a late seed: A11. Each $10M of facility is about $4.6M of Year 5 revenue."),
 
- "apx-sources": dict(id="apx-sources", num="A7", label="Appendix A7 · Backs slides 2, 3 and 8 · Sources",
-  h2="Where the deck’s public figures come from.",
-  stand="Dated and linked. A sum owed to lenders is **exposure**; a write-down is a **loss** recognised so far.",
-  cols=["1fr", "100px", "700px"], head=["Figure", "Slide", "Source"],
-  rows=[
-   [("Construction, 24.5% of insolvencies", "key"), "2, 8", f"[ASIC series 1 via The Good Builder, 22 Sep 2026]({TGB})"],
-   [("Bathla: about $3.3bn owed, 40 funds", "key"), "2, 8", f"AFR; Bloomberg; [ACI, 1 Oct 2026]({ACI})"],
-   [("$3.08bn owed to secured lenders", "key"), "3", f"Exposure. [The Urban Developer, 25 Sep 2026]({UTD_SEP})"],
-   [("Lender of a decade out by January", "key"), "3", f"[The Urban Developer, 25 Aug 2026]({UTD_AUG})"],
-   [("About $168M written down, three funds", "key"), "3", "Loss. The Urban Developer, 30 Sep 2026"],
-   [("Cash rate, CPI, dwelling values", "key"), "2, 8", f"[RBA, 3 Nov]({RBA}); [ABS, 25 Nov]({ABS}); [Cotality, 2 Nov]({COT})"],
-   [("ASIC review and enforcement warning", "key"), "8", f"[Clayton Utz, 1 Oct 2026]({CU}); The Nightly, 30 Sep"],
-   [("Presales and lending terms", "key"), "8", f"[Stamford survey, 2026]({STAM}); Gravity Capital, 25 Oct"],
-   [("Valuation standard from July 2027", "key"), "8", f"[FSC Standard 30, 26 Aug 2026]({FSC}); [ASIC, 18 Jun]({ASICV})"],
-   [("Replacement builder prices 20–40%", "key"), "3", ("Founder experience, unmeasured", "muted")],
-  ],
-  foot=None),
 
- "apx-risks": dict(id="apx-risks", num="A10", label="Appendix A10 · Backs slide 13 · Risks the round retires",
-  h2="The round answers seven questions, each by a set month.",
-  stand="**Slide 13**’s milestones, read as the risks they retire. The first four are what the build is for.",
-  cols=["620px", "1fr", "170px"], head=["Question", "Answered by", ("Month", "num")],
-  rows=[
-   [("Does it reconcile on live data?", "key"), "The pass marks on A14, on our partner’s jobs", ("6", "num")],
-   [("Will builders pay for it?", "key"), "The first paying builders", ("6", "num")],
-   [("Will a lender’s security review pass?", "key"), "An independent audit and penetration test", ("6", "num")],
-   [("Will a lender use it beside its QS?", "key"), "A scoped lender view on one live facility", ("9", "num")],
-   [("Will the documents hold?", "key"), "A legal opinion on the condition and side deed", ("9", "num")],
-   [("Will a lender write it in?", "key"), "The first drawdown condition. A target", ("12", "num")],
-   [("Is the next round fundable?", "key"), "A seed on paid use, with or without a lender", ("15–18", "num")],
-  ],
-  foot="Month 9 needs a scoped lender view brought forward in the build plan (A12). Costs of delay: A15."),
 
- "apx-status": dict(id="apx-status", num="A11", label="Appendix A11 · Backs slide 2 · Where we are",
-  h2="What is built, what is agreed, and what is still a target.",
-  stand="**Slide 2** gives the status in one line. Each item here is classed by the evidence behind it.",
-  cols=["430px", "1fr", "330px"], head=["Item", "Detail", "Status"],
-  rows=[
-   [("Proof of concept", "key"), "A fictional project on a Procore sandbox (slide 7)", ("Built", "status")],
-   [("R&D partner builder", "key"), "SEQ Tier 2; real project data; unpaid", ("Agreed", "status")],
-   [("Engineering partner", "key"), "Builds the enterprise product", ("In negotiation", "status")],
-   [("Builder feedback", "key"), "A Tier 1 senior contracts manager, in writing", ("Received, May 2026", "status")],
-   [("Lender interest", "key"), "A non-bank fund called the lender view useful", ("Discussion; no letter", "status")],
-   [("Paying builders", "key"), "None yet. Two from month 6", ("Target", "status")],
-   [("Lender on a live facility", "key"), "None yet. The design partner, month 9", ("Target", "status")],
-   [("First drawdown condition", "key"), "None yet. Month 12", ("Target", "status")],
-  ],
-  foot="Pre-revenue. Not claimed: paying customers, a mandate, an accuracy figure or a security certificate."),
 
- "apx-architecture": dict(id="apx-architecture", num="A12", label="Appendix A12 · Backs slides 6 and 7 · Architecture",
-  h2="Rules produce each finding; models read and explain the records.",
-  stand="**Slides 6 and 7** show the product. How it is built and what exists today; R1 to R7 are its releases, in order.",
-  cols=["470px", "1fr", "330px"], head=["Layer", "What it does", "Status"],
-  rows=[
-   [("Connectors", "key"), "Read-only API access; nothing written back", ("Procore, proof of concept", "status")],
-   [("Canonical project model", "key"), "One model of the job, whatever the vendor", ("In build, R1", "status")],
-   [("Verification checks", "key"), "Rules held as data; each finding keeps one ID", ("In build, R1", "status")],
-   [("Evidence links", "key"), "Each finding opens the records behind it", ("Proof of concept", "status")],
-   [("Isolation, roles, audit log", "key"), "Each customer walled off; each read logged", ("R1 and R2", "status")],
-   [("Correspondence and email", "key"), "Notices and claims read into the model", ("Planned, R3", "status")],
-   [("Chat over the records", "key"), "Answers cite records; says when it cannot tell", ("Demo; R4", "status")],
-   [("Aconex, ProcurePro, PayApps", "key"), "More systems on the same framework", ("Planned, R5", "status")],
-   [("Lender and developer views", "key"), "Scoped views behind an audited boundary", ("Planned, R7", "status")],
-  ],
-  foot="The moat: the project model and its library of checks, which a follower must rebuild, and the condition in lenders’ documents."),
 
- "apx-security": dict(id="apx-security", num="A13", label="Appendix A13 · Backs slides 6 and 10 · Security and reliance",
-  h2="The builder grants access, and each read of its data is logged.",
-  stand="What a lender’s security and credit teams will ask, and how IRIS answers.",
-  cols=["430px", "1fr", "300px"], head=["Requirement", "How IRIS meets it", "Status"],
-  rows=[
-   [("Hosting", "key"), "Azure, Australia; encrypted in transit and at rest", ("R1", "status")],
-   [("Access", "key"), "The builder authorises each connection, read-only", ("By design", "status")],
-   [("Who sees what", "key"), "Lender: its job, as totals and records; rates stay", ("Proposed rule", "status")],
-   [("Isolation", "key"), "Each customer’s data walled off and tested", ("R2", "status")],
-   [("Audit trail", "key"), "Each data access logged; findings keep history", ("R1", "status")],
-   [("Data handling", "key"), "Builder controls, IRIS processes; deleted on exit", ("Before live use", "status")],
-   [("Assurance", "key"), "Security audit and penetration test", ("After the raise", "status")],
-   [("Reliance", "key"), "The builder’s records, reconciled and dated", ("Terms of use", "status")],
-   [("Insurance", "key"), "Professional indemnity and cyber cover", ("Before paid use", "status")],
-  ],
-  foot="IRIS values and certifies nothing. The QS, the valuer and the lender’s credit judgement stay."),
 
- "apx-pilot": dict(id="apx-pilot", num="A14", label="Appendix A14 · Backs slides 7 and 13 · Pilot pass marks",
-  h2="The pilot passes or fails on measures set before it starts.",
-  stand="Proposed for the R&D pilot, to be agreed with the builder. **None has been measured yet.**",
-  cols=["390px", "1fr", "360px"], head=["Measure", "Pass mark", "Measured against"],
-  rows=[
-   [("Agreement to source", "key"), "Totals agree, three months running", ("The builder’s cost report", "muted")],
-   [("Traceability", "key"), "Each figure opens its source record", ("A sample audit", "muted")],
-   [("Precision", "key"), "8 in 10 findings confirmed real", ("The builder’s commercial team", "muted")],
-   [("Recall", "key"), "9 in 10 items in the risk register found", ("The builder’s risk register", "muted")],
-   [("Lead time", "key"), "Median 30 days before the cost report", ("Live jobs; historic records", "muted")],
-   [("Time bars", "key"), "Each delay event flagged before its deadline", ("The contract’s notice periods", "muted")],
-   [("Commercial value", "key"), "Exposure the team did not hold, 10 times the fee", ("The builder’s sign-off", "muted")],
-   [("Conversion", "key"), "The builder pays from month 6", ("An invoice", "muted")],
-  ],
-  foot="The time-bar and commercial-value marks are the two uses a Tier 1 senior contracts manager named (A11)."),
 
- "apx-downside": dict(id="apx-downside", num="A15", label="Appendix A15 · Backs slides 11 and 13 · Downside cases",
+ "apx-downside": dict(id="apx-downside", num="A11", label="Appendix A11 · Backs slides 11 and 13 · Downside cases",
   h2="If lenders come a year late, Year 5 is $24M and cash holds.",
   stand="Each case re-runs the base model. Costs follow the plan as written; in practice hiring waits for lenders.",
   cols=["1fr", "190px", "190px", "460px"], head=["Case", ("Revenue Y5", "num"), ("EBITDA Y5", "num"), "Cash"],
@@ -275,22 +199,8 @@ PAGES_NEW = {
   ],
   foot="The seed’s timing matters more than its size: it needs to land by month 19, or hiring after month 16 waits."),
 
- "apx-round": dict(id="apx-round", num="A16", label="Appendix A16 · Backs slide 13 · Terms and runway",
-  h2="The round covers 13 months of costs before any revenue.",
-  stand="**Slide 13** gives the use of funds. The terms, the runway and what the seed depends on.",
-  cols=["430px", "1fr", "320px"], head=["Term", "Detail", "Status"],
-  rows=[
-   [("Instrument", "key"), "A SAFE for A$750K", ("Set", "status")],
-   [("Valuation cap", "key"), "A$4M", ("Set", "status")],
-   [("Cap basis, discount, pro rata", "key"), "Pre- or post-money; any discount; MFN", ("To confirm", "status")],
-   [("Enterprise build", "key"), "$320K with an engineering partner", ("Quote pending", "status")],
-   [("Directors", "key"), "Full-time from close, $100K each plus super", ("Set", "status")],
-   [("Runway", "key"), "13 months of the plan’s costs, no revenue", ("Model", "status")],
-   [("Seed", "key"), "$3M at month 15; needed by month 19", ("Plan", "status")],
-  ],
-  foot="With the plan’s revenue, cash stays above $261K before the seed. Cases with a late or smaller seed: A15."),
 }
-NEW_ORDER = ["apx-status", "apx-architecture", "apx-security", "apx-pilot", "apx-downside", "apx-round"]
+NEW_ORDER = ["apx-downside"]
 
 BY_ID = {p['id']: p for p in PAGES}
 BY_ID.update(PAGES_NEW)

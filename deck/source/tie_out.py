@@ -1,4 +1,4 @@
-"""Tie every model-derived figure on slides 2, 11 and 13, and on A5, A6, A15 and A16, to the workbook.
+"""Tie every model-derived figure on slides 11 and 13, and on A5, A6 and A11 (downside cases), to the workbook.
 Usage: python3 -I tie_out.py <workbook.xlsx> <slides dir>"""
 import sys, re, html, openpyxl
 from decimal import Decimal, ROUND_HALF_UP
@@ -95,10 +95,8 @@ def sens(change):
     return dict(rev5=SN.cell(row=r, column=3).value, e5=SN.cell(row=r, column=5).value, low=SN.cell(row=r, column=7).value, neg=neg)
 s21 = sens("At month 21")
 need_by = int(s21["neg"].split()[1]) - 1
-chk("13", "runway line", f"covers {RW} months of costs before any revenue; the seed is needed by month {need_by}", ra)
+chk("13", "runway line", f"The cap is pre-money. The round covers {RW} months of costs before any revenue; the seed is needed by month {need_by} (A11)", ra)
 chk("13 notes", "runway notes", f"covers {RW} months of the plan’s costs; with the plan’s revenue cash stays above ${int(rnd(low/1000))}K", ran)
-su, sun = text("summary")
-chk("2", "round row runway", f"It covers {RW} months of costs before any revenue", su)
 # A5
 a5r = lambda key: mv(key)
 chk("A5", "building work", f"${rnd(mv('Multi-unit work in scope')+mv('C&I work in scope'),1)}bn", a5)
@@ -134,22 +132,19 @@ an6 = sens("6")
 chk("A6 notes", "analyst lever", f"six jobs each takes Year 5 EBITDA to {m1(an6['e5'])}", a6n)
 ret = sens("Each lender stops adding facilities after three years")
 chk("A6 notes", "retention", f"Year 5 revenue would fall by {m1(rev[4]-ret['rev5'])}", a6n)
-# A15 downside cases (Sensitivities sheet)
+# A11 downside cases (Sensitivities sheet; page id apx-downside)
 a15, a15n = text("apx-downside")
 late, none_, nos, s15, comb = sens("Every lender twelve months later"), sens("No lender in five years"), sens("No seed"), sens("$1.5M"), sens("Lenders twelve months later and a $1.5M seed")
 def m1s(x): return ("−" if x < 0 else "") + f"${abs(rnd(x/1e6,1))}M"
-chk("A15", "base", f"Base case {m1(rev[4])} {m1(op[4])} Lowest ${int(rnd(low/1000))}K", a15)
-chk("A15", "lenders late", f"Lenders twelve months later {m1s(late['rev5'])} {m1s(late['e5'])} Lowest ${int(rnd(late['low']/1000))}K", a15)
-chk("A15", "no lender", f"No lender in five years {m1s(none_['rev5'])} {m1s(none_['e5'])} Hiring for lenders stops by {none_['neg']}", a15)
-chk("A15", "retention", f"Each lender stops after three years {m1s(ret['rev5'])} {m1s(ret['e5'])} Lowest ${int(rnd(ret['low']/1000))}K", a15)
-chk("A15", "seed at 21", f"Seed at month 21 {m1(rev[4])} {m1(op[4])} Below zero from {s21['neg']}", a15)
-chk("A15", "seed 1.5", f"Seed of $1.5M {m1(rev[4])} {m1(op[4])} Lowest ${int(rnd(s15['low']/1000))}K", a15)
-chk("A15", "no seed", f"No seed {m1(rev[4])} {m1(op[4])} Below zero, months {nos['neg'].split()[1]} to", a15)
-chk("A15", "combined", f"{m1s(comb['rev5'])} {m1s(comb['e5'])} Below zero from {comb['neg']}", a15)
-chk("A15", "seed needed by", f"it needs to land by month {need_by}", a15)
-# A16, A10
-a16, a16n = text("apx-round")
-chk("A16", "runway", f"covers {RW} months of costs before any revenue", a16); chk("A16", "seed by", f"needed by month {need_by}", a16); chk("A16", "lowest cash", f"cash stays above ${int(rnd(low/1000))}K", a16)
+chk("A11", "base", f"Base case {m1(rev[4])} {m1(op[4])} Lowest ${int(rnd(low/1000))}K", a15)
+chk("A11", "lenders late", f"Lenders twelve months later {m1s(late['rev5'])} {m1s(late['e5'])} Lowest ${int(rnd(late['low']/1000))}K", a15)
+chk("A11", "no lender", f"No lender in five years {m1s(none_['rev5'])} {m1s(none_['e5'])} Hiring for lenders stops by {none_['neg']}", a15)
+chk("A11", "retention", f"Each lender stops after three years {m1s(ret['rev5'])} {m1s(ret['e5'])} Lowest ${int(rnd(ret['low']/1000))}K", a15)
+chk("A11", "seed at 21", f"Seed at month 21 {m1(rev[4])} {m1(op[4])} Below zero from {s21['neg']}", a15)
+chk("A11", "seed 1.5", f"Seed of $1.5M {m1(rev[4])} {m1(op[4])} Lowest ${int(rnd(s15['low']/1000))}K", a15)
+chk("A11", "no seed", f"No seed {m1(rev[4])} {m1(op[4])} Below zero, months {nos['neg'].split()[1]} to", a15)
+chk("A11", "combined", f"{m1s(comb['rev5'])} {m1s(comb['e5'])} Below zero from {comb['neg']}", a15)
+chk("A11", "seed needed by", f"it needs to land by month {need_by}", a15)
 bad = [c for c in checks if not c[0]]
 for ok, where, label, shown in checks:
     print(("ok  " if ok else "FAIL"), f"{where:9s}", label, "|", shown[:110])

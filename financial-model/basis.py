@@ -73,7 +73,7 @@ BASIS = {
     "cont_y1": ("Company decision", "The contingency line in the use of funds."),
     "cont_pct": ("Estimate", "Contingency on all costs from Year 2."),
     # 8. Funding
-    "safe": ("Company decision", "This round: a $750K SAFE at a $4M valuation cap, received in month 1."),
+    "safe": ("Company decision", "This round: a $750K SAFE at a $4M pre-money valuation cap, received in month 1."),
     "seed": ("Company decision", "The next round, assumed in all three cases. Raised on a product in paid use, with or without a lender's mandate."),
     "seed_m": ("Company target", "The month the seed is received."),
     "ser_a": ("Company decision", "An optional later round to roll out lenders faster. Not needed to stay cash positive: cash is shown with and without it."),

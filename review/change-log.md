@@ -3,6 +3,15 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, 17:31: institutional refinement reverted, five parts kept (v816, 1795678639-db0a; appendix v29, 1795678646-676a)
+
+Owner's direction: revert the evening's refinement and keep the slide 8 correction, the pre-money cap, the lender view in the initial enterprise build, the market tiers and the model work (D-56 amended, D-57).
+
+- Reverted to the main deck as published at 1795671531-09bd, with the owner's in-page edits: slides 2, 3, 4, 5, 7, 10 and 12. Reverted to appendix v27: A4, A7 (other than its valuation row and notes) and A10. Removed: the status, architecture, security, pilot pass-mark and terms pages of that pass.
+- Kept: slide 8's valuation sentence and notes (FSC Standard No. 30; ASIC, 18 June 2026), with A7's valuation row and notes to match; slide 11's market tiers ($291M, $254M, $49.2M; Queensland first market) and run-rate footer; A5 and A6 as rewritten; the downside cases page, renumbered A11 (slide 11, A6 and slide 13 point to it); the workbook as revised (D-54, D-55).
+- New: the cap is stated as pre-money on the cover, slide 2, slide 13 (runway line and notes) and in the workbook (Inputs basis and Read me). Slide 13: months 1 to 3 read "The enterprise build starts, lender view included."; a runway line ("The cap is pre-money. The round covers 13 months of costs before any revenue; the seed is needed by month 19 (A11).") at top 727px; the notes say the lender view is part of the initial enterprise build.
+- Checks: line fit measured for each changed block (cover label 1,374 of 1,664px; slide 2 round row two lines; slide 13 months 1 to 3 two lines, runway line one); banned words, em dashes, 24px floor and notes length clean; appendix generator 0 problems, A1 to A4 and A8 to A10 byte-identical to v27; workbook recalculated (9,672 formulas, no errors); tie-out 84 checks, 0 failed; appendix live hashes match the source files.
+
 ## 26 November 2026, evening: institutional refinement (v815, 1795673495-0526; appendix v28, 1795673503-418e)
 
 Owner's request of 15:28: refine the deck and appendix to institutional standard without reinventing them; detail to the appendix; flag missing information. Built on the owner's in-page saves (slide 5 project A label, slide 10 column header). Decisions D-54 to D-56; open items O-27 to O-36.
