@@ -3,6 +3,13 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, late afternoon (v801 → v804; appendix v22 → v23) — design
+
+Owner: the deck "looks very very claude like"; chose direction 1 (Swiss institutional), keeping red, black and white.
+
+- Both decks: cream to white; warm greys to neutral; coral and orange-red to one red #D7141A; spaced capital labels to sentence case; section labels black; headings and large figures in Inter Tight (face added to both indexes). Built on the live versions (main 1795669578-cf2d, appendix 1795668928-8b4f). Every heading re-measured in Inter Tight: all narrower than before, none over its box.
+- Not changed: the slide 7 screenshot keeps its own colours until it is re-captured.
+
 ## 26 November 2026, afternoon (workbook only)
 
 Owner: "this financial model needs to be able to be interrogated by investors and execs."
