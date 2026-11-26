@@ -14,7 +14,7 @@ the source of record once the owner has edited a page in the artifact.
 import html, io, json, os, re, sys
 
 F = "font-family:Inter, Arial, sans-serif"
-INK, BODY, MUTED, CORAL, RULE, RULE2 = "#0a0a0a", "#2a2a2a", "#6b6b6b", "#d7141a", "#d6d6d6", "#e6e6e6"
+INK, BODY, MUTED, CORAL, RULE, RULE2 = "#0a0a0a", "#2a2a2a", "#6b6b6b", "#d03b39", "#d6d6d6", "#e6e6e6"
 W, H, GAP, COLGAP = 1664, 808, 24, 28
 
 # ---------------------------------------------------------------- content

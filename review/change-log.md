@@ -3,6 +3,12 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 26 November 2026, late afternoon (v807 → v810; appendix v26 → v27)
+
+- Red softened (owner: "a little too heavy visually"): #D7141A to #D03B39 on both decks, the same places; built on the owner's 15:18 save (main 1795670326-543b).
+- Cover: the owner's new wording, "The delivery risk layer for development / and construction lending.", set at 64px in a 1,100px box so it holds two lines (1,060px); at 68px in 1,040px the first line was 1,130px and the block overflowed its 602px frame (now 593px).
+- Slide 10 (owner comment): the workstream table sits on a grey gradient panel (#F7F7F7 to #EBEBEB) with 14px of inner padding; the Scale row's own tint removed, its red top rule kept; block 341px, 28px clear of the label below.
+
 ## 26 November 2026, late afternoon (v806 → v807; appendix v25 → v26) — original fonts, new colours
 
 Owner: "put the font back to how it was before i asked for suggestions but keep the colours how they are now."
