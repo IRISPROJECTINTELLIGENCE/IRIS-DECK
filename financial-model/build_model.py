@@ -246,12 +246,13 @@ inp("sal_found", "Founder salary, each", 100000, 100000, 100000, "A$ a year", "C
 inp("oncost", "On-costs on salaries", 0.12, 0.12, 0.12, "% of salary", "Reported", "Superannuation guarantee 12% from 1 July 2025.", F_PCT)
 inp("sal_raise", "Salary growth a year, from Year 3", 0.03, 0.03, 0.03, "% a year", "Estimate", "", F_PCT)
 inp("sal_found2", "Founder salary, each, from Year 3", 180000, 180000, 150000, "A$ a year", "Company", "Market rate once the seed is in and lenders are live.", F_MONEY)
-inp("an_ratio", "Live facilities and jobs per deployment analyst", 8, 10, 10, "per analyst", "Estimate", "An analyst keeps each position checked against its source records monthly; about eight live jobs each. Analysts are hired by formula as the count grows.", F_INT)
+inp("an_ratio", "Live facilities and jobs per deployment analyst, to month 24", 8, 10, 10, "per analyst", "Estimate", "An analyst keeps each position checked against its source records monthly; about eight live jobs each at launch. Analysts are hired by formula as the count grows.", F_INT)
+inp("an_ratio_end", "Live facilities and jobs per deployment analyst by month 60", 15, 15, 15, "per analyst", "Estimate", "The software takes on more of the monthly checking as it matures: the ratio rises evenly from month 25 to month 60 (D-59).", F_INT)
 inp("an_sal", "Deployment analyst salary", 110000, 110000, 110000, "A$ a year", "Estimate", "", F_MONEY)
-inp("ls_ratio", "Lenders per lender success manager", 2, 3, 3, "per manager", "Estimate", "Onboards each lender's book, runs credit-committee reviews, holds the relationship.", F_INT)
+inp("ls_ratio", "Lenders per lender success manager", 4, 4, 4, "per manager", "Estimate", "Runs credit-committee reviews and holds the relationship; the lender onboarding lead (a fixed role) sets up each book (D-59).", F_INT)
 inp("ls_sal", "Lender success manager salary", 140000, 140000, 140000, "A$ a year", "Estimate", "", F_MONEY)
 inp("eng_base", "Engineers from month 16, before lender scaling", 2, 2, 1, "people", "Company", "Connectors, platform, reliability.", F_INT)
-inp("eng_ratio", "Lenders per additional engineer", 1.5, 2, 3, "per engineer", "Estimate", "Each lender brings its own facility structures, reporting formats and security review.", "0.0")
+inp("eng_ratio", "Lenders per additional engineer", 4, 4, 4, "per engineer", "Estimate", "The lender view is shared across lenders: each new lender adds set-up work (facility structures, reporting formats, security review), not a new product (D-59).", "0.0")
 inp("eng_sal", "Engineer salary", 170000, 170000, 170000, "A$ a year", "Estimate", "", F_MONEY)
 inp("onb_cost", "One-off cost to connect each new facility", 4000, 4000, 5000, "A$", "Estimate", "Connector setup, record mapping and the first reconciliation, mostly contractor and analyst time.", F_MONEY)
 inp("comm", "Sales commission on new lender revenue", 0.08, 0.08, 0.08, "% of first-year fees", "Estimate", "Paid on each new facility's first-year fee.", F_PCT)
@@ -428,7 +429,7 @@ def build_month_sheet(ws, col, title):
     row_def("arr", "Annualised revenue (month × 12)", "A$", lambda m, p: f"={m}{R['rev']}*12", F_MONEY, "stock")
     blank()
     blank("Team and costs")
-    row_def("n_an", "Deployment analysts", "people", lambda m, p: f"=IF({m}$3<16,0,ROUNDUP(({m}{R['livef']}+{m}{R['paid']})/{I('an_ratio',col)},0))", F_CNT, "stock")
+    row_def("n_an", "Deployment analysts", "people", lambda m, p: f"=IF({m}$3<16,0,ROUNDUP(({m}{R['livef']}+{m}{R['paid']})/({I('an_ratio',col)}+({I('an_ratio_end',col)}-{I('an_ratio',col)})*MAX(0,MIN(1,({m}$3-24)/36))),0))", F_CNT, "stock")
     row_def("n_ls", "Lender success managers", "people", lambda m, p: f"=IF({m}$3<16,0,ROUNDUP({m}{R['lenders']}/{I('ls_ratio',col)},0))", F_CNT, "stock")
     row_def("n_eng", "Engineers", "people", lambda m, p: f"=IF({m}$3<16,0,{I('eng_base',col)}+ROUNDUP({m}{R['lenders']}/{I('eng_ratio',col)},0))", F_CNT, "stock")
     row_def("c_found", "Founders", "A$", lambda m, p: f"={I('n_found',col)}*IF({m}$4<=2,{I('sal_found',col)},{I('sal_found2',col)})/12*(1+{I('oncost',col)})*(1+{I('sal_raise',col)})^MAX(0,{m}$4-3)", F_MONEY)
@@ -690,7 +691,7 @@ UE = [
     ("arr49", "Run rate at month 49 (that month × 12)", f"={nm}!${mcol(49)}${R['arr']}", F_MONEY),
     ("arr60", "Run rate at month 60 (that month × 12): the SOM", f"={nm}!${mcol(60)}${R['arr']}", F_MONEY),
     ("u_fee", "One facility, one year: fee, base", f"={FEE}", F_MONEY),
-    ("u_an", "less deployment analyst time per job, Year 5 pay", f"=-Inputs!$B${REF['an_sal']}*(1+Inputs!$B${REF['oncost']})*(1+Inputs!$B${REF['sal_raise']})^3/Inputs!$B${REF['an_ratio']}", F_MONEY),
+    ("u_an", "less deployment analyst time per job, Year 5 pay", f"=-Inputs!$B${REF['an_sal']}*(1+Inputs!$B${REF['oncost']})*(1+Inputs!$B${REF['sal_raise']})^3/Inputs!$B${REF['an_ratio_end']}", F_MONEY),
     ("u_cl", "less cloud and model use per job", f"=-Inputs!$B${REF['cloud_var']}*12", F_MONEY),
     ("u_acq", "less commission and onboarding, spread over the facility term", f"=-(Inputs!$B${REF['comm']}*{FEE}+Inputs!$B${REF['onb_cost']})/(Inputs!$B${REF['fac_term']}/12)", F_MONEY),
     ("u_con", "Contribution per facility a year", "=SUM(B{u_fee}:B{u_acq})", F_MONEY),
@@ -858,7 +859,7 @@ lines = [
     ("Facility fee: 15 bps a year, paid by the developer. A company decision; no lender has agreed it yet.", font()),
     ("Existing loans each lender re-signs: 10. Lifts revenue early, as each lender's book comes under the condition.", font()),
     ("Share of commercial work on jobs of $10M or more: 65%. Market size only; no outside source.", font()),
-    ("Jobs per deployment analyst: 8. The largest cost driver.", font()),
+    ("Jobs per deployment analyst: 8 to month 24, rising to 15 by month 60 (D-59). The largest cost driver.", font()),
     ("Lender retention: no lender stops adding facilities within the five years. A facility already under the condition keeps it to completion. The Sensitivities sheet shows each lender stopping after three years.", font()),
     ("", None),
     ("What is on each sheet", font(bold=True)),

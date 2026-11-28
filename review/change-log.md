@@ -3,6 +3,15 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 28 November 2026, 16:20: meeting actions executed (v841, 1795846793-4cc4; appendix v31, 1795846796-ba89)
+
+From the deck walk-through with an advisor; the owner's direction "execute" on the meeting notes, with his clarifications.
+- Model (D-59): leaner staffing. Analysts eight live jobs each to month 24, rising evenly to fifteen by month 60; one engineer per four lenders above two; one lender success manager per four lenders; all cases. Base Year 5: team 60 (was 102), people $9.0M (was $13.9M), costs $17.2M, EBITDA $23.2M, 57% (was $18.1M, 45%); revenue unchanged. Monthly revenue covers costs from month 23; on plan the round alone keeps cash positive (lowest $18K). Sensitivities re-run; analyst lever now flexes the month-60 ratio (10 and 20).
+- Slide 11 rebuilt: the left panel is the assumptions revenue is built from (market tiers, Queensland, three prices, growth and staffing drivers); the table adds the project numbers at each year end (lenders, loans, builder jobs, team) above revenue, costs and EBITDA; footer one line. Measured: right column 612px against 618, footer clear.
+- Slide 2: each row shortened; "Where we are" rewritten as short status lines. Slide 5: each case now reads what failed, the risk and what it meant for the lender, in plain English (Project B was "register", "delay-incentive pool", "weather buffer"). Slide 10: "Three go-to-market stages on one platform", column "Stage", condition of the loan; the side-deed box reads "Lender · builder, direct" with the reason in the notes. Slide 13: introductions and next steps stacked full width; runway line on two lines (on plan cash positive without the seed; seed by month 18 if lenders are a year late). Word cut on slides 3, 4, 6, 8 and 9 (slide 8 footer to one line, same facts).
+- Appendix: A6 adds the analyst ratio row; contribution 84%, margin 57%. A11 re-run figures; the seed foot now reads on plan and if lenders are late.
+- Checks: tie-out 87 checks, 0 failed; banned words, em dashes, 24px floor and notes length clean; appendix generator 0 problems; every rewritten block measured (no block gains a line except where noted).
+
 ## 26 November 2026, 19:04: deck renamed (v828, 1795683967-ec21; appendix v30, 1795683970-e0ad)
 
 - Owner's direction: the deck is now "IRIS Investor Pitch Deck" (was "IRIS Investment Summary"); the appendix is "IRIS Investor Pitch Deck · Appendix". Cover label to match: "Investor pitch deck · Pre-seed · AUD $750K SAFE · $4M post-money cap · November 2026" (1,379 of 1,664px, one line). Exports are named IRIS-Investor-Pitch-Deck-v<N>.pdf from here on.

@@ -52,20 +52,23 @@ checks.append((True, "11", "cost rows + contingency = total; revenue lines = rev
 # slide 11 tiles and footer (D-54: SAM is the jobs with a construction facility; tiers nest)
 tam, sam, som = mv("Total market (TAM)"), mv("Serviceable market (SAM)"), mv("Obtainable (SOM): annualised revenue at month 60, Base")
 qm, live_n, live_dev, live_oth = mv("First market: Queensland"), mv("Live projects in scope, Australia"), mv("of which developer-funded"), mv("of which other")
-chk("11", "TAM tile", f"${int(rnd(tam))}M Total market (TAM)", ec)
-chk("11", "SAM tile", f"${int(rnd(sam))}M Serviceable (SAM)", ec)
-chk("11", "SOM tile", f"${rnd(som,1)}M Obtainable (SOM)", ec)
-chk("11", "SOM share of SAM", f"{int(rnd(som/sam*100))}% of SAM", ec); assert sam < tam and som < sam
-chk("11", "live jobs Australia (about 4,330)", f"About {int(round(live_n,-1)):,} live jobs", ec)
-chk("11", "jobs with a facility", f"The {int(round(live_dev)):,} jobs with a facility", ec)
-chk("11", "Queensland first market", f"Queensland: ${int(rnd(qm))}M", ec)
-chk("11", "about 370 facilities; 92 jobs", "about 370 facilities; seventeen builders on 92 jobs", ec); assert round(fac[4], -1) == 370 and round(jobs[4]) == 92 and round(bld[4]) == 17 and round(len_[4]) == 20
-chk("11", "lenders at year end", " / ".join(str(int(rnd(x))) for x in len_) + " lenders", ec)
-chk("11", "facilities at year end", " / ".join(str(int(rnd(x))) for x in fac) + " facilities", ec)
-chk("11", "team", "team " + " / ".join(str(int(rnd(x))) for x in team), ec)
+chk("11", "TAM", f"TAM: {int(round(live_n,-1)):,} live jobs over $10M ${int(rnd(tam))}M", ec)
+chk("11", "SAM", f"SAM: {int(round(live_dev)):,} with a lender facility ${int(rnd(sam))}M", ec)
+chk("11", "SOM", f"SOM: month-60 run rate, {int(rnd(som/sam*100))}% of SAM ${rnd(som,1)}M", ec); assert sam < tam and som < sam
+chk("11", "Queensland first market", f"Queensland, the first market ${int(rnd(qm))}M", ec)
 fa = [iv("Average facility under IRIS, full debt stack", c) for c in (2, 3, 4)]
-chk("11", "average facility, base", f"facilities averaging ${int(rnd(fa[0]))}M", ec)
-chk("11", "upside and conservative", f"Upside ${int(rnd(sv('Total revenue',1)[4]/1e6))}M, conservative ${rnd(sv('Total revenue',2)[4]/1e6,1)}M", ec)
+chk("11", "lender price", f"Lenders: 15 bps of an ${int(rnd(fa[0]))}M loan ${int(ue('Annualised fee per facility')/1000)}K a year", ec)
+chk("11", "builder price", f"Builders: per live job ${int(iv('IRIS for Builders: subscription per live job')):,} a month", ec)
+chk("11", "assessment price", f"Assessments: per engagement ${int(iv('Distressed-project assessment, per engagement')/1000)}K", ec)
+chk("11", "new loans per lender", f"New loans per lender {iv('New facilities per lender a month after adoption')} a month", ec)
+chk("11", "book re-signed", f"Existing loans re-signed {int(iv('Existing facilities per lender that come under the condition'))} per lender", ec)
+chk("11", "term", f"Loan term {int(iv('Facility term'))} months", ec)
+chk("11", "analyst ratio", f"Live jobs per analyst {int(iv('Live facilities and jobs per deployment analyst, to month 24'))}, rising to {int(iv('Live facilities and jobs per deployment analyst by month 60'))}", ec)
+chk("11", "lenders at year end", "Lenders (a company target) " + " ".join(str(int(rnd(x))) for x in len_), ec)
+chk("11", "loans at year end", "Loans under IRIS " + " ".join(str(int(rnd(x))) for x in fac), ec)
+chk("11", "builder jobs at year end", "Builder jobs " + " ".join(str(int(rnd(x))) for x in jobs), ec)
+chk("11", "team at year end", "Team " + " ".join(str(int(rnd(x))) for x in team), ec)
+chk("11", "upside and conservative", f"Upside ${int(rnd(sv('Total revenue',1)[4]/1e6))}M and conservative ${rnd(sv('Total revenue',2)[4]/1e6,1)}M in Year 5", ec)
 assert min(S.cell(row=srow("Cash at year end, with seed"), column=c).value for c in list(range(2,7))+list(range(8,13))+list(range(14,19))) > 0
 assert ue("First month cash with seed goes negative, base") == 99 and ue("First month cash goes negative, conservative") == 99
 checks.append((True, "11", "cash positive with the seed in all three cases (year ends; base and conservative month by month)", "check"))
@@ -94,8 +97,11 @@ def sens(change):
     neg = SN.cell(row=r, column=8).value
     return dict(rev5=SN.cell(row=r, column=3).value, e5=SN.cell(row=r, column=5).value, low=SN.cell(row=r, column=7).value, neg=neg)
 s21 = sens("At month 21")
-need_by = int(s21["neg"].split()[1]) - 1
-chk("13", "runway line", f"The cap is post-money. The round covers {RW} months of costs before any revenue; the seed is needed by month {need_by} (A11)", ra)
+comb0 = sens("Lenders twelve months later and a $1.5M seed")
+need_by = int(comb0["neg"].split()[1]) - 1  # D-59: on plan the round alone stays positive; the seed date comes from the lenders-late case
+nos0 = sens("No seed")
+assert nos0["neg"] == "none", "on plan cash should stay positive without the seed"
+chk("13", "runway line", f"The round covers {RW} months of costs before any revenue. On plan, cash stays positive without the seed; if lenders are a year late, the seed must land by month {need_by} (A11).", ra)
 chk("13 notes", "runway notes", f"covers {RW} months of the plan’s costs; with the plan’s revenue cash stays above ${int(rnd(low/1000))}K", ran)
 # A5
 a5r = lambda key: mv(key)
@@ -128,8 +134,14 @@ chk("A6 notes", "run rates", f"{m1(arr49)} at month 49 and {m1(arr60)} at month 
 chk("A6 notes", "revenue list", "revenue " + " / ".join(m2(x) for x in rev), a6n)
 chk("A6 notes", "EBITDA list", "EBITDA " + " / ".join(m2(x) for x in op), a6n)
 chk("A6 notes", "upside and conservative", f"upside ${int(rnd(sv('Total revenue',1)[4]/1e6))}M and conservative ${rnd(sv('Total revenue',2)[4]/1e6,1)}M in Year 5", a6n)
-an6 = sens("6")
-chk("A6 notes", "analyst lever", f"six jobs each takes Year 5 EBITDA to {m1(an6['e5'])}", a6n)
+def sens_in(group, change):
+    r0 = srow(group, SN, 1)
+    for r in range(r0, r0 + 3):
+        if SN.cell(row=r, column=2).value == change:
+            return dict(rev5=SN.cell(row=r, column=3).value, e5=SN.cell(row=r, column=5).value, low=SN.cell(row=r, column=7).value, neg=SN.cell(row=r, column=8).value)
+    raise KeyError((group, change))
+an10 = sens_in("Jobs per deployment analyst by month 60", "10")
+chk("A6 notes", "analyst lever", f"ten jobs each by month 60 takes Year 5 EBITDA to {m1(an10['e5'])}", a6n)
 ret = sens("Each lender stops adding facilities after three years")
 chk("A6 notes", "retention", f"Year 5 revenue would fall by {m1(rev[4]-ret['rev5'])}", a6n)
 # A11 downside cases (Sensitivities sheet; page id apx-downside)
@@ -140,11 +152,11 @@ chk("A11", "base", f"Base case {m1(rev[4])} {m1(op[4])} Lowest ${int(rnd(low/100
 chk("A11", "lenders late", f"Lenders twelve months later {m1s(late['rev5'])} {m1s(late['e5'])} Lowest ${int(rnd(late['low']/1000))}K", a15)
 chk("A11", "no lender", f"No lender in five years {m1s(none_['rev5'])} {m1s(none_['e5'])} Hiring for lenders stops by {none_['neg']}", a15)
 chk("A11", "retention", f"Each lender stops after three years {m1s(ret['rev5'])} {m1s(ret['e5'])} Lowest ${int(rnd(ret['low']/1000))}K", a15)
-chk("A11", "seed at 21", f"Seed at month 21 {m1(rev[4])} {m1(op[4])} Below zero from {s21['neg']}", a15)
+chk("A11", "seed at 21", f"Seed at month 21 {m1(rev[4])} {m1(op[4])} Lowest ${int(rnd(s21['low']/1000))}K", a15)
 chk("A11", "seed 1.5", f"Seed of $1.5M {m1(rev[4])} {m1(op[4])} Lowest ${int(rnd(s15['low']/1000))}K", a15)
-chk("A11", "no seed", f"No seed {m1(rev[4])} {m1(op[4])} Below zero, months {nos['neg'].split()[1]} to", a15)
+chk("A11", "no seed", f"No seed {m1(rev[4])} {m1(op[4])} Lowest ${int(rnd(nos['low']/1000))}K", a15)
 chk("A11", "combined", f"{m1s(comb['rev5'])} {m1s(comb['e5'])} Below zero from {comb['neg']}", a15)
-chk("A11", "seed needed by", f"it needs to land by month {need_by}", a15)
+chk("A11", "seed needed by", f"If lenders are a year late, the seed needs to land by month {need_by}", a15)
 bad = [c for c in checks if not c[0]]
 for ok, where, label, shown in checks:
     print(("ok  " if ok else "FAIL"), f"{where:9s}", label, "|", shown[:110])
