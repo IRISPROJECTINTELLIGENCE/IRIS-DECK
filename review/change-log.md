@@ -3,6 +3,11 @@
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
 
+## 28 November 2026, 16:24: slide 2 spacing; slide 5 footer reverted (v844, v846)
+
+- Slide 2 (owner comment): rows spaced from 12px to 18px top and bottom so the table runs to about 915px; built on the owner's in-page edit ("A private lender has confirmed the product's value proposition.").
+- Slide 5 (owner comment, "this just isn't true, revert"): footer back to "These three jobs show the problem. IRIS has not been run on them yet; they are the first record sets the enterprise product is tested on."
+
 ## 28 November 2026, 16:20: meeting actions executed (v841, 1795846793-4cc4; appendix v31, 1795846796-ba89)
 
 From the deck walk-through with an advisor; the owner's direction "execute" on the meeting notes, with his clarifications.
