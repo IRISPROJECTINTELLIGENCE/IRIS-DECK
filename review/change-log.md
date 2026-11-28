@@ -2,6 +2,315 @@
 
 Substantive changes to the deck, newest first. Versions are the Slides artifact's version numbers; the repository baseline is v307 as published on 29 October 2026 (artifact version id 1793270675-17c7, which also carries the owner's in-page edits made after v307 and before the baseline copy).
 
+
+## 28 November 2026, 16:20: meeting actions executed (v841, 1795846793-4cc4; appendix v31, 1795846796-ba89)
+
+From the deck walk-through with an advisor; the owner's direction "execute" on the meeting notes, with his clarifications.
+- Model (D-59): leaner staffing. Analysts eight live jobs each to month 24, rising evenly to fifteen by month 60; one engineer per four lenders above two; one lender success manager per four lenders; all cases. Base Year 5: team 60 (was 102), people $9.0M (was $13.9M), costs $17.2M, EBITDA $23.2M, 57% (was $18.1M, 45%); revenue unchanged. Monthly revenue covers costs from month 23; on plan the round alone keeps cash positive (lowest $18K). Sensitivities re-run; analyst lever now flexes the month-60 ratio (10 and 20).
+- Slide 11 rebuilt: the left panel is the assumptions revenue is built from (market tiers, Queensland, three prices, growth and staffing drivers); the table adds the project numbers at each year end (lenders, loans, builder jobs, team) above revenue, costs and EBITDA; footer one line. Measured: right column 612px against 618, footer clear.
+- Slide 2: each row shortened; "Where we are" rewritten as short status lines. Slide 5: each case now reads what failed, the risk and what it meant for the lender, in plain English (Project B was "register", "delay-incentive pool", "weather buffer"). Slide 10: "Three go-to-market stages on one platform", column "Stage", condition of the loan; the side-deed box reads "Lender · builder, direct" with the reason in the notes. Slide 13: introductions and next steps stacked full width; runway line on two lines (on plan cash positive without the seed; seed by month 18 if lenders are a year late). Word cut on slides 3, 4, 6, 8 and 9 (slide 8 footer to one line, same facts).
+- Appendix: A6 adds the analyst ratio row; contribution 84%, margin 57%. A11 re-run figures; the seed foot now reads on plan and if lenders are late.
+- Checks: tie-out 87 checks, 0 failed; banned words, em dashes, 24px floor and notes length clean; appendix generator 0 problems; every rewritten block measured (no block gains a line except where noted).
+
+## 26 November 2026, 19:04: deck renamed (v828, 1795683967-ec21; appendix v30, 1795683970-e0ad)
+
+- Owner's direction: the deck is now "IRIS Investor Pitch Deck" (was "IRIS Investment Summary"); the appendix is "IRIS Investor Pitch Deck · Appendix". Cover label to match: "Investor pitch deck · Pre-seed · AUD $750K SAFE · $4M post-money cap · November 2026" (1,379 of 1,664px, one line). Exports are named IRIS-Investor-Pitch-Deck-v<N>.pdf from here on.
+
+## 26 November 2026, 18:09: the fee basis stated (v827, 1795680549-d34b)
+
+- Owner comment on slide 10 ("bps of what?"). Who pays, scale row: "Developer, 15 bps of the loan; fee per assessment" (was "Developer, 15 bps; …"). To hold it on two lines the table's columns go from 250 / 560 / 1fr / 230px to 225 / 560 / 1fr / 280px; measured, every cell keeps its line count (the cell 270 of 280px; the tightest others "Now · Builder pilots" 214 of 225px and the design-partner gate 483 of 495px), so the panel height is unchanged.
+- Slide 6, IRIS for Lenders: "the developer pays 15 bps of the loan a year" (same gap; still three lines, 493 of 528px).
+- Notes on both slides state the basis: 15 bps a year of the loan amount, the full project debt (senior alone or with mezzanine), floor $3,500 a month, no cap, $120,000 a year on the base case's $80M facility (D-50, D-51).
+- Owner's in-page edits synced from 1795680124-00c9: cover thesis sentence "project data" (was "records"); slide 4 row 2 "Cost to complete on the contract sum", row 3 "what each trade is owed, how late, and what's in dispute"; slide 9 IRIS row "for both the lender and builder".
+- Slide 8 footer (owner comment): relevance and earlier wording answered in the thread, with a proposed rewrite that ties the valuation rule to what IRIS reads; not applied pending the owner's go-ahead.
+
+## 26 November 2026, 17:51: the cap is post-money (v817, 1795679517-7326)
+
+- D-58 replaces D-57's pre-money setting. "$4M post-money cap" on the cover label, slide 2's round row and slide 13's runway line ("The cap is post-money. ..."); slide 13's notes add that post-money is the Australian standard and the investors hold 18.75% for $750K before the seed. Workbook Inputs basis and Read me updated; recalculated with no errors; tie-out 84 checks, 0 failed. Line fit measured: cover label 1,394 of 1,664px; slide 2 round row two lines; slide 13 runway line one.
+
+## 26 November 2026, 17:31: institutional refinement reverted, five parts kept (v816, 1795678639-db0a; appendix v29, 1795678646-676a)
+
+Owner's direction: revert the evening's refinement and keep the slide 8 correction, the pre-money cap, the lender view in the initial enterprise build, the market tiers and the model work (D-56 amended, D-57).
+
+- Reverted to the main deck as published at 1795671531-09bd, with the owner's in-page edits: slides 2, 3, 4, 5, 7, 10 and 12. Reverted to appendix v27: A4, A7 (other than its valuation row and notes) and A10. Removed: the status, architecture, security, pilot pass-mark and terms pages of that pass.
+- Kept: slide 8's valuation sentence and notes (FSC Standard No. 30; ASIC, 18 June 2026), with A7's valuation row and notes to match; slide 11's market tiers ($291M, $254M, $49.2M; Queensland first market) and run-rate footer; A5 and A6 as rewritten; the downside cases page, renumbered A11 (slide 11, A6 and slide 13 point to it); the workbook as revised (D-54, D-55).
+- New: the cap is stated as pre-money on the cover, slide 2, slide 13 (runway line and notes) and in the workbook (Inputs basis and Read me). Slide 13: months 1 to 3 read "The enterprise build starts, lender view included."; a runway line ("The cap is pre-money. The round covers 13 months of costs before any revenue; the seed is needed by month 19 (A11).") at top 727px; the notes say the lender view is part of the initial enterprise build.
+- Checks: line fit measured for each changed block (cover label 1,374 of 1,664px; slide 2 round row two lines; slide 13 months 1 to 3 two lines, runway line one); banned words, em dashes, 24px floor and notes length clean; appendix generator 0 problems, A1 to A4 and A8 to A10 byte-identical to v27; workbook recalculated (9,672 formulas, no errors); tie-out 84 checks, 0 failed; appendix live hashes match the source files.
+
+## 26 November 2026, evening: institutional refinement (v815, 1795673495-0526; appendix v28, 1795673503-418e)
+
+Owner's request of 15:28: refine the deck and appendix to institutional standard without reinventing them; detail to the appendix; flag missing information. Built on the owner's in-page saves (slide 5 project A label, slide 10 column header). Decisions D-54 to D-56; open items O-27 to O-36.
+
+- Model (D-54, D-55; base case unchanged): SAM redefined as the jobs with a construction facility ($254.4M), so TAM $290.6M ⊃ SAM ⊃ SOM $49.2M (19% of SAM); Queensland kept as the first market ($54.9M). New Market-sheet checks (465 jobs under IRIS, 11% of live jobs; $29.8bn of facilities, 18% of facility value). Lender-retention input (60 months, no change). Summary adds the run-rate bridge (month 49 $31.8M, month 60 $49.2M), runway with no revenue (13 months), contribution per facility ($93,400, 78%) and the Year 5 cost split. Sensitivities sheet adds seven downside cases with the month cash would fall below zero. Security cost basis aligned with the platform plan (audit and penetration test; certification when required). Recalculated: 9,672 formulas, no errors. Tie-out extended to 88 checks, all passing.
+- Slide 2: status in four classes; Tier 1 feedback by role; runway sentence. Slide 3: tile rebuilt on public facts (12 lenders; failure in August), exposure wording, 20–40% labelled as experience. Slide 4: footer carries the Tier 1 practitioner's point, paraphrased by role. Slide 5: hyphen. Slide 7: one finding traced on a crop of the proof-of-concept screen (new asset 7dfc891ab4d199563f3f5275e1c1e581; the 88% header and the chat panel are outside the crop); overlay geometry checked against the crop. Slide 8: valuation sentence corrected (FSC Standard No. 30, 26 Aug 2026; ASIC, 18 Jun 2026). Slide 10: "No fee". Slide 11: tiers and footer. Slide 12: related-party disclosure. Slide 13: runway line. Line fit measured for each changed block; no text below 24px; no em dashes; banned-word scan clean (slides and notes); notes under 4,000 characters.
+- Appendix: A4, A5, A6, A7, A10 rewritten; A11 (status), A12 (architecture), A13 (security and reliance), A14 (pilot pass marks), A15 (downside cases), A16 (terms and runway) added. Generator gains hyperlinks; sources linked where the address names no lender or fund. Each page one heading, one standfirst, one table of single-line rows; measured, 0 problems.
+- Sources added to the register: CBRE private credit report (15 Nov 2026), Feasly non-bank development finance guide (20 Jul 2026, updated 7 Aug), FSC Standard No. 30 (26 Aug 2026), ASIC news item (18 Jun 2026).
+
+## 26 November 2026, late afternoon (v807 → v810; appendix v26 → v27)
+
+- Red softened (owner: "a little too heavy visually"): #D7141A to #D03B39 on both decks, the same places; built on the owner's 15:18 save (main 1795670326-543b).
+- Cover: the owner's new wording, "The delivery risk layer for development / and construction lending.", set at 64px in a 1,100px box so it holds two lines (1,060px); at 68px in 1,040px the first line was 1,130px and the block overflowed its 602px frame (now 593px).
+- Slide 10 (owner comment): the workstream table sits on a grey gradient panel (#F7F7F7 to #EBEBEB) with 14px of inner padding; the Scale row's own tint removed, its red top rule kept; block 341px, 28px clear of the label below.
+
+## 26 November 2026, late afternoon (v806 → v807; appendix v25 → v26) — original fonts, new colours
+
+Owner: "put the font back to how it was before i asked for suggestions but keep the colours how they are now."
+
+- Both decks: typography restored exactly to the pre-suggestion version (Inter, original weights and spacing, spaced-capital labels); colours kept from the Swiss restyle (white, neutral greys, red #D7141A, black section labels). Checked slide by slide: colours identical to v806, typography identical to the version of 15:06 (main) and e97d0ab (appendix), speaker notes unchanged. Faces: Inter only.
+
+## 26 November 2026, late afternoon (v805 → v806; appendix v24 → v25) — design reverted to Swiss
+
+Owner rejected the serif of direction 2. Both decks restored exactly to the Swiss version (main v804, appendix v23): white, near-black, red #D7141A, Inter Tight headings, Inter body. Repo files restored from 6eb4d26 and checked byte for byte against what was published; `restyle_research.py` removed.
+
+## 26 November 2026, late afternoon (v804 → v805; appendix v23 → v24) — design, direction 2
+
+Owner: "now the number 2 one" (financial research note).
+
+- Both decks: red to oxblood #A3121C; headings and large figures to Source Serif 4 at display optical size; body and tables to IBM Plex Sans (measured: the same overall width as Inter; table figures fit their columns); heavy black rules thinned. Faces: Inter (fallback), Source Serif 4, IBM Plex Sans. Every heading re-measured: widest 1,595px of 1,664.
+- The Swiss version stays in history (main v804, appendix v23).
+
+## 26 November 2026, late afternoon (v801 → v804; appendix v22 → v23) — design
+
+Owner: the deck "looks very very claude like"; chose direction 1 (Swiss institutional), keeping red, black and white.
+
+- Both decks: cream to white; warm greys to neutral; coral and orange-red to one red #D7141A; spaced capital labels to sentence case; section labels black; headings and large figures in Inter Tight (face added to both indexes). Built on the live versions (main 1795669578-cf2d, appendix 1795668928-8b4f). Every heading re-measured in Inter Tight: all narrower than before, none over its box.
+- Not changed: the slide 7 screenshot keeps its own colours until it is re-captured.
+
+## 26 November 2026, afternoon (workbook only)
+
+Owner: "this financial model needs to be able to be interrogated by investors and execs."
+
+- Inputs: every row's basis rewritten in plain English (what the number is, where it comes from, how it is worked out; "no outside source" where there is none) and typed consistently (`financial-model/basis.py`).
+- New Sensitivities sheet: Year 5 revenue, Year 5 EBITDA and lowest cash for 19 one-at-a-time changes (`sensitivities.py`). Largest: fee ±5 bps ±$12.3M of Year 5 revenue; facility $60M/$100M ±$9.2M; 0.5 facilities a month −$9.6M; lender rollout six months later −$8.6M. Director pay at $140K moves lowest cash to $164K and nothing in Year 5.
+- Read me: how to test the model, the inputs to test first, the market kept apart from the lender line. Summary sheet unchanged cell for cell; tie-out 58 checks, 0 failed.
+
+## 26 November 2026, mid-afternoon (v800 → v801; appendix v21 → v22; workbook) — D-53
+
+- Inputs: the back-solved $66.7M and $85M contracts removed; the facility under IRIS is an input ($80M / $102M / $48M). Summary sheet identical cell for cell. Slide 11 and A6 notes updated. Tie-out 58 checks, 0 failed.
+
+## 26 November 2026, mid-afternoon (v799 → v800; appendix v20 → v21; workbook) — D-52
+
+- New input: average contract across the market ($40M), used by the Market sheet for the job count and the market facility fee; the facilities under IRIS stay $80M base. Recalculated, 0 errors.
+- Slide 11: heading and tiles back to $291M / $55M on about 4,300 / 820 live jobs; obtainable 17% of Australia. A5 back to the $40M market average and $72K per facility across the market. Tie-out 58 checks, 0 failed.
+
+## 26 November 2026, mid-afternoon (v798 → v799; appendix v19 → v20; workbook) — D-51
+
+- Fee cap removed from the model (Inputs row and both fee formulas); base contract set to exactly $80M ÷ 1.2. Recalculated, 0 errors. Base case unchanged; upside Year 5 $78M.
+- Slide 11: footer upside $78M; notes without the cap. A6: fee row and footer without the cap; A5 and A6 notes updated. Tie-out 57 checks, 0 failed.
+
+## 26 November 2026, mid-afternoon (v797 → v798; appendix v18 → v19; workbook) — D-50
+
+- Average facility: $80M base at the $10,000 cap ($66.7M × 1.2), $102M upside, $48M conservative. Workbook rebuilt and recalculated (9,272 formulas, 0 errors).
+- Slide 11: heading $274M; tiles $274M / $52M / $49.2M (about 2,600 and 490 live jobs; 18% of Australia); table and footer to the new base case. Slide 13 notes: Year 1 costs $669K, revenue $187K.
+- A5 and A6 to the new figures; A6 shows the bull and bear facility sizes. Tie-out: 57 checks, 0 failed.
+
+## 26 November 2026, mid-afternoon (appendix v16 → v18)
+
+Owner: "clean up the appendix … relevant and clear and link directly to the deck's assumptions or gaps"; "this cannot be an information overload."
+
+- Twelve pages cut to ten. A9 (lender decisions) merged into A1; A11 (where the position sits) removed as a duplicate of slide 4. Assessments move to A9, risks to A10. A2–A8 keep their numbers, so the main deck's references (slide 4: A2, A3; slide 9: A8; slide 10 notes: A4; slide 11: A5, A6; notes: A7) are unchanged.
+- One template on every page: label "Appendix An · Backs slide N", a one-line heading that states the point, one line naming the slide's claim or gap, one table of single-line rows, at most one short footer. About 95–135 words a page (was 250–500). Sources, method and legal detail moved to the notes (each under 2,600 characters).
+- A2 now matches slide 4 (six causes grouped under the three report lines). A4 states what is established and what is untested. A7 is a figure-by-source table for slides 2, 3 and 8, with the slide 3 rating marked as being confirmed (O-25). A10 has six risks, each with a date.
+- Pages are generated by deck/source/build_appendix.py (text measured against the 808px frame; banned words and 24px checked); notes in appendix_notes.json. Tie-out: 57 checks, 0 failed.
+- The owner's last in-page save (v17, apx-pack markup) was built on and replaced by the new A1.
+
+## 26 November 2026, early afternoon (v733 → v769; appendix v15 → v16; workbook)
+
+Owner direction in session (D-49): the lender fee applies across projects of different sizes and to the whole debt facility, so the model takes one average facility and flexes it by case. While that was being carried through, the owner reviewed slides 3, 4, 5, 9 and 10 in the page and sent six comments; each is answered in its thread.
+
+| Item | Change | Why |
+|---|---|---|
+| Workbook | The average facility is a derived row on the Inputs sheet, average build contract × debt multiple, read by both the lender line and the Market sheet: base $40M × 1.2 = $48M, upside $61M × 1.2 = $73M, conservative $40M × 1.0 = $40M. The $80M input is gone. 9,272 formulas, zero errors. Compared cell by cell with the previous build: the changes are confined to the fee per facility, lender revenue, commissions, contingency, the totals, cash and the obtainable-market lines; the market sizing is unchanged. Base Year 5 revenue $40.5M → $25.8M, EBITDA $18.1M → $4.2M, run rate $49.2M → $31.3M. | D-49. |
+| 11 | Lender, revenue, sales, total cost and EBITDA rows; obtainable tile $49.2M → $31.3M and "About 17% of Australia" → "About 11%"; the footer now states the $48M average facility and the facility size behind the upside ($58M on $73M) and the conservative case ($5.4M on $40M); notes. | D-49; ties to the workbook. |
+| 13 | Notes: Year 1 costs $669K → $666K, Year 1 revenue $187K → $183K. | Ties to the workbook. |
+| A6 | Facilities row: "Average facility $48M across the whole debt stack: $72,000 a year at 15 bps. Upside $73M, conservative $40M." What moves the result: each $10M of average facility is about $4.6M of Year 5 revenue; $1.3M a mature lender; $1.5M a basis point. Revenue and EBITDA lists. The repository path came off the slide. Row padding 12px → 8px: the slide measured about 850px against the 808px frame and now measures 806px. | D-49; line fit. |
+| 3 | The owner asked for the source of "8 months, from a lender's low-to-medium risk rating to failure". Re-read: the project, the administration and the earlier lender's exit are confirmed in open sources; the 83% and the rating are not. Nothing changed on the slide; three options put to the owner in the thread. | Owner comment; O-25. |
+| 4 | Rows 2 and 3 checked against public sources at the owner's request. Row 2: "the contract sum less what is certified" → "the contract price left to pay, and assumes the builder can finish for it"; left cell "Cost to complete on the contract" (the last word had wrapped alone). Row 3: the left cell now says what the declaration declares ("…that trades are paid"); "Cash strain in the trades…" → "Whether the trades are paid. The declaration is the builder's own word that they are. The payment records show what each trade is owed and how late. Trades paid late are an early sign of a builder short of cash." "Usually the first sign" and "the last one the lender sees" came off: nothing found ranks it first or last. Notes rewritten inside the 4,000-character limit (they had been cut off mid-word), with the sources. | Owner comment. Sources: AIQS guidance note (2019), QBCC on BIF Act s 75, ASIC 16-325MR. |
+| 5 | Heading: the split colour came off, then the heading was rewritten to state the risk: "On three real jobs, the funder was lending against a figure the builder's records had already moved past." | Two owner comments. |
+| 9 | IRIS added in coral at the head of the "Serves the builder" cell of the map, so it sits in both cells of the "Reads the systems" column; the IRIS row in the table ends "lender and builder". | Owner comment; one platform, two products (D-35). |
+| 10 | Spaced out. The slide measured about 916px against the 808px frame: the heading ran to three lines and one "Who pays" cell to four. Heading second line → "Builders prove it. A lender then writes IRIS into its facilities."; the scale row's payer → "Developer, 15 bps; fee per assessment"; the gate sentence under the table moved to the notes (the gate column carries it); the three reasons set as three columns under their own label; gaps between blocks 24px → 28px. Now 804px. | Owner comment. |
+| Owner's in-page edits, synced | Slide 2: the closing sentence of "Why now". Slide 3: "the builder's own PCG report". Slide 4: the six system cards rebuilt with fuller descriptions; "adjustments" in row 1; "project systems and records" and "Jobpac, Procore, email, share drive" in row 2; "a strong trend of in-house delivery" in the footer. Slide 5: the subheading cut to "Real case studies with indicative data."; the spacer removed. Slide 9: blocks repositioned. Slide 12: "James's father." removed; blocks repositioned. | The repository copies equal the live deck. |
+| Not changed | Founder salaries. The owner asked for $140K each plus super, was asked which use-of-funds line gives up the $90K, and answered "dont worry about it". Left at $100K. | O-26. |
+
+Checks: 58 tie-out checks from the workbook to slides 11 and 13 and appendix A5 and A6, none failed; a fresh build of `build_model.py` reproduces the shipped workbook cell for cell; no banned word on any slide; no text below 24px; the repository slides equal the live deck at v769 and the live appendix at v16. Line fit measured, not rendered.
+
+Open for the owner: O-24 (the margin and the conservative case after D-49), O-25 (slide 3 source), O-26 (founder salaries); O-18, O-21 and O-23 stand.
+
+
+## 26 November 2026, midday (v727 → v732; appendix v12 → v15; workbook; competitor table; product requirements)
+
+Owner decisions in session (D-48): the developer-direct line comes out of the model and the deck, and the two workbooks are formatted as plain Excel. He then asked for a check that the deck, appendix, workbook, competitor table and product requirements agree.
+
+| Item | Change | Why |
+|---|---|---|
+| Workbook | Developer-direct line removed: its three inputs, four monthly rows, two Summary lines and its terms in the revenue, analyst, onboarding and cloud formulas. Three revenue lines remain. Every remaining figure equals a scratch run of the previous build with the line switched off; 9,269 formulas, zero errors. Year 5 revenue $40.8M → $40.5M, EBITDA $18.2M → $18.1M, run rate $49.5M → $49.2M, team 37 / 70 / 103 → 36 / 69 / 102. Formatting: Calibri 11, black text, bold headings, thin rules, no fills, no coloured fonts; colour legend removed from the notes. | D-48. |
+| Competitor table | Same plain formatting with a thin grid; restructuring advisers named as on A8. | D-48; consistency with A8. |
+| 11 | Developer row removed; revenue, cost, EBITDA, team, run-rate and conservative figures updated; Year 1 builders 178 → 179 and revenue 186 → 187 (rounded as Excel shows them); row spacing widened so the table ends level with the tiles. | D-48; ties to the workbook. |
+| 13 | Month 6: "first paying builder" → "first paying builders". | The workbook has two builders paying from month 6 (D-33). |
+| 2 | Owner's in-page edits synced ("the project lender/s"; closing sentence in bold). | Owner (in page). |
+| 3 | Notes point to A7 for the ASIC figures (was A6). | Wrong appendix page. |
+| A6 | Figures to the workbook; builders by year "(3 / 4 / 6)" (was 5); Year 2 EBITDA −$0.31M (was −$0.32M, a rounding slip). | Ties to the workbook. |
+| A8 | Korrix and Cintech, Vyne added (they are on slide 9, which points here); US draw tools merged into one row and the three other source systems into one; dated October–November 2026; "none found" dropped from the partnership line. | Slide 9 named products A8 did not carry. |
+| A10 | Builder-access row states the R&D partnership (was "negotiated, not assumed"); notes point to slides 13 and 9. | Status changed on 22–24 November. |
+| Product requirements | Developer-direct subscriptions taken out of the users table and R7 (they were added in the 15 November markup, not in the first draft). | D-48. |
+
+Tie-out after the changes: 47 checks covering 120 figures on slides 6, 10, 11, 13, A5 and A6, run by script against the workbook. One difference was found (A6 Year 2 EBITDA) and fixed; all now equal. Banned-word check across both decks and both workbooks: no hits. Open after the check: O-22 (two facility sizes), O-18 (market labels), O-21 and O-23 (deck against the product documents), O-16, O-15, O-13, O-19.
+
+
+## 26 November 2026, late morning (v712 → v726; workbook; competitor table)
+
+| Item | Change | Why |
+|---|---|---|
+| Workbook | `IRIS_model_5y.xlsx` regenerated as the investor copy. Labels cleared of internal references (decision numbers, "owner decision", the previous terms, slide numbers); three diligence remarks taken out of the source column (kept in O-15, O-16 and D-47); "Yellow = company decision". Read me rewritten with what is on each sheet and the round. Sheets reordered: Read me, Summary, Market, Inputs, then the monthly sheets. New Inputs section 10 carries the seven use-of-funds lines; the Summary sets them beside the model's Year 1 costs and bridges the round to cash at the end of Year 1 ($750,000 + $186,500 − $668,930 = $267,570). File properties set. No assumption changed: 10,506 numeric cells and all existing formulas compared equal to the 24 November build; 10,079 formulas, zero errors. | Owner request: the investor-ready model to send with the deck. D-47. |
+| Competitor table | New `research/IRIS-Competitive-Landscape.xlsx`, generated by `research/build_competitor_table.py`: one sheet, IRIS and eighteen named rows in five groups, then nine groups of others reviewed; two yes/no columns (reads the builder's systems; serves the lender) and where each stops. No lenders, prospects or QS firms named. | Owner request: a very simple competitive table with all competition and positioning. |
+| 2 | "Rates up 100 bps" → "125 bps" to match slide 8 after the 3 November rise; "enterprise-ready" hyphenated. Owner's in-page addition synced: IRIS is "negotiating a technical partnership for the build of our enterprise-ready product". | Consistency with slide 8; owner (in page). |
+| 3 | Owner's in-page edit synced: the on-slide "Sources:" line removed; the sources stay in the notes and appendix A7. | Owner (in page). |
+| 9 | IPEX row: "Moves money. No project position." → "Checks trades are paid; no cost or time view." Notes updated. Measured at 484px of 516px, one line. | IPEX's Payment Verification Report (13 November 2026) sets certified progress against payments by trade, so the old line could be read as wrong. |
+
+Vendor pages re-read on 26 November: SteelCap still "coming soon"; Korrix and Cintech unchanged in substance; Vyne's page now names file and email tools, with no construction-system connectors or customers named. Banned-word check across the main deck, the workbook and the competitor table: no hits (the workbook keeps "Superannuation guarantee", the statutory name; "read-only" is allowed). Open: O-22.
+
+
+## 26 November 2026 (v696 → v711; appendix v11)
+
+| Slide | Change | Why |
+|---|---|---|
+| 8 | "The market's answer so far" rewritten to what lenders have done since Bathla: presales or sales evidence wanted before full leverage, experienced sponsors on senior terms favoured, thin-equity deals largely unfunded; the lines on lender-side monitoring and builder-side AI removed (slide 9 carries the names). Row 1 refreshed: cash rate 4.85% (+125 bps in 2026), CPI 4.9% to October, dwelling values 6.7% below the March peak. Columns stretched to fill the height with even row spacing; footer set on the bottom margin in two lines. | Owner comments, 26 Nov; figures verified at source the same day. |
+| 7, 9 | Owner's in-page edits synced to the repository. Slide 7 now carries the heading, a new screenshot and the footer; the right-hand text is gone. Slide 9: the QS row reads "Certifies work in place monthly" and the matrix spacing is adjusted. | Owner (in page). |
+| A7 | Rates, housing and lending sources refreshed (RBA 3 November; ABS and Cotality October; Gravity Capital index added). | Follows slide 8. |
+
+Banned-word check across both decks: no hits. Slide 7 as edited in page places the screenshot and footer below the 920px line and over the page number; left as the owner set it, flagged to him.
+
+
+## 24 November 2026, evening (v695; appendix v8)
+
+| Slide | Change | Why |
+|---|---|---|
+| 10 | Footer: the developer "can borrow at a lower rate from a lender that sees inside the project" (was "may finance on better terms"). Notes aligned. | D-46; owner correction. |
+| A6 | Year 1 EBITDA −$0.33M → −$0.48M to match the workbook after D-39. "every" removed in two places ("a new builder at intervals of four to eight months"; "about six a year"). Notes updated to the five-year model (five years, three cases; 0.8 new facilities a month plus ten re-papered; cloud $250 a month per live job). | D-39 follow-through missed on 24 Nov; banned-word rule. |
+
+Banned-word check across the main deck and the appendix: no hits. Open: O-20 (builders pricing in the condition).
+
+
+## 24 November 2026 (v675 → v686)
+
+| Slide | Change | Why |
+|---|---|---|
+| 1 | Terms line to $750K SAFE · $4M cap; diagram labels 20px → 24px. | D-39; text floor. |
+| 2 | Where we are: R&D partnership secured; concept validated by builders with the Tier 1 manager as the example; lender confirmed. Round row: from proof of concept to an enterprise product. Product row states cost to complete and completion date. | Owner comments; D-40–D-42. |
+| 3 | Body: it takes a finished project to repay the lender. Today line covers the QS report and the builder's own report. | Owner comments. |
+| 4 | Row 2 states the two costs to complete (contract sum less certified; the builder's own cost to finish). | D-42. |
+| 5 | Heading and footer without "the position"; Project C reworked: builder's report and lender's QS report disagreed on delay allowance left in the same month. | D-42; O-11. |
+| 6, 8, 10 | Shorthand removed; slide 10 stacked line replaced; first builder shown as the R&D partner. | Owner standards 3 and 4; D-41. |
+| 7 | Renamed proof of concept; footer states the R&D partnership; safety and compliance noted as following in the enterprise build. | D-41. |
+| 11 | Year 1: platform 374, total costs 669, EBITDA −482. | D-39. |
+| 13 | Rebuilt at $750K: build line first ($320K), runway reserve $100K, milestones as what exists at each point, second builder wanted. | D-39, D-40. |
+| Model | `safe` 750,000; `build_y1` 320,000; regenerated and recalculated, zero errors. | D-39. |
+
+## 4 November 2026, v4 (D-37, D-38), on `refinement/institutional-v2`
+
+The owner rejected v507 and attached the 30 October PDF (v440) as the version he liked, "too deep". v4 starts from v440 and consolidates to 13 slides in that deck's language. The five-year model (D-37) replaces the 36-month one. An independent reviewer checks every slide against review/owner-standards.md before the owner sees it.
+
+| Version | Slide | Change | Reason |
+|---|---|---|---|
+| v509 (v4) | 1 Cover | v440; November 2026. | — |
+| v509 | All | Independent review against owner-standards.md before publishing: go-to-market heading rewritten without the triplet, gating line rewritten, page number added; People row corrected to the workbook (224 / 1,655); evidence heading "months"; competition moved before go-to-market; table text to 24px; product panels and market captions cut to fit; milestones say when builders start paying. | Reviewer findings. |
+| v4 | 2 Simply put | The owner's v500 text; "Three uses" row becomes "Two products, one platform" (IRIS for Builders now; IRIS for Lenders alongside and at scale; assessments); "Where we are" adds the unnamed lender signal (D-36). | D-35, D-36. |
+| v4 | 3 Problem | v440 with the owner's v496 heading line; consequence sentence shortened. | — |
+| v4 | 4 Mechanism (consolidated) | The systems strip of v440 slide 6 above three causes from v440 slide 4 (time bar; cost moving before notice; cash strain in the trades, the owner's row); one line on the 2021 shifts. Replaces v440 slides 4, 5, 6 (now A2, A3, A11). | Owner: too deep. |
+| v4 | 5 Evidence | v440 as is. | — |
+| v4 | 6 Solution | v440 diagram; the bottom strip is now IRIS for Builders, IRIS for Lenders, and permissions and distress, with who pays. | D-35. |
+| v4 | 7 MVP | v440 as is. | — |
+| v4 | 8 Why now | v440 rows shortened; "Across the cycle" replaced by "The market's answer so far" (lender-side monitoring by hand; builder-side AI; reading the builder's systems for the lender is open). | D-35. |
+| v4 | 9 Go to market | v440 table with tighter cells and the scale row as IRIS for Lenders; the three bottom columns replaced by the mandate chain from v440 slide 13 and one line with the lender signal. | Consolidation. |
+| v4 | 10 Competition (new) | A map (reads the builder's systems × serves the lender) placing the QS, Korrix, IPEX, SteelCap, Built, Lendbase, Procore+Datagrid, Cintech, Vyne and IRIS; a table of who, reads, serves, where it stops. | Owner: a real competitive analysis. |
+| v4 | 11 Market and model (new) | TAM $291M, SAM $55M, SOM $49.5M (month-60 run rate); the five-year base-case table (four revenue lines, costs, EBITDA, drivers); cases and the cadence label. | D-37. |
+| v4 | 12 Team | v440 as is. | — |
+| v4 | 13 The round | v440 use of funds and milestones rebuilt as a flex layout (five milestones); the close's introductions and next step at the bottom. | Consolidation. |
+| Appendix | A5, A6 | Sizing with assessments ($291M / $55M); the model slide on the five-year figures. | D-37. |
+
+## 4 November 2026, rebuild v3 (v507), on `refinement/institutional-v2`
+
+The owner rejected v505 ("slop", "too noisy") and set the direction: delivery risk made clear to lenders, continuously; IRIS the company, two products on one platform with role-based permissions; copy in the register of Korrix, SteelCap and Fiable. Decisions D-35 and D-36. 13 slides, 1,828 words.
+
+| Version | Slide | Change | Reason |
+|---|---|---|---|
+| v507–v508 | 1 Cover | Rewritten to "Delivery risk, made clear to the lender." and restored by the owner's instruction to "A risk tool for development and construction lending." with the original thesis sentence; date November 2026. | Owner. |
+| v507 | 2 The problem | "Between financial close and practical completion, the lender is the last to know." One paragraph, three figures ($3.08bn; 1 in 4; 20–40%), the failure list as one muted line. Replaces the summary and problem slides. | D-35. |
+| v507 | 3 Why | "The information exists. It travels by hand, through the party it reports on." Four-step chain in plain words; what the certificate does not carry; the first sign the lender sees last. | D-35. |
+| v507 | 4 Evidence | "On three real jobs, the lender was months behind the records." One number and two sentences per job. | D-35. |
+| v507 | 5 The product | "IRIS reads the builder’s systems and shows the lender the position beneath the certificate." How it connects; what the lender sees, continuously (claimed, certified, paid, owed; forecast vs ledger and contingency; notices against time bars; each figure linked to its record). | D-35. |
+| v507 | 6 Today | MVP screenshot with four short notes. | — |
+| v507 | 7 The products (new) | "One platform. Two products. Each party sees what it is entitled to see." IRIS for Lenders and IRIS for Builders, who pays, and the permissions model. Replaces the value ladder. | D-35 (owner structure). |
+| v507 | 8 Why now | "A lender-side category is forming. None of it reads the builder’s systems." Failure, regulators, rates, the market’s answer. | D-35. |
+| v507 | 9 Competition | Korrix, SteelCap, Cintech and Vyne, the lender’s existing controls; where each stops. Bounded claim reworded. | D-35; research §11. |
+| v507 | 10 Route to market | "Builders prove it on live jobs. A lender writes it into a facility." Three steps; the lender signal (D-36); how the condition holds. | D-35. |
+| v507 | 11 Market and model | $286M / $54M and the base-case table on one slide; drivers in one line. Replaces the market and model slides. | D-35. |
+| v507 | 12, 13 | Team and round renumbered; the round’s introductions line asks for a lender willing to run the view beside its QS. | — |
+
+## 1 November 2026, rebuild (v504), on `refinement/institutional-v2`
+
+The owner's direction: the deck is too long and too cognitively heavy, explains too many mechanisms in detail, and its revenue model is not steep enough; explain the overarching mechanism and the value at each level, cut to it promptly, keep the construction-lending thesis in the positioning without zeroing in on it. Decisions D-31 (structure) and D-32 (model, proposed). 19 slides and 3,626 words became 14 slides and 2,391 words; the appendix deck grew from 7 to 12 slides.
+
+| Version | Slide | Change | Reason |
+|---|---|---|---|
+| v505 | 2–14 | Lean pass (D-34): 2,013 words across 14 slides. Slide 2 rows: problem, product, who it serves (lender, builder, developer, distress), the wedge, where we are, the round. Slide 4 drops the since-2021 line to the notes. Slide 6 ladder reordered lender → builder → developer → distress, one line each; developer financing-cost hypothesis stated and labelled. Slide 9 builder card states the subscription follows the builder. Slides 11 and 12 on the D-33 model ($286M / $54M / $9.5M; builders 3 / 4 / 5 with 12 / 22 / 30 jobs; lenders 1 / 3 / 8 with 1 / 18 / 69 facilities of $80M). Appendix A5 and A6 on the same figures. | Owner: relief, not load; the model had no basis; builders are the wedge; $80M facilities across the debt stack. |
+| v504 | 1 Cover | Date to November 2026. | Reissue. |
+| v504 | 2 Simply put | Rows: the problem, the product, who pays, why now, where we are, the round. "Who pays" states the mandate as the scale route (one lender brings its book). | Investor should be able to repeat the thesis after one page. |
+| v504 | 3 Problem | Slide 3 kept; consequence paragraph removed; captions shortened. | Cut. |
+| v504 | 4 Mechanism (new) | One diagram: the project's systems → the builder's monthly report → the lender's QS certificate → the facility decision; each hand-off filters. One line on what the certificate does not carry; one line on the shifts since 2021. Replaces slides 4, 5 and 6 (now A2, A3, A11). | Overarching mechanism, not the row detail. |
+| v504 | 5 Evidence | Three cards shortened to one number and one line each; the $4.4M card drops the $5.8M unlet figure. | Cut. |
+| v504 | 6 Solution (new) | What IRIS does in two lines, then the value ladder: builder, developer, lender, in distress; what each gets from the same position and who pays, when. Built / this round / next in one line. Replaces slides 8 and 10 (assessment workflow now A12). | Value at each level. |
+| v504 | 7 MVP | Right-column text trimmed. | Cut. |
+| v504 | 8 Why now | Four rows: rates and feasibility, the $3.3bn failure, regulators on valuation, the enabler. Redemption freeze to notes. | Cut. |
+| v504 | 9 Go to market (new) | Three workstream cards with gate and payer; two rows on how the mandate holds and who opens the systems; one line on what is assumed. Replaces slides 12 and 13 (mandate table now A4). | Merge. |
+| v504 | 10 Competition | Four layers in one table: who is in it, where it stops. Fewer names. | Cut. |
+| v504 | 11 Market | $244M / $46M / $8.9M; obtainable measured against Australia because lenders operate nationally. | D-32. |
+| v504 | 12 Model | Revenue and costs tables on the D-32 base; drivers line; what drives the curve; cash line. | D-32. |
+| v504 | 13 Team | Unchanged but for the advisor label. | — |
+| v504 | 14 The round (new) | Use of funds, five milestones, introductions wanted, next step, contacts. Replaces slides 18 and 19. | Merge. |
+| Appendix v3 | A1–A12 | A2 the position beneath the certificate (old slide 4); A3 the market shifts since 2021 (old 5, with the v501 heading); A4 how the mandate holds (old 13); A5 sizing; A6 model (D-32 figures); A7 sources; A8 landscape; A9 lender decisions; A10 risks; A11 where the position sits (old 6); A12 distressed-project assessments (old 10). Cross-references renumbered. | D-31. |
+
+## 29 October 2026, institutional review round 1 (v319 → v350), on `refinement/institutional-v2`
+
+Edits proposed in Claude's self-assessment on issue #1 (E1–E8), accepted with modifications by the reviewer, plus the reviewer's F1 and F2 and four owner comment threads on slides 8 and 9. The owner watched the edits land on the live artifact and made in-page edits of his own to slides 9 and 10 during the round; those are adopted as published. No change to terms, model assumptions, sequence or thesis.
+
+| Version | Slide | Change | Reason |
+|---|---|---|---|
+| v319 | 3 Stakes | Consequence line bounded: what IRIS reads in a failure like Bathla is each funded project's builder records (trades owed against claimed and certified, cost against forecast); the group ledger is the administrator's. Stat numerals 104 → 96px to make room; notes carry the scope of the example. | E7; reviewer F4. |
+| v324 | 3 Stakes | "Secured lender debt" → "Secured lender exposure"; caption says exposure, not realised loss; subtitle no longer says the position "is what protects the capital" but what the funding, intervention and recovery decisions rest on. | Reviewer E7/F4 (exposure ≠ loss; causal overstatement). |
+| v319 | 10 Why now | September-quarter CPI, published 28 Oct (3.9% headline, 3.7% trimmed mean, ABS) added to the rates row; footer no longer says CPI is "due"; heading shortened to hold one line. The project-layer bound was added to the Bathla row and then removed by the owner in-page (v343); slide 3 carries it. | Reviewer F2 (stale macro reference); E7. |
+| v320 | 11 Go-to-market | Bottom strip rebuilt as "Who requires it · Who pays, and for what · Who opens the systems" (builder chooses and pays in the pilots; lender view shaped on pilot data with the pilot builder's consent; at scale the lender requires, the developer pays, the builder opens its systems under the head contract and side deed). "Nothing assumed automatic" kept as a one-line table footer. Row 1 names the builder line as a revenue line of its own. | E1; reviewer: separate the payer, the decision-maker and the data controller. |
+| v343 | 12 Reach | Carve-out row qualified: a carve-out reading as a signal and opting out costing more as lenders adopt are stated as expectations, untested until a lender adopts. | Reviewer E1 (speculative before adoption). |
+| v320, v343 | 19 Preempting | "recovery per engagement" → "assessments per engagement"; Q6 no longer says a lender "can't" make a platform a condition: a platform answers to the builder that pays for it, requiring one dictates the builder's software, and IRIS reading across systems is unproven. | Consistency; reviewer E5. |
+| v321 | 17 Raise | Each milestone now names the evidence it leaves (signed pilot agreements and the partner's letter; the accuracy report in two parts, live cost reports signed by each builder; the certificate; the partner's written review beside its QS report; policy, terms, opinion; paid invoices, a drafted condition with one lender, a scoped assessment with a fee). The big "$750K" figure removed; terms moved into the heading; two columns. Use of funds unchanged. | E2. |
+| v324 | 8 Product | Subtitle states the accuracy protocol (cost to complete, final cost and trades owed reconciled line by line to the builder's own cost report, variances listed, builder-signed) and that builder, developer and lender each see the project's risk position and the actions that close each risk. Strip: "In build · this round" = enterprise product V1 with builder, developer and lender views; "Intended · enterprise" → "Next rounds" (portfolio view once a mandate exists; distressed-assessment workflow once a distressed deployment exists; further domains). Owner's "all source systems" → "an adapter per source system". | E4; owner comment (V1 is lender-ready; do not overcomplicate the scope). |
+| v324 | 9 Recovery | Heading shortened to hold two lines; step labels restyled to 26px semibold to match slides 12 and 13; step 3 states the lawful path before and after an appointment (full explanation in notes); step 5 shows the risk position across the domains rather than examples; step 6 rewritten as the decisions the position supports. Owner in-page edits adopted: "collating and reconciling records", "evidence trail", step 4 "source system data", and the sequence line now saying assessments are conducted alongside monitoring at scale. | Four owner comment threads; owner edits. |
+| v343 | A3 Risks | Accuracy row states the protocol and that the builder signs; platform row no longer says a lender "can't" require a platform. Notes: tolerance and sign-off role are open owner decisions; Procore is the platform to watch. | E4; reviewer E5. |
+| v343 | 13 Competition | Datagrid/Document Crunch row notes Procore's owner tools due 2026; column-3 footer bounded to "we found none built for a lender's use"; bottom line names Procore as the nearest (Datagrid reads across systems; owner tools inside Procore, as the builder configures them). Notes carry the defensibility argument as unproven. | E5; reviewer E5. |
+| v343 | 14 Market; A4 | Headline and rows relabelled "revenue potential ... at our prices"; subtitle says not spend that exists today, assuming adoption; A4 bottom row "Revenue potential a year". | E8; reviewer E8. |
+| v343 | 15 Economics | Run-rate sentence labels the 36 / 41 counts as rounded (the workbook's 35.7 and 40.5 give $3,626K; the rounded counts give $3.66M); "recovery fees" → "assessment fees"; notes reconcile the figures and label the facility-fee line as a scenario dependent on uptake. | Reviewer F1, F5. |
+| v350 | notes | Banned-word sweep of speaker notes ("only", "every"). | Owner's rule. |
+| v369 | 10 Why now | CPI corrected to the ABS headline (monthly series): 4.3% in the 12 months to September, trimmed mean 3.6%; the quarterly-series figures (3.9% / 3.7%) removed from slide, notes and research. "Spreading, not forecast" → "Not confined to one group". The counterargument block replaced by "Across the cycle" (the layer goes unreported in good markets too; monitoring is paid on what is lent); the $1.35bn and $213bn figures moved to notes. | Reviewer PR #2 blocking correction; two owner comments. |
+| v369 | 9 Recovery | Step 6 rewritten: context for the lender's call, IRIS advises nothing, what a replacement builder prices (work it won't stand behind, open quality items, record gaps); notes expanded. Owner's sequence line adopted: assessments are part of the scaling stage. Card spacing tightened. | Owner comment; owner edit (O-09). |
+| v369 | 3 Stakes | "converts into" → "can result in" further funding requirements, enforcement costs and credit losses. | Reviewer R2. |
+| v500 | 5 Since 2021 | "In every model" → "In each model" (banned word). | Banned-word grep. |
+| v499 | 4 Mechanism | Row 6 "Validity of what is claimed" replaced with "Cash strain in the trades: what subcontractors are owed against what the builder has already claimed and been paid for their work" (PayApps, Jobpac), set against the builder's statutory declaration on the left; row 4 drops "trades owed" and reads "Not covered" on the left; footer "The last row is usually the first sign"; notes rewritten for rows 4 and 6. Owner's in-page heading edit ("reports a filtered position") kept. | Owner comment: row 6 was not high leverage. Builder cash strain is the first sign of the failure slide 3 describes. |
+| v491–v496 | 2 Summary; 3 Stakes | Slide 2 row padding 17px; slide 3 second heading line "What a lender recovers depends on the project's real state."; owner's in-page edits to slides 2 and 3 (wording, "$736M" caption) kept. | Owner comments. |
+| v490 | 3–8, 10–15, 19 | Readability rewrite on the owner's review of the 30 Oct PDF: the stronger headings of v440 restored (slides 3, 4, 6, 7, 8, 10, 11, 12, 13); body copy cut to one point per sentence, about a third shorter overall; slide 7 cards read as event → when the lender saw it → what it decided; slide 10 step 6 states that IRIS advises nothing; slide 11 rows and columns halved; slide 12 and 13 cells shortened; slide 19 close paragraph shortened. Owner's slide 2 edits kept. | Owner: "each sentence needs to make a point, cut to the crux". Supersedes most of v466–v467. |
+| v466–v467 | 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 19 | Editorial pass for plain, executive language (D-29). Headings: slide 3 "If a project fails, the lender must know the cost to finish"; 4 "The lender's monthly check reports the head contract / Risks already emerging in the project may not reach it"; 6 "The facts of a project sit in the builder's own systems / Pulled together by hand each month, after risks appear"; 7 "On three real jobs, the risk was in the records long before the people funding them saw it"; 8 "IRIS connects to those systems and reconciles them into one view of the project's risk, linked to the records"; 10 "A funded project stalls. First, see where it stands"; 11 "The market now rewards seeing inside a project early"; 12 "One platform, three stages to market / Builders first, a lender alongside, then monitoring at scale"; 13 "Lenders can require monitoring through existing contracts / A proposed route, to be confirmed with lawyers". Body copy: "the position" replaced by "where the project stands" and concrete nouns; slide 4 rows retitled in plain terms (notice deadlines; cost moving before anyone is told; how soft the forecast is); slide 6 defines the quantity surveyor; "tainted" removed from slide 2. | Owner: clear but executive, not naive; ChatGPT issue #3 examples. |
+| v440 | 20 (removed) | Preempting-questions slide removed (D-28). | Owner request. |
+| v438 | 9 (new), 10–20, deck.json | MVP slide added after slide 8 from the owner's screenshot (D-27); page numbers and cross-references renumbered; appendix slides removed from the main artifact and published as a separate appendix deck (D-26). | Owner request. |
+| v409 | 14, 15, 19, A3, A5 | Conservative case removed from the deck (D-25); cash line restated for one case. | Owner comment. |
+| v390 | 13 Competition; A7 (new) | Rebuilt on the competitive review (D-23): four-layer map, IPEX and Built named, bounded claim reworded; appendix A7 lists twelve products with what each does, whether a lender can require it, and where it sits relative to IRIS. | Owner: competition not mature; investors need guidance through the noise. |
+| v391 | 3, 5, 7, 9, 10, 13, 14, 19 | "X, not Y" constructions replaced with plain statements (D-24). | Owner comment. |
+| v376 | cover, 2, 15, 17, 18, A5 | Round terms changed to $500K SAFE at a $5M cap (D-21); use of funds re-cut to $500K; slide 15 Year 1–3 costs, operating result and cash line from the regenerated workbook (founders at $100K). | Owner. |
+| v376 | all but cover | Section label above every heading (D-22); appendix eyebrows folded into the label. | Owner request. |
+| v374 | 6 Systems | "filtered to look good" removed from heading and panel; closing line reworded to party-specific records. | D-18 (reviewer E10). |
+| v374 | 7 Evidence | Subheading "Real case studies with indicative data"; cards rewritten in plain sequence (what the record showed; reached the funder; decision it bore on); Project A figure consistent with the owner's $4.4M; footer no longer says "accuracy test". | D-20. |
+| v374 | 2, 8, 11, 17, 18, 19, A3 | Accuracy test / report / protocol wording removed; the milestone reads as the position reconciling to builders' own cost reports; slide 8 subtitle back to two lines. | D-19. |
+| v374 | 11 and notes | "Scale · Monitoring and assessments"; assessments part of the scale stage. | D-17. |
+| v369 | 11 Go-to-market; 7 | Owner's gate wording adopted ("finds exposures that protect the builder's margin; an accuracy report"); owner's re-disguise of Project A's ledger gap ($4.4M). | Owner edits. |
+
 ## 29 October 2026 (v195 → v307)
 
 | Version | Slide | Change | Reason |

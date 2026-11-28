@@ -1,0 +1,298 @@
+{
+ "base": {
+  "rev5": 40491244.5806452,
+  "ebitda5": 23249407.7230385,
+  "arr60": 49166298.6666667,
+  "low_cash": 261283.638888888,
+  "ebitda3": 3352018.27992832,
+  "neg_month": 99
+ },
+ "variants": [
+  {
+   "group": "Average facility under IRIS (base $80M)",
+   "change": "$60M",
+   "kind": "one",
+   "rev5": 31279744.5806452,
+   "ebitda5": 14603171.7230385,
+   "arr60": 37988965.3333333,
+   "low_cash": 259230.75,
+   "ebitda3": 1526742.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Average facility under IRIS (base $80M)",
+   "change": "$100M",
+   "kind": "one",
+   "rev5": 49702744.5806452,
+   "ebitda5": 31895643.7230385,
+   "arr60": 60343632,
+   "low_cash": 263336.527777777,
+   "ebitda3": 5177294.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Facility fee (base 15 bps)",
+   "change": "10 bps",
+   "kind": "one",
+   "rev5": 28209244.5806452,
+   "ebitda5": 11721093.0563718,
+   "arr60": 34263187.5555556,
+   "low_cash": 258546.453703703,
+   "ebitda3": 918316.946594982,
+   "neg_month": 99
+  },
+  {
+   "group": "Facility fee (base 15 bps)",
+   "change": "20 bps",
+   "kind": "one",
+   "rev5": 52773244.5806452,
+   "ebitda5": 34777722.3897052,
+   "arr60": 64069409.7777778,
+   "low_cash": 264020.824074074,
+   "ebitda3": 5785719.61326165,
+   "neg_month": 99
+  },
+  {
+   "group": "New facilities per lender a month (base 0.8)",
+   "change": "0.5",
+   "kind": "one",
+   "rev5": 30863317.5806452,
+   "ebitda5": 15570964.7672385,
+   "arr60": 37166886.6666667,
+   "low_cash": 260880.138888888,
+   "ebitda3": 1989409.02992831,
+   "neg_month": 99
+  },
+  {
+   "group": "New facilities per lender a month (base 0.8)",
+   "change": "1.0",
+   "kind": "one",
+   "rev5": 46909862.5806452,
+   "ebitda5": 28376222.7582785,
+   "arr60": 57165906.6666667,
+   "low_cash": 261552.638888888,
+   "ebitda3": 4253022.17992831,
+   "neg_month": 99
+  },
+  {
+   "group": "Lender rollout (base: first lender at month 12)",
+   "change": "Six months later",
+   "kind": "one",
+   "rev5": 31927045.2473118,
+   "ebitda5": 16472427.1062985,
+   "arr60": 40460448,
+   "low_cash": 259668.75,
+   "ebitda3": 439362.768817204,
+   "neg_month": 99
+  },
+  {
+   "group": "Existing loans each lender re-signs (base 10)",
+   "change": "5",
+   "kind": "one",
+   "rev5": 34776519.5806452,
+   "ebitda5": 18591168.6887718,
+   "arr60": 42654365.3333334,
+   "low_cash": 262545.444444444,
+   "ebitda3": 2247198.37437276,
+   "neg_month": 99
+  },
+  {
+   "group": "Existing loans each lender re-signs (base 10)",
+   "change": "15",
+   "kind": "one",
+   "rev5": 46205969.5806452,
+   "ebitda5": 27907646.7573052,
+   "arr60": 55678232,
+   "low_cash": 260021.833333333,
+   "ebitda3": 4445734.78548387,
+   "neg_month": 99
+  },
+  {
+   "group": "Facility term (base 24 months)",
+   "change": "18 months",
+   "kind": "one",
+   "rev5": 34499818.3584229,
+   "ebitda5": 17908906.2440029,
+   "arr60": 41394944,
+   "low_cash": 261283.638888888,
+   "ebitda3": 3051219.64659498,
+   "neg_month": 99
+  },
+  {
+   "group": "Facility term (base 24 months)",
+   "change": "36 months",
+   "kind": "one",
+   "rev5": 47100521.2473118,
+   "ebitda5": 29168094.6190652,
+   "arr60": 58911373.3333333,
+   "low_cash": 261283.638888888,
+   "ebitda3": 3359864.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Builder subscription (base $3,500 a month)",
+   "change": "$2,500",
+   "kind": "one",
+   "rev5": 39589244.5806452,
+   "ebitda5": 22347407.7230385,
+   "arr60": 48062298.6666667,
+   "low_cash": 193553.25,
+   "ebitda3": 3020018.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Builder subscription (base $3,500 a month)",
+   "change": "$5,000",
+   "kind": "one",
+   "rev5": 41844244.5806452,
+   "ebitda5": 24602407.7230385,
+   "arr60": 50822298.6666667,
+   "low_cash": 343783.333333333,
+   "ebitda3": 3850018.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Jobs per deployment analyst by month 60 (base 15)",
+   "change": "10",
+   "kind": "one",
+   "rev5": 40491244.5806452,
+   "ebitda5": 21541366.1493385,
+   "arr60": 49166298.6666667,
+   "low_cash": 261283.638888888,
+   "ebitda3": 3185467.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Jobs per deployment analyst by month 60 (base 15)",
+   "change": "20",
+   "kind": "one",
+   "rev5": 40491244.5806452,
+   "ebitda5": 24156436.6966585,
+   "arr60": 49166298.6666667,
+   "low_cash": 261283.638888888,
+   "ebitda3": 3474155.67992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Director salary to Year 3 (base $100,000)",
+   "change": "$140,000",
+   "kind": "one",
+   "rev5": 40491244.5806452,
+   "ebitda5": 23249407.7230385,
+   "arr60": 49166298.6666667,
+   "low_cash": 163843.638888889,
+   "ebitda3": 3352018.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Projects that stall a year (base 4%)",
+   "change": "2%",
+   "kind": "one",
+   "rev5": 40362283.5806452,
+   "ebitda5": 23120446.7230385,
+   "arr60": 49009816,
+   "low_cash": 261283.638888888,
+   "ebitda3": 3331343.39103943,
+   "neg_month": 99
+  },
+  {
+   "group": "Projects that stall a year (base 4%)",
+   "change": "6%",
+   "kind": "one",
+   "rev5": 40620205.5806452,
+   "ebitda5": 23378368.7230385,
+   "arr60": 49322781.3333333,
+   "low_cash": 261283.638888888,
+   "ebitda3": 3372693.1688172,
+   "neg_month": 99
+  },
+  {
+   "group": "Seed round (base month 15)",
+   "change": "Month 18",
+   "kind": "one",
+   "rev5": 40491244.5806452,
+   "ebitda5": 23249407.7230385,
+   "arr60": 49166298.6666667,
+   "low_cash": 163052.916666666,
+   "ebitda3": 3352018.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Lender adoption",
+   "change": "Every lender twelve months later",
+   "kind": "down",
+   "rev5": 24057675.9139785,
+   "ebitda5": 10339092.9579985,
+   "arr60": 31805618.6666667,
+   "low_cash": 259668.75,
+   "ebitda3": -1316409.59784946,
+   "neg_month": 99
+  },
+  {
+   "group": "Lender adoption",
+   "change": "No lender in five years: builders and assessments alone",
+   "kind": "down",
+   "rev5": 3387322.58064516,
+   "ebitda5": -4748492.94215484,
+   "arr60": 4144000,
+   "low_cash": -7496417.11546667,
+   "ebitda3": -1846912.5311828,
+   "neg_month": 39
+  },
+  {
+   "group": "Lender retention",
+   "change": "Each lender stops adding facilities after three years",
+   "kind": "down",
+   "rev5": 39492300.5806452,
+   "ebitda5": 22622068.4995185,
+   "arr60": 46942842.6666667,
+   "low_cash": 261283.638888888,
+   "ebitda3": 3352018.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Seed round ($3M at month 15)",
+   "change": "At month 21",
+   "kind": "down",
+   "rev5": 40491244.5806452,
+   "ebitda5": 23249407.7230385,
+   "arr60": 49166298.6666667,
+   "low_cash": 17564.3333333327,
+   "ebitda3": 3352018.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Seed round ($3M at month 15)",
+   "change": "$1.5M",
+   "kind": "down",
+   "rev5": 40491244.5806452,
+   "ebitda5": 23249407.7230385,
+   "arr60": 49166298.6666667,
+   "low_cash": 261283.638888888,
+   "ebitda3": 3352018.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Seed round ($3M at month 15)",
+   "change": "No seed",
+   "kind": "down",
+   "rev5": 40491244.5806452,
+   "ebitda5": 23249407.7230385,
+   "arr60": 49166298.6666667,
+   "low_cash": 17564.3333333327,
+   "ebitda3": 3352018.27992832,
+   "neg_month": 99
+  },
+  {
+   "group": "Combined",
+   "change": "Lenders twelve months later and a $1.5M seed at month 21",
+   "kind": "down",
+   "rev5": 24057675.9139785,
+   "ebitda5": 10339092.9579985,
+   "arr60": 31805618.6666667,
+   "low_cash": -476557.158480288,
+   "ebitda3": -1316409.59784946,
+   "neg_month": 19
+  }
+ ]
+}

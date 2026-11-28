@@ -30,8 +30,10 @@ The dated facts behind slides 3, 5 and 10, in the order the deck uses them, with
 
 ## 4. Rates and housing
 
-- Cash rate: 3.60% at the start of 2026; four increases to 4.60% on 29–30 Sep 2026 (unanimous). Next decision 3 Nov 2026; September-quarter CPI published 28 Oct 2026 and not assumed on the deck.
-- Housing: national dwelling values −1.1% in September, sixth monthly fall, 5.2% below the March 2026 peak; sales in the past three months 19.1% below a year earlier; median days to sell in the capitals 39 (Cotality, reported).
+- Cash rate: 3.60% at the start of 2026; five increases, the fifth on 3 Nov 2026 to 4.85% by six votes to three (4.60% from 29–30 Sep).
+- CPI (ABS, 25 Nov 2026). The ABS headline is the monthly series: CPI rose 4.9% in the 12 months to October 2026 (September 4.3%); annual trimmed mean 3.8%. Housing (6.4%) and transport (10.6%) were the largest contributors.
+- Housing: national dwelling values −1.2% in October, seventh monthly fall, 6.7% below the March 2026 peak (Cotality, 2 Nov 2026). September: −1.1%, 5.2% below; sales in the three months to September 19.1% below a year earlier; median days to sell in the capitals 39.
+- Lending since Bathla (Gravity Capital private credit index, Q3 2026, published 25 Oct): metro senior construction is no longer oversubscribed; lenders ask for presales or strong sales evidence before offering leverage; senior lending to experienced sponsors is the preferred segment; thin-equity mezzanine and land-bank loans have largely lost capital. Before Bathla the direction was the other way: 37% of construction lenders required no presales in the March–April survey (Stamford Capital), up from 29% in 2025.
 - RBA board: housing prices falling in most capitals; new housing loans down noticeably.
 
 ## 5. Lending terms (slide 5)
